@@ -60,7 +60,6 @@ li {
   height: auto;
   display: flex;
   align-items: center;
-  position: absolute;
 }
 .banner img {
   top: 0;
@@ -120,4 +119,45 @@ li {
   border: none;
   border-radius: 30.1px;
   padding: 13px 50px 13px 50px;
+}
+#produto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: white;
+}
+#produto .customizar {
+  display: flex;
+  justify-content: flex-start;
+}
+#produto .customizar a {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 9px;
+  border-radius: 13px;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  color: #bfbfbf;
+  border: 1px solid #f2f2f2;
+}
+#produto .customizar a.ativo {
+  background-color: #f2976d;
+  color: white;
+  border: none;
+}
+#produto .botao {
+  display: flex;
+  justify-content: space-between;
+}
+
+#produto .botao a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
