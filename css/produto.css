@@ -1,100 +1,167 @@
 #produto {
-    display: flex;
-    background-color: white;
-    flex-direction: row;
-    padding-left: 99.69px;
-    padding-right: 99.69px;
-    padding-top: 62px;
-    justify-content: space-around;
-  }
-  #produto .foto {
-    margin-right: 32px;
-    display: flex;
-    width: 50%;
-  }
-  #produto .foto img {
-    max-width: 566.36px;
-    min-width: 200px;
-    min-height: auto;
-    width: 100%;
-  }
-  #produto .info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #produto h1,
-  h2,
-  h3 {
-    font-family: 'Noto Serif', serif;
-    font-style: normal;
-    font-weight: 500;
-  
-    text-transform: uppercase;
-    top: 0;
-    margin: 0;
-  }
-  #produto h1 {
-    font-size: 36px;
-  
-    line-height: 49px;
-  }
-  #produto h2 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 33px;
-  }
-  #produto h3 {
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 16px;
-  }
-  
-  #produto .customizar {
-    display: flex;
-    max-width: 400px;
-    top: 0;
-  }
-  #produto .customizar a {
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 11px;
-    line-height: 13px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 9px;
-    border-radius: 13px;
-    width: 80px;
-    height: 80px;
-    justify-content: center;
-    color: #bfbfbf;
-    border: 1px solid #f2f2f2;
-  }
-  #produto .customizar a.ativo {
-    background-color: #f2976d;
-    color: white;
-    border: none;
-  }
-  #produto .botao {
-    display: flex;
-    width: 400px;
-  }
-  
-  #produto .botao a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 108.62px;
-    height: 119px;
-    left: 698px;
-  
-    background: #ffffff;
-    border-radius: 13.5772px;
-  }
-  #produto .botao a.ativo {
-    background-color: #f2f2f2;
-  }
-  
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  padding-left: 99.69px;
+  padding-right: 99.69px;
+  padding-top: 62px;
+  justify-content: space-around;
+}
+#produto .foto {
+  margin-right: 32px;
+  display: flex;
+  width: 50%;
+}
+#produto .foto img {
+  max-width: 566.36px;
+  min-width: 200px;
+  min-height: auto;
+  width: 100%;
+}
+#produto .info {
+  display: flex;
+  flex-direction: column;
+}
+
+#produto h1,
+h2,
+h3 {
+  font-family: 'Noto Serif', serif;
+  font-style: normal;
+  font-weight: 500;
+
+  text-transform: uppercase;
+  top: 0;
+  margin: 0;
+}
+#produto h1 {
+  font-size: 36px;
+
+  line-height: 49px;
+}
+#produto h2 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 33px;
+}
+#produto h3 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+#produto .customizar {
+  display: flex;
+  max-width: 400px;
+  top: 0;
+}
+#produto .customizar a {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 9px;
+  border-radius: 13px;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  color: #bfbfbf;
+  border: 1px solid #f2f2f2;
+}
+#produto .customizar a.ativo {
+  background-color: #f2976d;
+  color: white;
+  border: none;
+}
+#produto .botao {
+  display: flex;
+  flex-flow: nowrap;
+  width: 400px;
+}
+
+#produto .botao .decote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 108.62px;
+  height: 119px;
+  left: 698px;
+
+  background: #ffffff;
+  border-radius: 13.5772px;
+}
+#produto .botao .decote a.ativo {
+  background-color: #f2f2f2;
+}
+.infos {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+}
+.infos div {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+.modelo-veste {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #f2f2f2;
+  width: 304px;
+}
+.modelo-veste span {
+  margin-right: 20px;
+}
+.modelo-veste .modelo {
+  display: flex;
+}
+.modelo-veste .modelo {
+  margin-left: 15px;
+}
+
+.modelo-veste .modelo img {
+  width: 64px;
+  height: 64px;
+}
+.qtd-comprar {
+  display: flex;
+  margin-top: 43px;
+  justify-content: space-between;
+  width: 320px;
+  align-items: center;
+}
+.qtd-comprar .quantidade {
+  display: flex;
+}
+.qtd-comprar .quantidade .menos {
+  display: flex;
+  justify-items: center;
+  width: 26px;
+  height: 51px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px 0 0 5px;
+}
+.qtd-comprar .quantidade .valor {
+  width: 26px;
+  height: 51px;
+  border: 1px solid #f2f2f2;
+}
+.qtd-comprar .quantidade .mais {
+  width: 26px;
+  height: 51px;
+  border: 1px solid #f2f2f2;
+  border-radius: 0 5px 5px 0;
+}
+.qtd-comprar .comprar {
+  width: 200px;
+  height: 54px;
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 30px;
+}
