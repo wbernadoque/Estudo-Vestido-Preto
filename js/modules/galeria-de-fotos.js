@@ -6,15 +6,12 @@ export default function galeriaDeFotos() {
   function botao(index) {
     foto.forEach((item, index) => {
       // console.log(foto);
-      if (index == 4) {
-      } else if (
+      if (
         !item.classList.contains('inativo') &&
         !item.classList.contains('interacao')
       ) {
-        item.classList.add('inativo');
+        foto[index].classList.add('inativo');
         console.log(foto[index + 1]);
-        item[index + 1].classList.remove('inativo');
-        // return;
       }
     });
   }
