@@ -4,16 +4,40 @@ export default function galeriaDeFotos() {
   const buttons = document.querySelectorAll('.interacao a');
 
   function botao(index) {
-    foto.forEach((item, index) => {
-      // console.log(foto);
-      if (
-        !item.classList.contains('inativo') &&
-        !item.classList.contains('interacao')
-      ) {
-        foto[index].classList.add('inativo');
-        console.log(foto[index + 1]);
+    let i = 0;
+    if (index === 1) {
+      foto.forEach((item, index) => {
+        if (
+          !item.classList.contains('inativo') &&
+          !item.classList.contains('interacao')
+        ) {
+          i = index;
+        }
+      });
+      if (i <= 3) {
+        foto[i].classList.add('inativo');
+        foto[i + 1].classList.remove('inativo');
+      } else {
+        foto[i].classList.add('inativo');
+        foto[i - 3].classList.remove('inativo');
       }
-    });
+    } else {
+      foto.forEach((item, index) => {
+        if (
+          !item.classList.contains('inativo') &&
+          !item.classList.contains('interacao')
+        ) {
+          i = index;
+        }
+      });
+      if (i === 1) {
+        foto[i].classList.add('inativo');
+        foto[i + 3].classList.remove('inativo');
+      } else {
+        foto[i].classList.add('inativo');
+        foto[i - 1].classList.remove('inativo');
+      }
+    }
   }
 
   function ativarFoto(index) {
@@ -33,5 +57,4 @@ export default function galeriaDeFotos() {
       botao(index);
     });
   });
-  console.log(buttons);
 }
