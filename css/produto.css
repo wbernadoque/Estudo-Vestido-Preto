@@ -227,3 +227,12 @@ h3 {
   border: none;
   border-radius: 30px;
 }
+
+.prazo-entrega input[type='text'] {
+  max-width: 184.81px;
+  max-height: 42.46px;
+  background: #ffffff;
+  border: 0.83px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
