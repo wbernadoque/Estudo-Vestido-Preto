@@ -1,11 +1,11 @@
 #produto {
   display: flex;
   background-color: white;
-  justify-content: space-between;
+  justify-content: center;
 
   flex-direction: row;
-  padding-left: 99.69px;
-  padding-right: 99.69px;
+  /* padding-left: 99.69px;
+  padding-right: 99.69px; */
   padding-top: 62px;
 }
 #produto .foto {
@@ -14,29 +14,30 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  max-width: 566.36px;
+  width: 566.36px;
   /* max-height: 644.9px; */
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 }
 #produto .foto .galeria {
   margin-top: 24px;
-  /* max-width: 567px; */
+  width: 567px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
+  z-index: 300;
 }
 #produto .foto .galeria img {
   max-width: 125px;
-  width: 100%;
+  /* width: 100%; */
 }
 #produto .foto .interacao {
   justify-items: center;
   position: absolute;
   display: flex;
-  height: 100%;
-  width: auto;
+  height: 637px;
+  width: 566px;
   justify-content: space-between;
 }
 #produto .foto .previous {
@@ -60,9 +61,10 @@
 }
 #produto .info {
   display: flex;
-  width: 100%;
+  max-width: 566.36px;
   flex-direction: column;
   flex-wrap: wrap;
+  background-color: white;
 }
 
 #produto h1,
@@ -117,6 +119,7 @@ h3 {
   background-color: #f2976d;
   color: white;
   border: none;
+  cursor: pointer;
 }
 #produto .botao {
   display: flex;
@@ -135,13 +138,16 @@ h3 {
   background: #ffffff;
   border-radius: 13.5772px;
 }
-#produto .botao .decote a.ativo {
+#produto .botao .decote .ativo {
   background-color: #f2f2f2;
 }
 .infos {
   display: flex;
   align-items: center;
-  /* margin-top: 32px; */
+  flex-wrap: wrap;
+}
+.infor img {
+  max-width: 60.23px;
 }
 .infos div {
   display: flex;
@@ -153,7 +159,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   border: 1px solid #f2f2f2;
-  width: 304px;
+  max-width: 304px;
 }
 .modelo-veste span {
   margin-right: 20px;
@@ -166,8 +172,8 @@ h3 {
 }
 
 .modelo-veste .modelo img {
-  width: 64px;
-  height: 64px;
+  max-width: 64px;
+  max-height: 64px;
 }
 .qtd-comprar {
   display: flex;

@@ -2,6 +2,7 @@
 @import 'banner.css';
 @import 'produto.css';
 body {
+  background-color: white;
   background: #e3dee2;
   margin: 0px;
   padding: 0px;

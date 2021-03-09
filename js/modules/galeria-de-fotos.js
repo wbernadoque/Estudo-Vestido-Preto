@@ -14,7 +14,8 @@ export default function galeriaDeFotos() {
           i = index;
         }
       });
-      if (i <= 3) {
+
+      if (i <= foto.length - 2) {
         foto[i].classList.add('inativo');
         foto[i + 1].classList.remove('inativo');
       } else {
@@ -32,7 +33,7 @@ export default function galeriaDeFotos() {
       });
       if (i === 1) {
         foto[i].classList.add('inativo');
-        foto[i + 3].classList.remove('inativo');
+        foto[i + foto.length - 2].classList.remove('inativo');
       } else {
         foto[i].classList.add('inativo');
         foto[i - 1].classList.remove('inativo');
