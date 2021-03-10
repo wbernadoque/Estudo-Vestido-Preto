@@ -1,6 +1,7 @@
 @import 'menu.css';
 @import 'banner.css';
 @import 'produto.css';
+@import 'produto-galeria.css';
 body {
   background-color: white;
   background: #e3dee2;
