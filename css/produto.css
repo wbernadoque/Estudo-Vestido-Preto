@@ -89,12 +89,14 @@ h3 {
   line-height: 33px;
 }
 #produto h3 {
+  font-family: Source Sans Pro;
   font-size: 13px;
   font-weight: 600;
   line-height: 16px;
 }
 
 #produto .customizar {
+  margin-bottom: 18px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -126,7 +128,8 @@ h3 {
   flex-wrap: wrap;
 }
 
-#produto .botao .decote {
+#produto .botao a {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,19 +137,57 @@ h3 {
   width: 108.62px;
   height: 119px;
   left: 698px;
+  cursor: pointer;
 
   background: #ffffff;
   border-radius: 13.5772px;
 }
-#produto .botao .decote .ativo {
+#produto .botao a.ativo {
   background-color: #f2f2f2;
+  cursor: default;
+}
+#produto .info .dados-avaliacao {
+  display: flex;
+  justify-content: space-between;
+  max-width: 250px;
+  margin-top: 10px;
+}
+#produto .info .dados-avaliacao img {
+  max-width: 20px;
+  max-height: 20px;
+  /* margin-right: 9px; */
+}
+#produto .info .dados-avaliacao a {
+  margin-left: 19px;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  text-decoration-line: underline;
+  text-transform: lowercase;
+}
+#produto .info .preco span {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  color: #c0c0c0;
+  text-transform: uppercase;
+  text-decoration-line: line-through;
+}
+#produto .info .preco {
+  font-size: 36px;
+  color: #2067f5;
+
+  font-style: normal;
+  margin-bottom: 48px;
 }
 .infos {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
-.infor img {
+.infos img {
   max-width: 60.23px;
 }
 .infos div {
@@ -178,9 +219,11 @@ h3 {
 .qtd-comprar {
   display: flex;
   margin-top: 43px;
+  margin-bottom: 27px;
   justify-content: space-between;
-  width: 320px;
+  max-width: 320px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .qtd-comprar .quantidade {
   display: flex;
@@ -230,9 +273,29 @@ h3 {
 
 .prazo-entrega input[type='text'] {
   max-width: 184.81px;
-  max-height: 42.46px;
+  height: 42.46px;
   background: #ffffff;
+
   border: 0.83px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 5px;
+}
+
+.prazo-entrega button {
+  width: 115px;
+  height: 42px;
+  border: 2px solid #f56311;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background-color: white;
+  color: #f56311;
+}
+.prazo-entrega a {
+  color: #b1b1b1;
+  text-transform: none;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  margin-left: 12px;
 }
