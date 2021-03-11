@@ -73,6 +73,9 @@ h3 {
   border: none;
   cursor: pointer;
 }
+#produto .customizar a.ativo img {
+  fill: white;
+}
 #produto .botao {
   display: flex;
   flex-wrap: wrap;
@@ -248,4 +251,7 @@ h3 {
   font-weight: 600;
   font-size: 15px;
   margin-left: 12px;
+}
+.prazo-entrega form {
+  margin-top: 14px;
 }
