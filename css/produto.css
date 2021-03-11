@@ -2,7 +2,7 @@
   display: flex;
   background-color: white;
   justify-content: center;
-
+  overflow-y: scroll;
   flex-direction: row;
   /* padding-left: 99.69px;
   padding-right: 99.69px; */
