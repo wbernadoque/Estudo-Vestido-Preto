@@ -1,0 +1,27 @@
+#funciona {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  background-color: white;
+}
+
+#funciona h1 {
+  font-size: 34px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: Noto Serif;
+  margin: 0;
+}
+#funciona p {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2067f5;
+  margin: 0;
+}
+#funciona img {
+  max-width: 1000px;
+  width: 100%;
+}

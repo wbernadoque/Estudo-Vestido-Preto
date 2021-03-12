@@ -6,16 +6,16 @@ li {
   margin-right: 30px;
 }
 
-.logo {
+.menu .logo {
   margin-left: 6%;
   width: 100px;
   height: 65px;
 }
-.usuario {
+.menu .usuario {
   display: flex;
   margin-right: 6%;
 }
-.usuario img {
+.menu .usuario img {
   width: 27px;
   height: 27px;
   margin-left: 32px;

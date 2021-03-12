@@ -1,0 +1,44 @@
+.informacoes-venda {
+  display: flex;
+  background-color: white;
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+}
+.informacoes-venda h3 {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: none;
+}
+.informacoes-venda span {
+  font-family: Source Sans Pro;
+  color: gray;
+  font-weight: 400;
+  font-size: 16px;
+}
+.informacoes-venda .selo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 129px 0 129px 0;
+}
+.informacoes-venda .selo .descricao {
+  margin-left: 20px;
+}
+
+.informacoes-venda .selo a {
+  display: flex;
+  width: 83.87px;
+  height: 78px;
+  background-color: #86adc2;
+  border-radius: 13px;
+  justify-content: center;
+  align-items: center;
+}
+
+.informacoes-venda .selo a img {
+  width: 45px;
+  height: 45px;
+}

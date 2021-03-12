@@ -16,7 +16,7 @@
 }
 
 .texto h1 {
-  width: 400.28px;
+  max-width: 500.28px;
   height: 175.15px;
   left: 98.36px;
   top: 298.59px;
@@ -24,7 +24,7 @@
   font-family: Noto Serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 44px;
+  font-size: 64px;
   line-height: 57px;
   display: flex;
   align-items: center;
@@ -35,6 +35,7 @@
   margin-top: -50px;
   margin-bottom: 44.95px;
   width: 450px;
+  font-size: 19px;
 
   font-family: Source Sans Pro;
   font-style: normal;

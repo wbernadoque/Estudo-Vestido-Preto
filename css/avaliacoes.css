@@ -1,0 +1,103 @@
+.avaliacoes {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  background-color: white;
+}
+.avaliacoes .pessoas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.avaliacoes h1 {
+  font-size: 34px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: Noto Serif;
+  margin: 0;
+}
+.avaliacoes p {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2067f5;
+  margin: 0;
+}
+
+.avaliacoes .card {
+  width: 370px;
+  height: 410px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.avaliacoes .card .perfil {
+  /* margin: 25px 19px 19px 32px; */
+  height: 112px;
+  display: flex;
+  flex-direction: row;
+}
+.avaliacoes .card .perfil .informacoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 99px;
+  margin-left: 20px;
+}
+.avaliacoes .card .perfil .informacoes h3 {
+  font-family: Noto serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: none;
+  color: #f56311;
+}
+.avaliacoes .card .perfil .informacoes span {
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: none;
+  color: #616161;
+}
+.avaliacoes .card .perfil .informacoes .estrelas {
+  display: flex;
+  justify-content: space-between;
+  width: 136px;
+  margin-top: 10px;
+}
+.avaliacoes .card .perfil .estrelas img {
+  max-width: 20px;
+  max-height: 20px;
+  /* margin-right: 9px; */
+}
+
+.avaliacoes .descricao {
+  width: 329px;
+  margin-top: 32px;
+  font-family: Source Sans Pro;
+  font-size: 18.5px;
+  font-weight: 400;
+}
+.avaliacoes .nav {
+  display: flex;
+  flex-direction: row;
+  width: 93px;
+  justify-content: space-between;
+}
+.avaliacoes .nav a {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+}
+.avaliacoes .nav a.ativo {
+  background-color: #303030;
+}
