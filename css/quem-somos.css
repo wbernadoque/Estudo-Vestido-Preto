@@ -88,6 +88,7 @@
   font-style: normal;
   text-transform: uppercase;
   margin-top: 34px;
+  cursor: pointer;
 }
 .fale-conosco form.contato label {
   font-family: Source Sans Pro;
