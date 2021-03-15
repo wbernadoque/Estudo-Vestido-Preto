@@ -65,6 +65,7 @@ h3 {
   justify-content: center;
   color: #bfbfbf;
   border: 1px solid #f2f2f2;
+  text-transform: capitalize;
 }
 #produto .customizar a.ativo {
   background-color: #f2976d;
@@ -72,8 +73,16 @@ h3 {
   border: none;
   cursor: pointer;
 }
-#produto .customizar a.ativo img {
+#produto .customizar a.selecionado {
+  background-color: #f2976d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#produto .customizar a.selecionavel {
   fill: white;
+  border: 2px solid #f2976d;
+  cursor: pointer;
 }
 #produto .botao {
   display: flex;
@@ -93,6 +102,7 @@ h3 {
 
   background: #ffffff;
   border-radius: 13.5772px;
+  text-transform: uppercase;
 }
 #produto .botao a.ativo {
   background-color: #f2f2f2;
