@@ -1,11 +1,15 @@
 export default function botoesSelecao() {
+  const quantidade = document.querySelectorAll('.quantidade a');
+  let quantidadeValor;
   const botoes = document.querySelector('.botao');
   const customizar = document.querySelector('.customizar');
+  const botaoComprar = document.querySelector('.comprar');
   const vestido = {
     decote: '',
     manga: '',
     comprimento: '',
     tamanho: '',
+    quantidade: 1,
   };
   const botoesDecote = [
     {
@@ -140,16 +144,21 @@ export default function botoesSelecao() {
           if (custom.classList.contains('ativo')) {
             if (index == 0) {
               vestido.decote = item.childNodes[1].nodeValue;
-              console.log(vestido);
             } else if (index == 1) {
               vestido.manga = item.childNodes[1].nodeValue;
-              console.log(vestido);
             } else if (index == 2) {
               vestido.comprimento = item.childNodes[1].nodeValue;
-              console.log(vestido);
             } else if (index == 3) {
               vestido.tamanho = item.childNodes[0].nodeValue;
-              console.log(vestido);
+            }
+            if (
+              vestido.comprimento.length > 0 &&
+              vestido.decote.length > 0 &&
+              vestido.manga.length > 0 &&
+              vestido.tamanho.length > 0
+            ) {
+              document.querySelector('.comprar').classList.add('ativo');
+              document.querySelector('.comprar').removeAttribute('disabled');
             }
             customizar.querySelectorAll('a')[index].classList.remove('ativo');
             customizar
@@ -176,12 +185,12 @@ export default function botoesSelecao() {
         item.classList.remove('selecionavel');
         item.classList.add('ativo');
 
-        if (index != 0) {
-          customizar.querySelectorAll('a')[index - 1].classList.remove('ativo');
-          customizar
-            .querySelectorAll('a')
-            [index - 1].classList.add('selecionado');
-        }
+        // if (index != 0) {
+        //   customizar.querySelectorAll('a')[index - 1].classList.remove('ativo');
+        //   customizar
+        //     .querySelectorAll('a')
+        //     [index - 1].classList.add('selecionado');
+        // }
       } else if (item.classList.contains('selecionado')) {
         customizar.querySelectorAll('a').forEach((item) => {
           item.classList.remove('ativo');
@@ -195,6 +204,26 @@ export default function botoesSelecao() {
       verificarAtivo();
     });
   });
+
+  quantidade.forEach((item) => {
+    item.addEventListener('click', () => {
+      let valor = parseInt(quantidade[1].innerHTML);
+      if (item.classList.contains('menos') && valor > 0) {
+        quantidadeValor = document.querySelector('.valor').innerHTML =
+          valor - 1;
+        vestido.quantidade = quantidadeValor;
+      } else if (item.classList.contains('mais')) {
+        quantidadeValor = document.querySelector('.valor').innerHTML =
+          valor + 1;
+        vestido.quantidade = quantidadeValor;
+      }
+    });
+  });
+
+  botaoComprar.addEventListener('click', () => {
+    console.log(vestido);
+  });
+  // console.log(document.getElementsByClassName('valor')[0].outerText);
   verificarAtivo();
   render();
 }
