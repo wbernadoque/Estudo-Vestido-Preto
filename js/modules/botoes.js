@@ -57,14 +57,13 @@ export default function botoesSelecao() {
   const comprimentoReverso = botoesComprimento.reverse();
   const decoteReverso = botoesDecote.reverse();
   const mangaReverso = botoesManga.reverse();
-  const botoesCustomizarNode = customizar.querySelectorAll('a');
-  const botoesCustomizar = Array.from(botoesCustomizarNode);
+  // const botoesCustomizar = Array.from(botoesCustomizarNode);
 
   function verificarAtivo() {
     const ativo = document.querySelectorAll('.customizar a');
-    while (botoes.firstChild) {
-      // remove os botoes que não estao ativos
 
+    // remove os botoes que não estao ativos
+    while (botoes.firstChild) {
       botoes.removeChild(botoes.firstChild);
     }
     ativo.forEach((item, index) => {
@@ -111,7 +110,6 @@ export default function botoesSelecao() {
         tamanhoReverso.forEach((item) => {
           const botao = document.createElement('a');
           botao.style.fontSize = 18 + 'px';
-          const tamanho = document.createElement('p');
           const primeiroFilho = botoes.firstChild;
           botoes.insertBefore(botao, primeiroFilho);
 
@@ -129,28 +127,6 @@ export default function botoesSelecao() {
     customizar.querySelectorAll('a').forEach((item) => {
       if (item.classList.contains('selecionado'))
         item.classList.remove('ativo');
-    });
-    customizar.querySelectorAll('a').forEach((item, index) => {
-      item.addEventListener('click', () => {
-        if (
-          item.classList.contains('selecionavel') ||
-          item.classList.contains('selecionado')
-        ) {
-          item.classList.add('ativo');
-          item.classList.remove('selecionavel');
-
-          if (index != 0) {
-            customizar
-              .querySelectorAll('a')
-              [index - 1].classList.remove('ativo');
-            customizar
-              .querySelectorAll('a')
-              [index - 1].classList.add('selecionado');
-          }
-
-          verificarAtivo();
-        }
-      });
     });
 
     botoes.querySelectorAll('a').forEach((item) => {
@@ -189,6 +165,36 @@ export default function botoesSelecao() {
       });
     });
   }
+
+  customizar.querySelectorAll('a').forEach((item, index) => {
+    customizar.querySelectorAll('a').forEach((item) => {
+      if (item.classList.contains('selecionado'))
+        item.classList.remove('ativo');
+    });
+    item.addEventListener('click', () => {
+      if (item.classList.contains('selecionavel')) {
+        item.classList.remove('selecionavel');
+        item.classList.add('ativo');
+
+        if (index != 0) {
+          customizar.querySelectorAll('a')[index - 1].classList.remove('ativo');
+          customizar
+            .querySelectorAll('a')
+            [index - 1].classList.add('selecionado');
+        }
+      } else if (item.classList.contains('selecionado')) {
+        customizar.querySelectorAll('a').forEach((item) => {
+          item.classList.remove('ativo');
+          item.classList.remove('selecionavel');
+          item.classList.add('selecionado');
+        });
+        item.classList.remove('selecionado');
+        item.classList.add('ativo');
+      }
+
+      verificarAtivo();
+    });
+  });
   verificarAtivo();
   render();
 }

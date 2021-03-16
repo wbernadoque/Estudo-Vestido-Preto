@@ -70,18 +70,18 @@ h3 {
 #produto .customizar a.ativo {
   background-color: #f2976d;
   color: white;
-  border: none;
+  border: 1px solid #f2976d;
   cursor: pointer;
 }
 #produto .customizar a.selecionado {
   background-color: #f2976d;
   color: white;
-  border: none;
+  border: 1px solid #f2976d;
   cursor: pointer;
 }
 #produto .customizar a.selecionavel {
   fill: white;
-  border: 2px solid #f2976d;
+  border: 1px solid #f2976d;
   cursor: pointer;
 }
 #produto .botao {
