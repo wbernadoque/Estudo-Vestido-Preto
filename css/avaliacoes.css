@@ -11,9 +11,28 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-  flex-wrap: wrap;
+  overflow: hidden;
   width: 100%;
+  height: 100%;
+  position: relative;
+}
+.avaliacoes .bloco.ativo {
+  display: flex;
+  flex-wrap: wrap;
+  animation: aparecer 0.9s forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.avaliacoes .bloco.inativo {
+  display: none;
 }
 
 .avaliacoes h1 {
@@ -31,13 +50,33 @@
   margin: 0;
 }
 
-.avaliacoes .card {
+.avaliacoes .card.ativo {
   width: 370px;
   height: 410px;
   background-color: #f2f2f2;
   border-radius: 20px;
   padding: 20px;
   margin: 20px;
+  /* display: none; */
+}
+.avaliacoes .card.esqdir {
+  width: 370px;
+  height: 410px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+  animation: direita 0.5s linear;
+}
+
+@keyframes direita {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: 100%;
+  }
 }
 
 .avaliacoes .card .perfil {
@@ -100,4 +139,15 @@
 }
 .avaliacoes .nav a.ativo {
   background-color: #303030;
+}
+
+@keyframes slidein {
+  from {
+    /* opacity: 1; */
+    transform: left -100%;
+  }
+  to {
+    /* opacity: 0; */
+    transform: scaleX(1);
+  }
 }
