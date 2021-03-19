@@ -31,26 +31,22 @@
   margin-bottom: 0;
 }
 .quem-somos .tel {
-  margin-left: 25px;
   display: flex;
   align-items: center;
   margin-top: 25px;
 }
 .quem-somos .mail {
-  margin-left: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 25px;
 }
 .quem-somos .map {
-  margin-left: 25px;
   display: flex;
   align-items: center;
   margin-top: 25px;
 }
 .quem-somos .redes {
-  margin-left: 10px;
   margin-top: 34px;
 }
 .quem-somos .redes img {
@@ -95,6 +91,7 @@
   color: #2067f5;
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .fale-conosco form.contato input {

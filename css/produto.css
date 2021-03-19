@@ -49,6 +49,10 @@ h3 {
   display: flex;
   flex-wrap: wrap;
 }
+#produto .customizar img {
+  height: 41px;
+  margin-bottom: 3px;
+}
 #produto .customizar a {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
@@ -69,11 +73,14 @@ h3 {
 }
 #produto .customizar a.ativo {
   background-color: #f2976d;
+  width: 80px;
+  height: 80px;
   color: white;
-  border: 1px solid #f2976d;
+  border: 2px solid #f2976d;
   cursor: pointer;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 #produto .customizar a.selecionado {
   background-color: #f2976d;
   color: white;
@@ -82,14 +89,16 @@ h3 {
 }
 #produto .customizar a.selecionavel {
   fill: white;
-  border: 1px solid #f2976d;
+  border: 2px solid #f2976d;
   cursor: pointer;
 }
 #produto .botao {
   display: flex;
   flex-wrap: wrap;
 }
-
+#produto .botao img {
+  margin-bottom: 5px;
+}
 #produto .botao a {
   margin-top: 10px;
   display: flex;
@@ -105,9 +114,21 @@ h3 {
   border-radius: 13.5772px;
   text-transform: uppercase;
 }
+
+#produto .botao a.ativo:after {
+  content: '';
+  width: 61px;
+  height: 4px;
+  background: #2067f5;
+  position: absolute;
+  margin-top: 115px;
+}
 #produto .botao a.ativo {
   background-color: #f2f2f2;
   cursor: default;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }
 #produto .info .dados-avaliacao {
   display: flex;

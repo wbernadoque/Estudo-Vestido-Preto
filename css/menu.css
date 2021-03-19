@@ -16,6 +16,9 @@ li {
   margin-right: 6%;
 }
 .carrinho {
+  display: none;
+}
+.carrinho.ativo {
   position: fixed;
   width: 244px;
 
@@ -27,6 +30,8 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1.3985px solid #c4c4c4;
+  box-sizing: border-box;
 }
 .carrinho span {
   color: #8d8d8d;

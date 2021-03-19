@@ -107,7 +107,6 @@ export default function cards() {
     },
   ];
   const paginas = Math.trunc(clientes.length / 3 - 1) + 1;
-  console.log(paginas);
 
   //criar blocos
   for (let i = 0; i <= paginas; i++) {
