@@ -136,9 +136,11 @@
   height: 16px;
   border-radius: 50%;
   background-color: #d9d9d9;
+  cursor: pointer;
 }
 .avaliacoes .nav a.ativo {
   background-color: #303030;
+  cursor: unset;
 }
 
 @keyframes slidein {

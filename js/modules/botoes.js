@@ -1,11 +1,13 @@
 export default function botoesSelecao() {
   const quantidade = document.querySelectorAll('.quantidade a');
-
+  const itemsAdicionados = new Array();
   let quantidadeValor;
   const botoes = document.querySelector('.botao');
   const customizar = document.querySelector('.customizar');
   const botaoComprar = document.querySelector('.comprar');
   const carrinho = document.querySelector('.carrinho');
+  const containerCarrinho = carrinho.querySelector('.container');
+
   const finalizarCompraCarrinho = document.querySelector('.carrinho button');
 
   const botaoCarrinho = document.querySelector('.container-carrinho');
@@ -69,13 +71,16 @@ export default function botoesSelecao() {
   // const botoesCustomizar = Array.from(botoesCustomizarNode);
 
   function quantidadeBadge() {
-    const quantidadeItens = document.querySelectorAll('.item');
+    const itemsCarrinhoMemoria = JSON.parse(localStorage.getItem('item'));
+
     const span = document.querySelector('.badge span');
     const badge = document.querySelector('.badge');
-    console.log(badge);
 
-    badge.classList.add('ativo');
-    span.innerHTML = quantidadeItens.length;
+    if (!itemsCarrinhoMemoria) {
+    } else {
+      badge.classList.add('ativo');
+      span.innerHTML = itemsCarrinhoMemoria.length;
+    }
   }
 
   function verificarAtivo() {
@@ -192,6 +197,72 @@ export default function botoesSelecao() {
       });
     });
   }
+  function itemsNoCarrinho() {
+    containerCarrinho.querySelectorAll('.item').forEach((item) => {
+      containerCarrinho.removeChild(item);
+    });
+    const itemsCarrinhoMemoria = JSON.parse(localStorage.getItem('item'));
+    if (itemsCarrinhoMemoria === null) {
+    } else {
+      itemsCarrinhoMemoria.forEach((itemsCarrinhoMemoria) => {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        const imagem = document.createElement('img');
+        const detalhes = document.createElement('div');
+        const titulo = document.createElement('h1');
+        titulo.appendChild(document.createTextNode('Vestido Preto One'));
+        const decote = document.createElement('span');
+        const manga = document.createElement('span');
+        const comprimento = document.createElement('span');
+        const tamanho = document.createElement('span');
+        imagem.src = 'img/imagem-carrinho.png';
+
+        item.appendChild(imagem);
+
+        detalhes.classList.add('detalhes');
+
+        detalhes.appendChild(titulo);
+
+        decote.appendChild(
+          document.createTextNode('Decote: ' + itemsCarrinhoMemoria.decote)
+        );
+        detalhes.appendChild(decote);
+
+        manga.appendChild(
+          document.createTextNode('Manga: ' + itemsCarrinhoMemoria.manga)
+        );
+        detalhes.appendChild(manga);
+
+        comprimento.appendChild(
+          document.createTextNode(
+            'Comprimento: ' + itemsCarrinhoMemoria.comprimento
+          )
+        );
+        detalhes.appendChild(comprimento);
+
+        tamanho.appendChild(
+          document.createTextNode('Tamanho: ' + itemsCarrinhoMemoria.tamanho)
+        );
+        detalhes.appendChild(tamanho);
+        item.appendChild(detalhes);
+
+        // carrinho.appendChild(item);
+        containerCarrinho.appendChild(item);
+        finalizarCompraCarrinho.remove();
+        carrinho.appendChild(finalizarCompraCarrinho);
+        vestido.decote = '';
+        vestido.manga = '';
+        vestido.comprimento = '';
+        vestido.tamanho = '';
+
+        botaoComprar.setAttribute('disabled', 'disabled');
+        botaoComprar.classList.remove('ativo');
+      });
+    }
+    quantidadeBadge();
+
+    verificarAtivo();
+  }
 
   customizar.querySelectorAll('a').forEach((item) => {
     customizar.querySelectorAll('a').forEach((item) => {
@@ -219,7 +290,7 @@ export default function botoesSelecao() {
   quantidade.forEach((item) => {
     item.addEventListener('click', () => {
       let valor = parseInt(quantidade[1].innerHTML);
-      if (item.classList.contains('menos') && valor > 0) {
+      if (item.classList.contains('menos') && valor > 1) {
         quantidadeValor = document.querySelector('.valor').innerHTML =
           valor - 1;
         vestido.quantidade = quantidadeValor;
@@ -233,8 +304,31 @@ export default function botoesSelecao() {
 
   //inserir produto no carrinho
   botaoComprar.addEventListener('click', () => {
-    const itemsAdicionados = JSON.parse(localStorage.getItem('item'));
-    localStorage.setItem('item', JSON.stringify(vestido));
+    const itemsCarrinhoMemoria = JSON.parse(localStorage.getItem('item'));
+
+    if (itemsCarrinhoMemoria === null) {
+      console.log('deu null');
+      console.log(vestido);
+      itemsAdicionados.push({
+        decote: vestido.decote,
+        manga: vestido.manga,
+        comprimento: vestido.comprimento,
+        tamanho: vestido.tamanho,
+        quantidade: vestido.quantidade,
+      });
+      console.log(itemsAdicionados);
+      localStorage.setItem('item', JSON.stringify(itemsAdicionados));
+    } else {
+      itemsCarrinhoMemoria.push({
+        decote: vestido.decote,
+        manga: vestido.manga,
+        comprimento: vestido.comprimento,
+        tamanho: vestido.tamanho,
+        quantidade: vestido.quantidade,
+      });
+      localStorage.setItem('item', JSON.stringify(itemsCarrinhoMemoria));
+    }
+
     customizar.querySelectorAll('a').forEach((item, index) => {
       if (index === 0) {
         item.classList.remove('selecionado');
@@ -247,38 +341,6 @@ export default function botoesSelecao() {
 
     render();
 
-    const item = document.createElement('div');
-    item.classList.add('item');
-    const imagem = document.createElement('img');
-    imagem.src = 'img/imagem-carrinho.png';
-
-    item.appendChild(imagem);
-    const detalhes = document.createElement('div');
-    detalhes.classList.add('detalhes');
-    const titulo = document.createElement('h1');
-    titulo.appendChild(document.createTextNode('Vestido Preto One'));
-    detalhes.appendChild(titulo);
-    const decote = document.createElement('span');
-    decote.appendChild(document.createTextNode('Decote: ' + vestido.decote));
-    detalhes.appendChild(decote);
-
-    const manga = document.createElement('span');
-    manga.appendChild(document.createTextNode('Manga: ' + vestido.manga));
-    detalhes.appendChild(manga);
-
-    const comprimento = document.createElement('span');
-    comprimento.appendChild(
-      document.createTextNode('Comprimento: ' + vestido.comprimento)
-    );
-    detalhes.appendChild(comprimento);
-
-    const tamanho = document.createElement('span');
-    tamanho.appendChild(document.createTextNode('Tamanho:' + vestido.tamanho));
-    detalhes.appendChild(tamanho);
-    item.appendChild(detalhes);
-
-    carrinho.appendChild(item);
-
     finalizarCompraCarrinho.remove();
     carrinho.appendChild(finalizarCompraCarrinho);
     vestido.decote = '';
@@ -289,14 +351,15 @@ export default function botoesSelecao() {
     botaoComprar.setAttribute('disabled', 'disabled');
     botaoComprar.classList.remove('ativo');
     quantidadeBadge();
-
+    itemsNoCarrinho();
     verificarAtivo();
   });
 
   botaoCarrinho.addEventListener('click', () => {
     carrinho.classList.toggle('ativo');
   });
-
+  itemsNoCarrinho();
+  quantidadeBadge();
   verificarAtivo();
   render();
 }

@@ -1,0 +1,36 @@
+.carrinho-compra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 181px;
+  margin-bottom: 97px;
+}
+
+.carrinho-compra a.laranja {
+  color: #f2976d;
+  text-decoration: underline;
+}
+.carrinho-compra img {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 31px;
+}
+
+.carrinho-compra h1 {
+  font-family: Noto Serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 46px;
+  margin-bottom: 31px;
+  margin-top: 0;
+}
+.carrinho-compra p {
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2067f5;
+  margin: 0;
+  width: 497px;
+}
