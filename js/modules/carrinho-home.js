@@ -1,5 +1,6 @@
 export default function carrinhoHome() {
   const carrinho = document.querySelector('.carrinho-compra');
+
   const vestido = {
     decote: '',
     manga: '',
@@ -11,6 +12,11 @@ export default function carrinhoHome() {
   function itemCarrinho() {
     const teste = JSON.parse(localStorage.getItem('item'));
     if (teste === null) {
+      const funciona = document.querySelector('.funciona');
+      const funcionaImagem = document.createElement('img');
+      funcionaImagem.src = 'img/como-funciona.png';
+      funciona.appendChild(funcionaImagem);
+      console.log(funciona);
       const img = document.createElement('img');
       img.src = 'img/shopping-bag.svg';
       const separador = document.createElement('div');

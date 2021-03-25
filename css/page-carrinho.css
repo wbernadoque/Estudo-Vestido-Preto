@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 181px;
+  margin-top: 122px;
   margin-bottom: 97px;
 }
 
@@ -22,7 +22,7 @@
   font-weight: normal;
   font-size: 34px;
   line-height: 46px;
-  margin-bottom: 31px;
+  margin-bottom: 26px;
   margin-top: 0;
 }
 .carrinho-compra p {
@@ -33,4 +33,129 @@
   color: #2067f5;
   margin: 0;
   width: 497px;
+}
+
+.cupom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  min-height: 72px;
+  background-color: rgba(39, 158, 8, 0.42);
+  color: #239606;
+  border-radius: 11px;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: Source Sans Pro;
+  /* padding-left: 40px;
+  padding-right: 40px; */
+}
+.container-produto {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-top: 38px;
+}
+.container-produto h1 {
+  font-family: Source Sans Pro;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.container-produto .produtos {
+  width: 50%;
+}
+.container-produto .resumo {
+  width: 40%;
+}
+
+.item-add {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f2f2f2;
+  border-radius: 14px;
+  padding: 18px;
+
+  width: 100%;
+}
+.item a.lixeira {
+  cursor: pointer;
+}
+.item-add .info {
+  display: flex;
+  border-top: 1px solid #f2f2f2;
+  justify-content: space-between;
+  margin: -18px;
+  height: 46px;
+  padding-left: 18px;
+  padding-right: 18px;
+  align-items: center;
+}
+.item-add .info .quantidade a {
+  height: 33px;
+}
+.item-add .info .preco {
+  margin-bottom: 0;
+  display: flex;
+  width: 230px;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-add .info .botoes-quantidade {
+  display: flex;
+  width: 180px;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+}
+.item-add .info .botoes-quantidade .qtd-comprar {
+  margin: 0;
+}
+.item-add .info .botoes-quantidade span {
+  font-family: Source Sans Pro;
+  font-size: 14px;
+}
+.item-add .item {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+}
+.item-add img {
+  width: 93px;
+  height: 138px;
+}
+.item-add img.lixeira {
+  width: 14px;
+  height: 18px;
+}
+.item-add .item .detalhes {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.item-add .detalhes h2 {
+  font-family: Noto Serif;
+  margin-bottom: 2px;
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.item-add .detalhes span {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #858585;
+  margin-bottom: 3px;
+}
+.item-add .detalhes form {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.item-add .detalhes form span {
+  margin-left: 10px;
+  color: black;
 }

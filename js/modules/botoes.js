@@ -8,7 +8,7 @@ export default function botoesSelecao() {
   const carrinho = document.querySelector('.carrinho');
   const containerCarrinho = carrinho.querySelector('.container');
 
-  const finalizarCompraCarrinho = document.querySelector('.carrinho button');
+  const finalizarCompraCarrinho = document.querySelector('.carrinho a');
 
   const botaoCarrinho = document.querySelector('.container-carrinho');
   const vestido = {
