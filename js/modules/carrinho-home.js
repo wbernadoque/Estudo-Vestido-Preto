@@ -16,7 +16,6 @@ export default function carrinhoHome() {
       const funcionaImagem = document.createElement('img');
       funcionaImagem.src = 'img/como-funciona.png';
       funciona.appendChild(funcionaImagem);
-      console.log(funciona);
       const img = document.createElement('img');
       img.src = 'img/shopping-bag.svg';
       const separador = document.createElement('div');
@@ -39,7 +38,6 @@ export default function carrinhoHome() {
       carrinho.appendChild(tituloVazia);
       carrinho.appendChild(textoVazia);
     } else {
-      console.log(teste);
     }
   }
 
