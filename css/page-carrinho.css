@@ -11,8 +11,6 @@
   text-decoration: underline;
 }
 .carrinho-compra img {
-  width: 56px;
-  height: 56px;
   margin-bottom: 31px;
 }
 
@@ -67,63 +65,64 @@
 }
 .container-produto .resumo {
   width: 40%;
-}
-
-.container-resumo{
   display: flex;
   flex-direction: column;
-  background: #FAFAFA;
+  align-items: center;
+}
+
+.container-resumo {
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
   border-radius: 14px;
   padding: 18px;
-align-items: center;
+  align-items: center;
   width: 100%;
 }
 
-.container-resumo .subtotal-items{
+.container-resumo .subtotal-items {
   display: flex;
   justify-content: space-between;
   margin-bottom: 39px;
   width: 100%;
 }
-.container-resumo form{
+.container-resumo form {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 39px;
-  ;
 }
 
-.container-resumo span{
+.container-resumo span {
   font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
 }
-.container-resumo label{
+.container-resumo label {
   font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-margin-bottom: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 
-.container-resumo .input-buttom{
+.container-resumo .input-buttom {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
-.container-resumo .input-buttom input{
+.container-resumo .input-buttom input {
   width: 40%;
-    height: 42.46px;
-    background: #ffffff;
-    border: 0.83px solid #f2f2f2;
-    box-sizing: border-box;
-    border-radius: 5px;
-    margin-right: 8px;
+  height: 42.46px;
+  background: #ffffff;
+  border: 0.83px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-right: 8px;
 }
 
-.container-resumo .input-buttom button{
+.container-resumo .input-buttom button {
   min-width: 168px;
   height: 42px;
   border: 2px solid #f56311;
@@ -132,40 +131,38 @@ margin-bottom: 8px;
   background-color: white;
   color: #f56311;
   font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 600;
-font-size: 15px;
-line-height: 19px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 19px;
 }
 
-.container-resumo .subtotal{
+.container-resumo .subtotal {
   display: flex;
   justify-content: space-between;
   margin-bottom: 39px;
   width: 100%;
 }
-.container-resumo .subtotal .total-items{
+.container-resumo .subtotal .total-items {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.container-resumo .subtotal .total-items span{
-  
+.container-resumo .subtotal .total-items span {
   font-size: 16px;
   font-family: Source Sans Pro;
-font-style: normal;
-font-weight: normal;
+  font-style: normal;
+  font-weight: normal;
 }
 
-.container-resumo .subtotal .total-items .preco{
-
+.container-resumo .subtotal .total-items .preco {
   font-size: 24px;
-    color: #2067f5;
-    font-style: normal;
-    
-font-weight: 600;
+  color: #2067f5;
+  font-style: normal;
+
+  font-weight: 600;
 }
-.container-resumo .continuar{
+.container-resumo .continuar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,42 +174,121 @@ font-weight: 600;
   background-color: white;
   color: #f56311;
   font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 600;
-font-size: 15px;
-line-height: 19px;
-text-decoration: none;
-margin-bottom: 17px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 19px;
+  text-decoration: none;
+  margin-bottom: 17px;
 }
 
-.container-resumo .finalizar{
+.container-resumo .finalizar {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 312px;
   height: 42px;
- 
+
   box-sizing: border-box;
   border-radius: 24px;
-  background-color: #2067F5;;
+  background-color: #2067f5;
   color: white;
   font-family: Source Sans Pro;
-font-style: normal;
-font-weight: 600;
-font-size: 15px;
-line-height: 19px;
-text-decoration: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 19px;
+  text-decoration: none;
 }
+.compra-segura {
+  display: flex;
+  margin-top: 15px;
+}
+.compra-segura span {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  margin-left: 7px;
+  color: #239606;
+}
+.compra-segura img {
+  width: 16px;
+  height: 21px;
+}
+.container-frete {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f2f2f2;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 10px;
+  width: 100%;
 
+  align-items: center;
+}
+.container-frete form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 39px;
+}
+.container-frete .input-buttom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.container-frete .input-buttom input {
+  background: #ffffff;
+  width: 215px;
+  height: 42.46px;
+  border: 0.83px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+.container-frete form label {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  margin-bottom: 15px;
+}
+.container-frete .input-buttom button {
+  min-width: 113px;
+  height: 42px;
+  border: 2px solid #f56311;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background-color: white;
+  color: #f56311;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 19px;
+  margin-right: 14px;
+}
+.container-frete .input-buttom a {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-size: 13px;
+  text-decoration-line: underline;
+  color: #b1b1b1;
+  line-height: 16px;
+}
 .item-add {
   display: flex;
   flex-direction: column;
   border: 1px solid #f2f2f2;
   border-radius: 14px;
   padding: 18px;
-
+  margin-bottom: 24px;
   width: 100%;
 }
+
 .item a.lixeira {
   cursor: pointer;
 }
@@ -221,10 +297,11 @@ text-decoration: none;
   border-top: 1px solid #f2f2f2;
   justify-content: space-between;
   margin: -18px;
-  height: 46px;
+  min-height: 46px;
   padding-left: 18px;
   padding-right: 18px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .item-add .info .quantidade a {
   height: 33px;
@@ -238,7 +315,7 @@ text-decoration: none;
   font-size: 24px;
 }
 
-.item-add .info .preco .preco-final{
+.item-add .info .preco .preco-final {
   font-size: 24px;
   text-decoration: none;
   color: #2067f5;

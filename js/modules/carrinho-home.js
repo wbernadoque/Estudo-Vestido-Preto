@@ -1,17 +1,14 @@
 export default function carrinhoHome() {
   const carrinho = document.querySelector('.carrinho-compra');
-
-  const vestido = {
-    decote: '',
-    manga: '',
-    comprimento: '',
-    tamanho: '',
-    quantidade: 1,
-  };
+  let botoesLixeira;
+  let vestido = JSON.parse(localStorage.getItem('item'));
+  let precoOld = 199.9;
+  const precoNew = 154.99;
+  let precoSubTotal = 0;
+  let precoValorTotal = 0;
 
   function itemCarrinho() {
-    const teste = JSON.parse(localStorage.getItem('item'));
-    if (teste === null) {
+    if (vestido.length === 0) {
       const funciona = document.querySelector('.funciona');
       const funcionaImagem = document.createElement('img');
       funcionaImagem.src = 'img/como-funciona.png';
@@ -38,8 +35,315 @@ export default function carrinhoHome() {
       carrinho.appendChild(tituloVazia);
       carrinho.appendChild(textoVazia);
     } else {
+      //inserindo div de cupom
+      const cupom = document.createElement('div');
+      const containerProduto = document.createElement('div');
+      containerProduto.classList.add('container-produto');
+      const produtos = document.createElement('div');
+      produtos.classList.add('produtos');
+      const resumo = document.createElement('div');
+      resumo.classList.add('resumo');
+      cupom.classList.add('cupom');
+      cupom.appendChild(
+        document.createTextNode(
+          'Primeira vez por aqui? Então use o cupom “MEUPRIMEIROVESTIDOPRETO” e ganhe 10% de desconto. Consulte as regras, veja o regulamento'
+        )
+      );
+      carrinho.appendChild(cupom);
+      const meuCarrinho = document.createElement('h1');
+      meuCarrinho.appendChild(document.createTextNode('MEU CARRINHO'));
+      produtos.appendChild(meuCarrinho);
+      vestido.forEach((item, index) => {
+        //meu carrinho e resumo
+
+        const itemAdd = document.createElement('div');
+        itemAdd.classList.add('item-add');
+        const itemProduto = document.createElement('div');
+        itemProduto.classList.add('item');
+        itemAdd.appendChild(itemProduto);
+        const imagem = document.createElement('img');
+        imagem.src = 'img/imagem-carrinho.png';
+        itemProduto.appendChild(imagem);
+        const detalhes = document.createElement('div');
+        detalhes.classList.add('detalhes');
+        itemProduto.appendChild(detalhes);
+        const h2 = document.createElement('h2');
+        h2.appendChild(document.createTextNode('VESTIDO PRETO ONE'));
+        detalhes.appendChild(h2);
+        const decote = document.createElement('span');
+        decote.appendChild(document.createTextNode('Decote: ' + item.decote));
+        const manga = document.createElement('span');
+        manga.appendChild(document.createTextNode('Manga: ' + item.manga));
+        const comprimento = document.createElement('span');
+        comprimento.appendChild(
+          document.createTextNode('Comprimento: ' + item.comprimento)
+        );
+        const tamanho = document.createElement('span');
+        tamanho.appendChild(
+          document.createTextNode('Tamanho: ' + item.tamanho)
+        );
+        detalhes.appendChild(decote);
+        detalhes.appendChild(manga);
+        detalhes.appendChild(comprimento);
+        detalhes.appendChild(tamanho);
+
+        const form = document.createElement('form');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.name = 'presente';
+        input.value = 'presente';
+        form.appendChild(input);
+        const descInput = document.createElement('span');
+        descInput.appendChild(
+          document.createTextNode('Embalar para presentes')
+        );
+        form.appendChild(descInput);
+        detalhes.appendChild(form);
+
+        const lixeira = document.createElement('a');
+        lixeira.classList.add('lixeira');
+
+        const imgLixeira = document.createElement('img');
+        imgLixeira.classList.add('lixeira');
+        imgLixeira.src = 'img/lixeira.png';
+        imgLixeira.id = index;
+        lixeira.appendChild(imgLixeira);
+        itemProduto.appendChild(lixeira);
+
+        const info = document.createElement('div');
+        info.classList.add('info');
+
+        const botoesQtd = document.createElement('div');
+        botoesQtd.classList.add('botoes-quantidade');
+        const quantidade = document.createElement('span');
+        quantidade.appendChild(document.createTextNode('Quantidade'));
+        botoesQtd.appendChild(quantidade);
+        const qtdComprar = document.createElement('div');
+        qtdComprar.classList.add('qtd-comprar');
+        botoesQtd.appendChild(qtdComprar);
+        const divQtd = document.createElement('div');
+        divQtd.classList.add('quantidade');
+        qtdComprar.appendChild(divQtd);
+        const menos = document.createElement('a');
+        menos.classList.add('menos');
+        menos.appendChild(document.createTextNode('-'));
+        divQtd.appendChild(menos);
+        const valor = document.createElement('a');
+        valor.classList.add('valor');
+        valor.appendChild(document.createTextNode(item.quantidade));
+        divQtd.appendChild(valor);
+        const mais = document.createElement('a');
+        mais.classList.add('mais');
+        mais.appendChild(document.createTextNode('+'));
+        divQtd.appendChild(mais);
+
+        info.appendChild(botoesQtd);
+
+        const preco = document.createElement('div');
+        preco.classList.add('preco');
+        const precoInicial = document.createElement('span');
+        precoInicial.appendChild(
+          document.createTextNode(
+            precoOld.toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            })
+          )
+        );
+        precoSubTotal += precoOld;
+        preco.appendChild(precoInicial);
+        const precoFinal = document.createElement('span');
+        precoFinal.classList.add('preco-final');
+        precoFinal.appendChild(
+          document.createTextNode(
+            precoNew.toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            })
+          )
+        );
+        precoValorTotal += precoNew;
+        preco.appendChild(precoFinal);
+
+        info.appendChild(preco);
+        itemAdd.appendChild(info);
+
+        produtos.appendChild(itemAdd);
+      });
+
+      //criando calculo de frete
+      const containerFrete = document.createElement('div');
+      containerFrete.classList.add('container-frete');
+
+      const formCEP = document.createElement('form');
+      containerFrete.appendChild(formCEP);
+      const tituloFrete = document.createElement('label');
+
+      tituloFrete.appendChild(
+        document.createTextNode('Simule o frete e prazo de entrega')
+      );
+      formCEP.appendChild(tituloFrete);
+      const divCEP = document.createElement('div');
+      divCEP.classList.add('input-buttom');
+      formCEP.appendChild(divCEP);
+      const inputCEP = document.createElement('input');
+      inputCEP.type = 'text';
+      divCEP.appendChild(inputCEP);
+      const buttonCEP = document.createElement('button');
+      buttonCEP.appendChild(document.createTextNode('CALCULAR'));
+      divCEP.appendChild(buttonCEP);
+      const naoSeiCEP = document.createElement('a');
+      naoSeiCEP.appendChild(document.createTextNode('não sei meu CEP'));
+      divCEP.appendChild(naoSeiCEP);
+      produtos.appendChild(containerFrete);
+      console.log(containerFrete);
+      //criando resumo de compra
+
+      resumo.classList.add('resumo');
+      const tituloResumo = document.createElement('h1');
+      tituloResumo.appendChild(document.createTextNode('RESUMO DA COMPRA'));
+      resumo.appendChild(tituloResumo);
+      const containerResumo = document.createElement('div');
+      containerResumo.classList.add('container-resumo');
+      resumo.appendChild(containerResumo);
+      const subtotalItems = document.createElement('div');
+      subtotalItems.classList.add('subtotal-items');
+      containerResumo.appendChild(subtotalItems);
+      const subtotal = document.createElement('span');
+      subtotal.appendChild(
+        document.createTextNode('Subtotal (' + vestido.length + ' item):')
+      );
+      subtotalItems.appendChild(subtotal);
+      const subtotalSDesc = document.createElement('span');
+      subtotalSDesc.appendChild(
+        document.createTextNode(
+          precoSubTotal.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })
+        )
+      );
+      subtotalItems.appendChild(subtotalSDesc);
+
+      const formCupom = document.createElement('form');
+      const labelCupom = document.createElement('label');
+      labelCupom.appendChild(
+        document.createTextNode('Possui cupom de desconto?')
+      );
+      formCupom.appendChild(labelCupom);
+      const divCupom = document.createElement('div');
+      divCupom.classList.add('input-buttom');
+      formCupom.appendChild(divCupom);
+      const inputCupom = document.createElement('input');
+      inputCupom.type = 'text';
+      divCupom.appendChild(inputCupom);
+      const botaoCupom = document.createElement('button');
+      botaoCupom.appendChild(document.createTextNode('ADICIONAR DESCONTO'));
+      divCupom.appendChild(botaoCupom);
+      const totalItems = document.createElement('div');
+      totalItems.classList.add('subtotal');
+      const totalValor = document.createElement('span');
+      totalValor.appendChild(document.createTextNode('Valor total:'));
+      totalItems.appendChild(totalValor);
+      const divTotal = document.createElement('div');
+      divTotal.classList.add('total-items');
+      totalItems.appendChild(divTotal);
+      const precoTotal = document.createElement('span');
+      precoTotal.classList.add('preco');
+      precoTotal.appendChild(
+        document.createTextNode(
+          precoValorTotal.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })
+        )
+      );
+      divTotal.appendChild(precoTotal);
+      const precoTotalParcela = document.createElement('span');
+      precoTotalParcela.appendChild(
+        document.createTextNode('Em até 6x de R$25,82 sem juros')
+      );
+      divTotal.appendChild(precoTotalParcela);
+
+      containerResumo.appendChild(formCupom);
+      containerResumo.appendChild(totalItems);
+
+      const botaoContinuar = document.createElement('a');
+      botaoContinuar.href = 'http://127.0.0.1:5500/';
+      botaoContinuar.classList.add('continuar');
+      botaoContinuar.appendChild(
+        document.createTextNode('CONTINUAR COMPRANDO')
+      );
+      containerResumo.appendChild(botaoContinuar);
+      const botaoFinalizar = document.createElement('a');
+      botaoFinalizar.classList.add('finalizar');
+      botaoFinalizar.appendChild(document.createTextNode('FINALIZAR COMPRA'));
+      containerResumo.appendChild(botaoFinalizar);
+      containerProduto.appendChild(produtos);
+      containerProduto.appendChild(resumo);
+      carrinho.appendChild(containerProduto);
+
+      //compra segura
+      const divSeg = document.createElement('div');
+      divSeg.classList.add('compra-segura');
+      const imgSeg = document.createElement('img');
+      imgSeg.src = 'img/cadeado.png';
+      divSeg.appendChild(imgSeg);
+      const spanSeg = document.createElement('span');
+      spanSeg.classList.add('text-compra-segura');
+      spanSeg.appendChild(document.createTextNode('Compra segura'));
+      divSeg.appendChild(spanSeg);
+      resumo.appendChild(divSeg);
     }
+
+    removeItems();
   }
 
+  function removeItems() {
+    botoesLixeira = document.querySelectorAll('.lixeira img');
+
+    botoesLixeira.forEach((item) => {
+      item.addEventListener('click', () => {
+        console.log('passei aqui');
+        const carrinho = document.querySelector('.carrinho-compra');
+
+        const containerProduto = document.querySelector('.container-produto');
+
+        const cupom = document.querySelector('.cupom');
+
+        vestido.splice(item.id, 1);
+        carrinho.removeChild(cupom);
+        carrinho.removeChild(containerProduto);
+        localStorage.removeItem('item');
+        localStorage.setItem('item', JSON.stringify(vestido));
+
+        precoSubTotal = 0;
+        precoValorTotal = 0;
+
+        itemCarrinho();
+      });
+    });
+    botoesLixeira.forEach((item) => {
+      item.removeEventListener('click', () => {
+        console.log('passei aqui');
+        const carrinho = document.querySelector('.carrinho-compra');
+
+        const containerProduto = document.querySelector('.container-produto');
+
+        const cupom = document.querySelector('.cupom');
+
+        vestido.splice(item.id, 1);
+        carrinho.removeChild(cupom);
+        carrinho.removeChild(containerProduto);
+        localStorage.removeItem('item');
+        localStorage.setItem('item', JSON.stringify(vestido));
+
+        precoSubTotal -= precoOld;
+        precoValorTotal -= precoNew;
+
+        itemCarrinho();
+      });
+    });
+  }
   itemCarrinho();
 }
