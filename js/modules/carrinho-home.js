@@ -12,9 +12,11 @@ export default function carrinhoHome() {
       const funciona = document.querySelector('.funciona');
       const funcionaImagem = document.createElement('img');
       funcionaImagem.src = 'img/como-funciona.png';
+
       funciona.appendChild(funcionaImagem);
       const img = document.createElement('img');
       img.src = 'img/shopping-bag.svg';
+      img.classList.add('sacola-vazia');
       const separador = document.createElement('div');
       separador.classList.add('separador');
       const tituloVazia = document.createElement('h1');
@@ -126,14 +128,17 @@ export default function carrinhoHome() {
         qtdComprar.appendChild(divQtd);
         const menos = document.createElement('a');
         menos.classList.add('menos');
+        menos.setAttribute('id', index);
         menos.appendChild(document.createTextNode('-'));
         divQtd.appendChild(menos);
         const valor = document.createElement('a');
         valor.classList.add('valor');
+        valor.setAttribute('id', index);
         valor.appendChild(document.createTextNode(item.quantidade));
         divQtd.appendChild(valor);
         const mais = document.createElement('a');
         mais.classList.add('mais');
+        mais.setAttribute('id', index);
         mais.appendChild(document.createTextNode('+'));
         divQtd.appendChild(mais);
 
@@ -150,7 +155,8 @@ export default function carrinhoHome() {
             })
           )
         );
-        precoSubTotal += precoOld;
+
+        precoSubTotal += precoOld * item.quantidade;
         preco.appendChild(precoInicial);
         const precoFinal = document.createElement('span');
         precoFinal.classList.add('preco-final');
@@ -162,7 +168,7 @@ export default function carrinhoHome() {
             })
           )
         );
-        precoValorTotal += precoNew;
+        precoValorTotal += precoNew * item.quantidade;
         preco.appendChild(precoFinal);
 
         info.appendChild(preco);
@@ -188,6 +194,7 @@ export default function carrinhoHome() {
       formCEP.appendChild(divCEP);
       const inputCEP = document.createElement('input');
       inputCEP.type = 'text';
+
       divCEP.appendChild(inputCEP);
       const buttonCEP = document.createElement('button');
       buttonCEP.appendChild(document.createTextNode('CALCULAR'));
@@ -196,7 +203,7 @@ export default function carrinhoHome() {
       naoSeiCEP.appendChild(document.createTextNode('não sei meu CEP'));
       divCEP.appendChild(naoSeiCEP);
       produtos.appendChild(containerFrete);
-      console.log(containerFrete);
+
       //criando resumo de compra
 
       resumo.classList.add('resumo');
@@ -245,6 +252,21 @@ export default function carrinhoHome() {
       const totalValor = document.createElement('span');
       totalValor.appendChild(document.createTextNode('Valor total:'));
       totalItems.appendChild(totalValor);
+      const frete = document.createElement('div');
+      frete.classList.add('frete');
+      frete.classList.add('desativado');
+      const descFrete = document.createElement('span');
+      descFrete.appendChild(document.createTextNode('Frete:'));
+      frete.appendChild(descFrete);
+      const divFreteValor = document.createElement('div');
+      const valorFrete = document.createElement('h1');
+      valorFrete.appendChild(document.createTextNode('Grátis'));
+      divFreteValor.appendChild(valorFrete);
+      const diasFrete = document.createElement('span');
+      diasFrete.appendChild(document.createTextNode('3 a 4 dias úteis'));
+      divFreteValor.appendChild(diasFrete);
+      frete.appendChild(divFreteValor);
+
       const divTotal = document.createElement('div');
       divTotal.classList.add('total-items');
       totalItems.appendChild(divTotal);
@@ -264,7 +286,7 @@ export default function carrinhoHome() {
         document.createTextNode('Em até 6x de R$25,82 sem juros')
       );
       divTotal.appendChild(precoTotalParcela);
-
+      containerResumo.appendChild(frete);
       containerResumo.appendChild(formCupom);
       containerResumo.appendChild(totalItems);
 
@@ -321,6 +343,7 @@ export default function carrinhoHome() {
         precoValorTotal = 0;
 
         itemCarrinho();
+        quantidadeItem();
       });
     });
     botoesLixeira.forEach((item) => {
@@ -342,8 +365,173 @@ export default function carrinhoHome() {
         precoValorTotal -= precoNew;
 
         itemCarrinho();
+        quantidadeItem();
       });
     });
   }
+  function quantidadeItem() {
+    const botoesMenos = document.querySelectorAll('.quantidade a.menos');
+    const botoesMais = document.querySelectorAll('.quantidade a.mais');
+    const botoesValor = document.querySelectorAll('.quantidade a.valor');
+
+    botoesMais.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        const subTotalResumo = document.querySelectorAll(
+          '.subtotal-items span'
+        );
+        const totalResumo = document.querySelectorAll('span.preco');
+        vestido[index].quantidade = botoesValor[index].innerHTML =
+          parseInt(botoesValor[index].innerHTML) + 1;
+        precoSubTotal += precoOld;
+        precoValorTotal += precoNew;
+        subTotalResumo[1].innerHTML = precoSubTotal.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        });
+        totalResumo[0].innerHTML = precoValorTotal.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        });
+        localStorage.removeItem('item');
+        localStorage.setItem('item', JSON.stringify(vestido));
+      });
+      item.removeEventListener('click', () => {
+        const subTotalResumo = document.querySelectorAll(
+          '.subtotal-items span'
+        );
+        const totalResumo = document.querySelectorAll('span.preco');
+        vestido[index].quantidade = botoesValor[index].innerHTML =
+          parseInt(botoesValor[index].innerHTML) + 1;
+        precoSubTotal += precoOld;
+        precoValorTotal += precoNew;
+        subTotalResumo[1].innerHTML = precoSubTotal.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        });
+        totalResumo[0].innerHTML = precoValorTotal.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        });
+        localStorage.removeItem('item');
+        localStorage.setItem('item', JSON.stringify(vestido));
+      });
+    });
+    botoesMenos.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        if (parseInt(botoesValor[index].innerHTML) === 1) {
+        } else {
+          const subTotalResumo = document.querySelectorAll(
+            '.subtotal-items span'
+          );
+          const totalResumo = document.querySelectorAll('span.preco');
+          vestido[index].quantidade = botoesValor[index].innerHTML =
+            parseInt(botoesValor[index].innerHTML) - 1;
+          precoSubTotal -= precoOld;
+          precoValorTotal -= precoNew;
+          subTotalResumo[1].innerHTML = precoSubTotal.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          });
+          totalResumo[0].innerHTML = precoValorTotal.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          });
+          localStorage.removeItem('item');
+          localStorage.setItem('item', JSON.stringify(vestido));
+        }
+      });
+      item.removeEventListener('click', () => {
+        if (parseInt(botoesValor[index].innerHTML) === 1) {
+        } else {
+          const subTotalResumo = document.querySelectorAll(
+            '.subtotal-items span'
+          );
+          const totalResumo = document.querySelectorAll('span.preco');
+          vestido[index].quantidade = botoesValor[index].innerHTML =
+            parseInt(botoesValor[index].innerHTML) - 1;
+          precoSubTotal -= precoOld;
+          precoValorTotal -= precoNew;
+          subTotalResumo[1].innerHTML = precoSubTotal.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          });
+          totalResumo[0].innerHTML = precoValorTotal.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          });
+          localStorage.removeItem('item');
+          localStorage.setItem('item', JSON.stringify(vestido));
+        }
+      });
+    });
+  }
+
+  function simulacaoCorreios() {
+    let cep = '';
+    const validadorCEP = /\d{5}\-\d{3}/;
+    const validadosCaracteres = /\d/;
+    const containerFreteInput = document.querySelector(
+      '.container-frete .input-buttom'
+    );
+    const buttonFrete = containerFreteInput.querySelector('button');
+
+    const input = containerFreteInput.querySelector('input');
+    input.addEventListener('keyup', (event) => {
+      if (input.value.length == 5 && event.key !== 'Backspace') {
+        cep = input.value + '-';
+        input.value = cep;
+      } else if (input.value.length === 9) {
+        cep = input.value;
+      } else if (input.value.length > 9) {
+        input.value = cep;
+      }
+    });
+    buttonFrete.addEventListener('click', function (event) {
+      event.preventDefault();
+      const info = document.querySelector('.frete-info');
+      if (info) {
+        const containerFrete = document.querySelector('.container-frete form');
+        const frete = document.querySelector('.frete,.ativo');
+        frete.classList.remove('ativo');
+        frete.classList.add('desativado');
+
+        containerFrete.removeChild(info);
+      }
+      if (input.value.length === 9 && validadorCEP.test(input.value)) {
+        const containerInfo = document.createElement('div');
+        containerInfo.classList.add('frete-info');
+        const h2 = document.createElement('h2');
+        h2.appendChild(document.createTextNode('Sedex'));
+        const freteGratis = document.createElement('h3');
+        freteGratis.appendChild(document.createTextNode('Frete grátis'));
+        const valor = document.createElement('h3');
+        valor.appendChild(document.createTextNode('R$ 10,90'));
+        const motoboy = document.createElement('h2');
+        motoboy.appendChild(document.createTextNode('Motoboy'));
+        const recebaAte = document.createElement('span');
+        recebaAte.appendChild(
+          document.createTextNode('Receba até dia XX de Abril')
+        );
+        const recebaHoje = document.createElement('span');
+        recebaHoje.appendChild(document.createTextNode('Receba hoje *'));
+
+        containerInfo.appendChild(h2);
+        containerInfo.appendChild(recebaAte);
+        containerInfo.appendChild(freteGratis);
+        containerInfo.appendChild(motoboy);
+        containerInfo.appendChild(recebaHoje);
+        containerInfo.appendChild(valor);
+        const containerFrete = document.querySelector('.container-frete form');
+        containerFrete.appendChild(containerInfo);
+        const freteResumo = document.querySelector('.frete');
+        freteResumo.classList.add('ativo');
+        freteResumo.classList.remove('desativado');
+      } else {
+        alert('CEP invalido');
+      }
+    });
+  }
   itemCarrinho();
+  quantidadeItem();
+  simulacaoCorreios();
 }

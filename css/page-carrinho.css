@@ -1,3 +1,11 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; */
+}
+/* input[type='number'] {
+  -moz-appearance: textfield;
+} */
 .carrinho-compra {
   display: flex;
   flex-direction: column;
@@ -13,7 +21,10 @@
 .carrinho-compra img {
   margin-bottom: 31px;
 }
-
+.carrinho-compra img.sacola-vazia {
+  width: 56px;
+  height: 66px;
+}
 .carrinho-compra h1 {
   font-family: Noto Serif;
   font-style: normal;
@@ -83,14 +94,49 @@
 .container-resumo .subtotal-items {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 39px;
+  padding-bottom: 18.5px;
   width: 100%;
+  border-bottom: 1px solid #f2f2f2;
+}
+.container-resumo .frete.ativo {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 18.5px;
+  width: 100%;
+  border-bottom: 1px solid #f2f2f2;
+}
+.container-resumo .frete.desativado {
+  display: none;
+}
+.container-resumo .frete.ativo {
+  display: flex;
+  border-bottom: 1px solid #f2f2f2;
+  padding-top: 18.5px;
+  padding-bottom: 18.5px;
+}
+.container-resumo .frete div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.container-resumo .frete h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #239606;
+  text-transform: none;
+}
+.container-resumo .frete div span {
+  line-height: 16px;
+  font-weight: normal;
+  font-size: 16px;
 }
 .container-resumo form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 39px;
+  padding-top: 18.5px;
+  padding-bottom: 18.5px;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .container-resumo span {
@@ -141,6 +187,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 39px;
+  margin-top: 18.5px;
+
   width: 100%;
 }
 .container-resumo .subtotal .total-items {
@@ -225,7 +273,7 @@
   padding: 18px;
   margin-bottom: 10px;
   width: 100%;
-
+  justify-content: flex-start;
   align-items: center;
 }
 .container-frete form {
@@ -247,6 +295,33 @@
   box-sizing: border-box;
   border-radius: 5px;
   margin-right: 8px;
+}
+.container-frete form h2 {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: none;
+  margin-top: 8px;
+}
+.container-frete form h3 {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: none;
+  margin-bottom: 8px;
+}
+.container-frete form span {
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: 400;
+  color: #616161;
+  font-style: normal;
+  line-height: 15px;
+  text-transform: none;
+  margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 .container-frete form label {
   font-family: Source Sans Pro;
@@ -270,6 +345,9 @@
   font-size: 15px;
   line-height: 19px;
   margin-right: 14px;
+}
+.container-frete .input-buttom button:focus {
+  outline: none;
 }
 .container-frete .input-buttom a {
   font-family: Source Sans Pro;
