@@ -296,6 +296,9 @@ input::-webkit-inner-spin-button {
   border-radius: 5px;
   margin-right: 8px;
 }
+.container-frete .input-buttom button {
+  cursor: pointer;
+}
 .container-frete form h2 {
   font-family: Source Sans Pro;
   font-size: 16px;
@@ -303,6 +306,13 @@ input::-webkit-inner-spin-button {
   font-weight: 600;
   text-transform: none;
   margin-top: 8px;
+}
+.container-frete .erro.ativo {
+  margin-top: 10px;
+  color: red;
+}
+.container-frete .erro.desativado {
+  display: none;
 }
 .container-frete form h3 {
   font-family: Source Sans Pro;

@@ -8,6 +8,7 @@
 @import 'quem-somos.css';
 @import 'rodape.css';
 @import 'page-carrinho.css';
+@import 'login.css';
 body {
   background-color: white;
   align-items: center;

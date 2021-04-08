@@ -1,0 +1,85 @@
+.pagina-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 122px;
+  margin-bottom: 97px;
+}
+.pagina-login .login {
+  display: flex;
+  width: 60vw;
+  justify-content: space-between;
+}
+.pagina-login form {
+  display: flex;
+  flex-direction: column;
+}
+.pagina-login .logar {
+  width: 45%;
+}
+.pagina-login .cadastrar {
+  width: 45%;
+}
+.pagina-login h1 {
+  margin-bottom: 30px;
+}
+.pagina-login input {
+  width: 100%;
+  height: 42px;
+  background: #ffffff;
+  border: 0.83px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 12px;
+}
+.pagina-login input::placeholder {
+  color: #616161;
+  font-size: 14px;
+  font-family: Source Sans Pro;
+  line-height: 18px;
+  font-weight: normal;
+  font-style: normal;
+}
+.pagina-login button {
+  width: 180px;
+  height: 54px;
+  background-color: #2067f5;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-family: Source Sans Pro;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-style: normal;
+  margin-top: 34px;
+}
+.pagina-login a {
+  color: #b1b1b1;
+  font-family: Source Sans Pro;
+  font-size: 13px;
+  text-decoration-line: underline;
+  font-style: normal;
+  margin-top: 22px;
+  font-weight: normal;
+}
+.pagina-login .senha {
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-top: 30px;
+}
+.pagina-login a.mostrar {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  margin-top: 0;
+  margin-right: 14px;
+  text-decoration: none;
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 15px;
+  color: #c4c4c4;
+}

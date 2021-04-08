@@ -192,9 +192,10 @@ export default function carrinhoHome() {
       const divCEP = document.createElement('div');
       divCEP.classList.add('input-buttom');
       formCEP.appendChild(divCEP);
+
       const inputCEP = document.createElement('input');
       inputCEP.type = 'text';
-
+      inputCEP.maxLength = 9;
       divCEP.appendChild(inputCEP);
       const buttonCEP = document.createElement('button');
       buttonCEP.appendChild(document.createTextNode('CALCULAR'));
@@ -243,6 +244,7 @@ export default function carrinhoHome() {
       formCupom.appendChild(divCupom);
       const inputCupom = document.createElement('input');
       inputCupom.type = 'text';
+
       divCupom.appendChild(inputCupom);
       const botaoCupom = document.createElement('button');
       botaoCupom.appendChild(document.createTextNode('ADICIONAR DESCONTO'));
@@ -466,72 +468,6 @@ export default function carrinhoHome() {
     });
   }
 
-  function simulacaoCorreios() {
-    let cep = '';
-    const validadorCEP = /\d{5}\-\d{3}/;
-    const validadosCaracteres = /\d/;
-    const containerFreteInput = document.querySelector(
-      '.container-frete .input-buttom'
-    );
-    const buttonFrete = containerFreteInput.querySelector('button');
-
-    const input = containerFreteInput.querySelector('input');
-    input.addEventListener('keyup', (event) => {
-      if (input.value.length == 5 && event.key !== 'Backspace') {
-        cep = input.value + '-';
-        input.value = cep;
-      } else if (input.value.length === 9) {
-        cep = input.value;
-      } else if (input.value.length > 9) {
-        input.value = cep;
-      }
-    });
-    buttonFrete.addEventListener('click', function (event) {
-      event.preventDefault();
-      const info = document.querySelector('.frete-info');
-      if (info) {
-        const containerFrete = document.querySelector('.container-frete form');
-        const frete = document.querySelector('.frete,.ativo');
-        frete.classList.remove('ativo');
-        frete.classList.add('desativado');
-
-        containerFrete.removeChild(info);
-      }
-      if (input.value.length === 9 && validadorCEP.test(input.value)) {
-        const containerInfo = document.createElement('div');
-        containerInfo.classList.add('frete-info');
-        const h2 = document.createElement('h2');
-        h2.appendChild(document.createTextNode('Sedex'));
-        const freteGratis = document.createElement('h3');
-        freteGratis.appendChild(document.createTextNode('Frete grátis'));
-        const valor = document.createElement('h3');
-        valor.appendChild(document.createTextNode('R$ 10,90'));
-        const motoboy = document.createElement('h2');
-        motoboy.appendChild(document.createTextNode('Motoboy'));
-        const recebaAte = document.createElement('span');
-        recebaAte.appendChild(
-          document.createTextNode('Receba até dia XX de Abril')
-        );
-        const recebaHoje = document.createElement('span');
-        recebaHoje.appendChild(document.createTextNode('Receba hoje *'));
-
-        containerInfo.appendChild(h2);
-        containerInfo.appendChild(recebaAte);
-        containerInfo.appendChild(freteGratis);
-        containerInfo.appendChild(motoboy);
-        containerInfo.appendChild(recebaHoje);
-        containerInfo.appendChild(valor);
-        const containerFrete = document.querySelector('.container-frete form');
-        containerFrete.appendChild(containerInfo);
-        const freteResumo = document.querySelector('.frete');
-        freteResumo.classList.add('ativo');
-        freteResumo.classList.remove('desativado');
-      } else {
-        alert('CEP invalido');
-      }
-    });
-  }
   itemCarrinho();
   quantidadeItem();
-  simulacaoCorreios();
 }
