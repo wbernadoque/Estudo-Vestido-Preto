@@ -11,6 +11,15 @@ li {
   width: 100px;
   height: 65px;
 }
+.menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.menu span.bem-vindo {
+  margin-left: 12px;
+}
 
 .menu .usuario {
   display: flex;
@@ -204,4 +213,7 @@ li {
   height: 2px;
   margin-top: -16px;
   background-color: #c4c4c4;
+}
+.id-pag-ok .linha.ativo {
+  background-color: #f56311;
 }
