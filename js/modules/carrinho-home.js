@@ -6,6 +6,7 @@ export default function carrinhoHome() {
   const precoNew = 154.99;
   let precoSubTotal = 0;
   let precoValorTotal = 0;
+  const acesso = localStorage.getItem('acesso', 'logado');
 
   function itemCarrinho() {
     if (vestido.length === 0) {
@@ -249,6 +250,7 @@ export default function carrinhoHome() {
       const botaoCupom = document.createElement('button');
       botaoCupom.appendChild(document.createTextNode('ADICIONAR DESCONTO'));
       divCupom.appendChild(botaoCupom);
+
       const totalItems = document.createElement('div');
       totalItems.classList.add('subtotal');
       const totalValor = document.createElement('span');
@@ -300,6 +302,14 @@ export default function carrinhoHome() {
       );
       containerResumo.appendChild(botaoContinuar);
       const botaoFinalizar = document.createElement('a');
+      if (acesso) {
+        botaoFinalizar.setAttribute(
+          'href',
+          'http://127.0.0.1:5500/pagamento.html'
+        );
+      } else {
+        botaoFinalizar.setAttribute('href', 'http://127.0.0.1:5500/login.html');
+      }
       botaoFinalizar.classList.add('finalizar');
       botaoFinalizar.appendChild(document.createTextNode('FINALIZAR COMPRA'));
       containerResumo.appendChild(botaoFinalizar);

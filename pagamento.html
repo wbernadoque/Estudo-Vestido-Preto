@@ -47,13 +47,150 @@
         </div>
       </div>
     </nav>
+<section class='pagamento-container'>
+  
 
-    
-    <footer>
-      <div class="rodape">
-        <div class="parte1">
-          <img class="logo" src="img/logo.png" alt="" />
-          <ul>
+    <div class="pagamento">
+      <h1>PAGAMENTO</h1>
+      <div class="escolha-frete">
+        <h2>Escolha o seu frete</h2>
+        <div class="container-tipo">
+          
+          <a class="sedex ativo">
+            <input type="radio" value="sedex" checked>
+            <div class="info-tipo">
+              <h3>Sedex</h3>
+              Receba até dia XX de Abril
+              <span>Frete Grátis</span>
+              
+            </div>
+          </a>
+          
+          <a class='motoboy'>
+            <input type="radio" value="motoboy">
+            <div class="info-tipo">
+              <h3>Motoboy</h3>
+              Receba até dia XX de Abril
+              <span>R$10,90</span>
+              
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <h2>Pagar com Cartão de Crédito</h2>
+        <div class="cartoes">
+          <a  class="box-cartao">
+            <img src="img/mastercard 1.png" alt="">
+            <img src="img/select.png" id="select" class="ativo">
+          </a>
+          <a  class="box-cartao">
+            <img src="img/visa 1.png" alt="">
+            <img src="img/select.png" id="select" class="desativado">
+
+          </a>
+          <a  class="box-cartao">
+            <img src="img/elo.png" alt="">
+            <img src="img/select.png" id="select" class="desativado">
+
+          </a>
+          <a  class="box-cartao">
+            <img src="img/expresso-americano 1.png" alt="">
+            <img src="img/select.png" id="select" class="desativado">
+
+          </a>
+        </div>
+        <form class="dados-cartoes">
+          <label>Número do cartão</label>
+          <input type="text" id="numero">
+          <label>Nome impresso no cartão</label>
+          <input type="text" id="nome">
+          <div class="val-cvv">
+            <div class="val">
+
+              <label>Validade</label>
+              <input type="text" id="validade">
+            </div>
+            <div class="cvv" >
+
+              <label>CVV</label>
+              <input type="text" id="cvv">
+            </div>
+
+          </div>
+          <label>Número de parcelas</label>
+          
+          <select id="parcelas">
+            <!-- <option value="1x">1x de R$ 154,90 sem juros</option>
+            <option value="2x">2x de R$ 77,49 sem juros</option>
+            <option value="3x">3x de R$ 51,66 sem juros</option> -->
+           
+          </select>
+          <button class="cartao" id="botao-compra" disabled>
+            PAGAR COM CARTÃO DE CRÉDITO: R$ 154,99
+          </button>
+        </form>
+      </div>
+
+      <div class="boleto">
+        <h2>Pagar com Boleto Bancário</h2>
+        <span>Você poderá visualizar ou imprimir após a finalização do pedido. A data de vencimento é de 2 dias corridos após a conclusão do pedido. Após esta data, ele perderá a validade.</span>
+        <button>PAGAR COM BOLETO BANCÁRIO: R$ 154,99</button>
+      </div>
+    </div>
+    <div class="resumo">
+      <h1>RESUMO DA COMPRA</h1>
+      <div class="container-endereco">
+        <h2>Endereço de entrega</h2>
+        <div class="endereco">
+          <h3>Casa</h3>
+          <span>Rua Torres da Barra, 207</span>
+          <span>Apto:402</span>
+          <span>Bairro:Água Branca</span>
+          <span>Cidade: São Paulo - SP</span>
+          <span>CEP: 05037-055</span>
+        </div>
+        <a class="alterar-endereco">
+          Alterar Endereço
+        </a>
+      </div>
+      
+        <div class='items'>
+            <div class="item-produto">
+              <h2>Itens do pedido</h2>
+             </div>
+            <div class="item-qtd">
+              <h2>Qtde</h2>
+            </div>
+            <div class="item-preco">
+              <h2>Preço</h2>
+            </div>
+        </div>
+
+        <div class="frete ativo">
+          <h2>Frete</h2>
+          <div class="preco-frete">
+            <h3>Grátis</h3>
+            <span>
+              3 a 4 dias úteis
+            </span>
+          </div>
+        </div>
+      <div class="total">
+        <h2>Total</h2>
+        <span>R$ 154,99</span>
+      </div>
+      </div>
+      
+ 
+  </section>
+  
+  <footer>
+    <div class="rodape">
+      <div class="parte1">
+        <img class="logo" src="img/logo.png" alt="" />
+        <ul>
             <li><a href="">Quem Somos </a></li>
             <li><a href="">Trocas e Devoluções</a></li>
             <li><a href="">Política de Privacidade</a></li>
@@ -67,6 +204,6 @@
         </div>
       </div>
     </footer>
-    <script src="js/login.js"></script>
+    <script src="js/pagamento.js"></script>
   </body>
 </html>

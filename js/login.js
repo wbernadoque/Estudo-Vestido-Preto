@@ -9,7 +9,6 @@ const senha = document.querySelector('.senha [type="password"]');
 const botaoEsqueci = document.querySelector('.esqueci-senha a');
 const divEsqueci = document.querySelector('.esqueci-senha');
 
-console.log(usuario.value);
 botaoEsqueci.addEventListener('click', () => {
   const divEsqueciEnviado = document.createElement('div');
   const ativo = document.querySelector('.esqueci-ativo');
@@ -46,7 +45,7 @@ botaoAcessar.addEventListener('click', (event) => {
   if (usuario.value === login.usuario && senha.value === login.senha) {
     console.log('Logado');
     localStorage.setItem('acesso', 'logado');
-    window.location.replace('http://127.0.0.1:5500/pagamento.html');
+    window.history.back('http://127.0.0.1:5500/pagamento.html');
   } else if (usuario.value === '' || senha.value === '') {
     if (usuario.value === '') {
       const loginObrigatorio = document.createElement('span');
