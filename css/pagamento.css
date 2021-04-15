@@ -211,8 +211,9 @@ form.dados-cartoes .val-cvv .cvv input {
 form.dados-cartoes .val-cvv .cvv {
   margin-left: 22px;
 }
-form.dados-cartoes button.cartao:disabled {
+form.dados-cartoes a.cartao.desabilitado {
   background-color: #c0c0c0;
+  display: flex;
   border-radius: 25px;
   width: 421px;
   height: 51px;
@@ -223,9 +224,13 @@ form.dados-cartoes button.cartao:disabled {
   line-height: 24px;
   font-weight: 500;
   margin-top: 35px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
-form.dados-cartoes button.cartao {
+form.dados-cartoes a.cartao {
   background-color: #2067f5;
+  display: flex;
   border-radius: 25px;
   width: 421px;
   height: 51px;
@@ -236,6 +241,9 @@ form.dados-cartoes button.cartao {
   line-height: 24px;
   font-weight: 500;
   margin-top: 35px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 form.dados-cartoes span {
   color: red;
@@ -270,8 +278,11 @@ form.dados-cartoes span {
   padding: 21px;
   border-top: 1px solid #f2f2f2;
 }
-.boleto button {
+.boleto a {
   background-color: #2067f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 25px;
   width: 421px;
@@ -282,7 +293,7 @@ form.dados-cartoes span {
   font-style: normal;
   line-height: 24px;
   font-weight: 500;
-
+  text-decoration: none;
   margin-left: 21px;
   margin-bottom: 21px;
 }
@@ -304,6 +315,7 @@ form.dados-cartoes span {
 .resumo .container-endereco .endereco {
   display: flex;
   flex-direction: column;
+  margin-top: 9px;
 }
 .resumo .container-endereco .endereco h3 {
   font-size: 16px;

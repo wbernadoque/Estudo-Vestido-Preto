@@ -10,6 +10,7 @@
 @import 'page-carrinho.css';
 @import 'login.css';
 @import 'pagamento.css';
+@import 'confirmacao.css';
 body {
   background-color: white;
   align-items: center;

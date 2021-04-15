@@ -14,7 +14,7 @@ const inputValidadeCartao = form.querySelector('#validade');
 const inputCvvCartao = form.querySelector('#cvv');
 const parcelas = form.querySelector('#parcelas');
 const boleto = document.querySelector('.boleto');
-const botaoBoleto = boleto.querySelector('button');
+const botaoBoleto = boleto.querySelector('.boleto a');
 const itemsComprados = JSON.parse(localStorage.getItem('item'));
 
 let nome = '';
@@ -24,11 +24,11 @@ let cvv = '';
 
 //validando acesso
 const login = localStorage.getItem('acesso');
-console.log(login);
+
 if (login === null) {
 } else {
   const usuario = document.querySelector('.usuario a');
-  console.log(usuario);
+
   const span = document.createElement('span');
   span.classList.add('bem-vindo');
   span.appendChild(document.createTextNode('Olá, Raine Gonçalves'));
@@ -57,7 +57,14 @@ function itemsResumo() {
       )
     );
     itemQtd.appendChild(document.createTextNode(item.quantidade));
-    itemValor.appendChild(document.createTextNode('R$154,99'));
+    itemValor.appendChild(
+      document.createTextNode(
+        (item.quantidade * 154.99).toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        })
+      )
+    );
     itemProduto.appendChild(itemDescricao);
     itemQuantidade.appendChild(itemQtd);
     itemPreco.appendChild(itemValor);
@@ -67,15 +74,17 @@ function itemsResumo() {
 //inserindo opções de pagamento cartão
 function opcoes() {
   const parcelas = document.querySelector('#parcelas');
-  let total;
+  let total = 0;
   const options = parcelas.querySelector('option');
   const frete = document.querySelectorAll('.container-tipo input');
+  itemsComprados.forEach((item) => {
+    total += item.quantidade;
+  });
 
-  console.log(frete[0].hasAttribute('checked'));
   if (frete[0].hasAttribute('checked')) {
-    total = itemsComprados.length * 154.99;
+    total = total * 154.99;
   } else {
-    total = itemsComprados.length * 154.99 + 10.9;
+    total = total * 154.99 + 10.9;
   }
   function insert() {
     for (var i = 0; i < 3; i++) {
@@ -121,6 +130,22 @@ function total() {
     const divTotal = document.querySelector('.total');
     const span = divTotal.querySelector('span');
     const valor = document.createElement('span');
+    const botao = document.querySelector('#botao-compra');
+    const botaoBoleto = document.querySelector('.boleto a');
+
+    botaoBoleto.innerHTML =
+      'PAGAR COM CARTÃO DE CRÉDITO: ' +
+      total.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      });
+
+    botao.innerHTML =
+      'PAGAR COM CARTÃO DE CRÉDITO: ' +
+      total.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      });
 
     valor.appendChild(
       document.createTextNode(
@@ -134,7 +159,6 @@ function total() {
     if (span === null) {
       divTotal.appendChild(valor);
     } else {
-      console.log(valor);
       divTotal.removeChild(span);
       divTotal.appendChild(valor);
     }
@@ -143,6 +167,22 @@ function total() {
     const divTotal = document.querySelector('.total');
     const span = divTotal.querySelector('span');
     const valor = document.createElement('span');
+    const botao = document.querySelector('#botao-compra');
+    const botaoBoleto = document.querySelector('.boleto a');
+
+    botaoBoleto.innerHTML =
+      'PAGAR COM CARTÃO DE CRÉDITO: ' +
+      total.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      });
+
+    botao.innerHTML =
+      'PAGAR COM CARTÃO DE CRÉDITO: ' +
+      total.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      });
 
     valor.appendChild(
       document.createTextNode(
@@ -156,7 +196,6 @@ function total() {
     if (span === null) {
       divTotal.appendChild(valor);
     } else {
-      console.log(valor);
       divTotal.removeChild(span);
       divTotal.appendChild(valor);
     }
@@ -290,12 +329,14 @@ form.addEventListener('change', (event) => {
     inputValidadeCartao.value.length > 0 &&
     parcelas
   ) {
-    botaoCompra.disabled = false;
+    botaoCompra.classList.remove('desabilitado');
+    botaoCompra.classList.add('ativo');
   }
 });
 
 botaoCompra.addEventListener('click', (event) => {
   event.preventDefault();
+  localStorage.setItem('pagamento', 'Cartão');
   const form = document.querySelector('.dados-cartoes');
 
   const inputNumeroCartao = form.querySelector('#numero');
@@ -376,8 +417,35 @@ botaoCompra.addEventListener('click', (event) => {
     span.appendChild(document.createTextNode('Código inválido'));
     inputCvvCartao.after(span);
   }
+  const botao = document.querySelector('#botao-compra');
+
+  if (botao.classList.contains('ativo')) {
+    const valor = document.querySelector('.sedex');
+
+    if (valor.classList.contains('ativo')) {
+      localStorage.setItem('frete', 'Gratis');
+    } else {
+      localStorage.setItem('frete', 10.9);
+    }
+    const numeroCartao = document.querySelector('#numero').value;
+
+    const optionVezes = document.querySelector('#parcelas');
+    console.log(numeroCartao);
+    console.log(optionVezes.value);
+    const formaPag = {
+      numero: numeroCartao,
+      forma: optionVezes.value,
+    };
+    localStorage.setItem('pagamento', JSON.stringify(formaPag));
+    window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+  } else {
+    console.log('desativado');
+  }
 });
 
+botaoBoleto.addEventListener('click', () => {
+  localStorage.setItem('pagamento', 'Boleto');
+});
 checked();
 itemsResumo();
 total();
