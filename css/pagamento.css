@@ -463,3 +463,24 @@ form.dados-cartoes span {
 
   color: #2067f5;
 }
+.desconto {
+  max-width: 462px;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #fafafa;
+  border-radius: 14px;
+  flex-direction: row;
+  padding: 21px;
+  font-size: 12px;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 15px;
+  margin-bottom: 17px;
+}
+.desconto .valor-desc {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}

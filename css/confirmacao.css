@@ -45,6 +45,12 @@
 
   padding-bottom: 18px;
 }
+.pagamento-container .codigo-boleto.desativado {
+  display: none;
+}
+.pagamento-container .boleto-impresso.desativado {
+  display: none;
+}
 .pagamento-container .pedido .codigo-boleto h2 {
   margin-left: 0px;
   font-size: 20px;
@@ -260,7 +266,21 @@
   border-radius: 14px;
   padding: 14px 21px 14px 21px;
   margin-top: 16px;
+  display: flex;
+  flex-direction: column;
 }
 .resumo-pedido .forma-pagamento h2 {
   margin-top: 22px;
+  margin-bottom: 10px;
+}
+.resumo-pedido .forma-pagamento span {
+  margin-bottom: 5px;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  color: #616161;
 }

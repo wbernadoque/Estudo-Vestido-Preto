@@ -468,3 +468,28 @@ input::-webkit-inner-spin-button {
   margin-left: 10px;
   color: black;
 }
+.desconto {
+  display: flex;
+  padding-top: 18.5px;
+  padding-bottom: 18.5px;
+
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #f2f2f2;
+}
+span.cupom-errado {
+  background-color: #f33131;
+
+  margin-top: 17px;
+  color: #ffffff;
+  font-family: Source Sans Pro;
+  line-height: 12px;
+  font-weight: normal;
+  font-style: normal;
+  height: 27px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

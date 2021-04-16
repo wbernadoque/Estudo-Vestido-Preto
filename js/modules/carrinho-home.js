@@ -7,7 +7,80 @@ export default function carrinhoHome() {
   let precoSubTotal = 0;
   let precoValorTotal = 0;
   const acesso = localStorage.getItem('acesso', 'logado');
+  let porcentagem = 0;
+  //adicionando desconto
+  function desconto() {
+    const botaoDesconto = document.querySelector(
+      '.container-resumo .input-buttom button'
+    );
+    localStorage.setItem('desconto', 0);
+    botaoDesconto.addEventListener('click', (event) => {
+      event.preventDefault();
+      const containerResumo = document.querySelector('.container-resumo');
+      const divSubTotal = document.querySelector('.container-resumo .subtotal');
+      const cupomErradoIdem = document.querySelector('.cupom-errado');
+      const descontoAtivado = document.querySelector('.desconto');
 
+      const containerDesconto = document.querySelector(
+        '.container-resumo .input-buttom'
+      );
+      const input = containerDesconto.querySelector('input');
+      if (input.value === 'MEUPRIMEIROVESTIDOPRETO') {
+        const valorTotal = document.querySelector(
+          '.subtotal .total-items .preco'
+        );
+        let total = valorTotal.innerHTML.split(';');
+
+        //removendo erro caso ja tenha
+        if (cupomErradoIdem !== null) {
+          containerDesconto.removeChild(cupomErradoIdem);
+        }
+
+        if (descontoAtivado === null) {
+          const divDesconto = document.createElement('div');
+          divDesconto.classList.add('desconto');
+          const descDesconto = document.createElement('span');
+          descDesconto.appendChild(document.createTextNode('Desconto:'));
+          const valorDesconto = document.createElement('span');
+
+          vestido.forEach((item) => {
+            porcentagem += item.quantidade * 154.99;
+          });
+          porcentagem = +(porcentagem * 0.1).toFixed(2);
+          total = +total[1].replace(',', '.') - porcentagem;
+          valorTotal.innerHTML = total.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          });
+          valorDesconto.appendChild(
+            document.createTextNode(
+              porcentagem.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              })
+            )
+          );
+          divDesconto.appendChild(descDesconto);
+          divDesconto.appendChild(valorDesconto);
+          containerResumo.insertBefore(divDesconto, divSubTotal);
+          localStorage.setItem('desconto', porcentagem.toFixed(2));
+        } else {
+          // porcentagem = 0;
+          // containerResumo.removeChild(descontoAtivado);
+        }
+      } else {
+        if (cupomErradoIdem === null) {
+          const cupomErrado = document.createElement('span');
+          cupomErrado.classList.add('cupom-errado');
+          cupomErrado.appendChild(document.createTextNode('Cupom inválido'));
+          containerDesconto.appendChild(cupomErrado);
+        } else {
+        }
+      }
+    });
+  }
+
+  //criando pagina de carrinho quando houver items
   function itemCarrinho() {
     if (vestido.length === 0) {
       const funciona = document.querySelector('.funciona');
@@ -333,6 +406,7 @@ export default function carrinhoHome() {
     removeItems();
   }
 
+  //removendo items adicionados
   function removeItems() {
     botoesLixeira = document.querySelectorAll('.lixeira img');
 
@@ -381,6 +455,7 @@ export default function carrinhoHome() {
       });
     });
   }
+
   function quantidadeItem() {
     const botoesMenos = document.querySelectorAll('.quantidade a.menos');
     const botoesMais = document.querySelectorAll('.quantidade a.mais');
@@ -480,4 +555,5 @@ export default function carrinhoHome() {
 
   itemCarrinho();
   quantidadeItem();
+  desconto();
 }

@@ -48,9 +48,9 @@ botaoAcessar.addEventListener('click', (event) => {
     window.history.back('http://127.0.0.1:5500/pagamento.html');
   } else if (usuario.value === '' || senha.value === '') {
     if (usuario.value === '') {
-      const loginObrigatorio = document.createElement('span');
       const login = document.querySelector('.login-input');
       const loginAtivo = document.querySelector('.login-input span');
+      const loginObrigatorio = document.createElement('span');
       loginObrigatorio.appendChild(
         document.createTextNode('O campo E-mail ou CPF é obrigatório')
       );

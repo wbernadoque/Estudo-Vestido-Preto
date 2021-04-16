@@ -16,7 +16,9 @@ const parcelas = form.querySelector('#parcelas');
 const boleto = document.querySelector('.boleto');
 const botaoBoleto = boleto.querySelector('.boleto a');
 const itemsComprados = JSON.parse(localStorage.getItem('item'));
-
+const desconto = +localStorage.getItem('desconto');
+const resumo = document.querySelector('.resumo');
+const freteInserido = document.querySelector('.resumo .frete');
 let nome = '';
 let numero = '';
 let validade = '';
@@ -71,6 +73,35 @@ function itemsResumo() {
   });
 }
 
+//inserindo tag de desconto
+function inserirDesconto() {
+  if (desconto > 0) {
+    const divDesconto = document.createElement('div');
+    divDesconto.classList.add('desconto');
+    const descricao = document.createElement('h2');
+    descricao.appendChild(document.createTextNode('Descontos'));
+    divDesconto.appendChild(descricao);
+    const divValorDesc = document.createElement('div');
+    divValorDesc.classList.add('valor-desc');
+    divDesconto.appendChild(divValorDesc);
+    const valorDesc = document.createElement('h2');
+    valorDesc.appendChild(
+      document.createTextNode(
+        desconto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+      )
+    );
+    divValorDesc.appendChild(valorDesc);
+    const cupomDesc = document.createElement('span');
+    cupomDesc.appendChild(
+      document.createTextNode('CUPOM: MEUPRIMEIROVESTIDOPRETO')
+    );
+
+    divValorDesc.appendChild(cupomDesc);
+    console.log(divDesconto);
+    resumo.insertBefore(divDesconto, freteInserido);
+  }
+}
+
 //inserindo opções de pagamento cartão
 function opcoes() {
   const parcelas = document.querySelector('#parcelas');
@@ -82,9 +113,9 @@ function opcoes() {
   });
 
   if (frete[0].hasAttribute('checked')) {
-    total = total * 154.99;
+    total = total * 154.99 - desconto;
   } else {
-    total = total * 154.99 + 10.9;
+    total = total * 154.99 + 10.9 - desconto;
   }
   function insert() {
     for (var i = 0; i < 3; i++) {
@@ -126,7 +157,7 @@ function total() {
     totalItems += item.quantidade;
   });
   if (typeof frete === 'number') {
-    total = totalItems * 154.99 + frete;
+    total = totalItems * 154.99 + freteInserido - inserirDesconto;
     const divTotal = document.querySelector('.total');
     const span = divTotal.querySelector('span');
     const valor = document.createElement('span');
@@ -163,7 +194,7 @@ function total() {
       divTotal.appendChild(valor);
     }
   } else {
-    total = totalItems * 154.99;
+    total = totalItems * 154.99 - desconto + freteInserido;
     const divTotal = document.querySelector('.total');
     const span = divTotal.querySelector('span');
     const valor = document.createElement('span');
@@ -334,6 +365,7 @@ form.addEventListener('change', (event) => {
   }
 });
 
+//botao de compra com cartão
 botaoCompra.addEventListener('click', (event) => {
   event.preventDefault();
   localStorage.setItem('pagamento', 'Cartão');
@@ -428,13 +460,27 @@ botaoCompra.addEventListener('click', (event) => {
       localStorage.setItem('frete', 10.9);
     }
     const numeroCartao = document.querySelector('#numero').value;
-
+    const bandeiraCartao = document.querySelectorAll('.box-cartao');
+    let bandeira = '';
     const optionVezes = document.querySelector('#parcelas');
-    console.log(numeroCartao);
-    console.log(optionVezes.value);
+    bandeiraCartao.forEach((item) => {
+      if (item.querySelector('#select').classList.contains('ativo')) {
+        bandeira = item.id;
+        if (bandeira === 'american-express') {
+          bandeira = 'American Express';
+        } else if (bandeira === 'visa') {
+          bandeira = 'Visa';
+        } else if (bandeira === 'elo') {
+          bandeira = 'Elo';
+        } else {
+          bandeira = 'Mastercard';
+        }
+      }
+    });
     const formaPag = {
       numero: numeroCartao,
       forma: optionVezes.value,
+      bandeira: bandeira,
     };
     localStorage.setItem('pagamento', JSON.stringify(formaPag));
     window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
@@ -443,10 +489,15 @@ botaoCompra.addEventListener('click', (event) => {
   }
 });
 
+//botao do boleto
 botaoBoleto.addEventListener('click', () => {
   localStorage.setItem('pagamento', 'Boleto');
 });
+
+//adicionar desconto
+
 checked();
 itemsResumo();
 total();
 opcoes();
+inserirDesconto();
