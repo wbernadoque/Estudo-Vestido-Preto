@@ -20,6 +20,16 @@
   </head>
   <body>
     <nav class="menu">
+      <div class="menu-hamburguer">
+        <a class="botao-menu">
+
+          <span class='hamburguer'></span>
+          <span class='hamburguer'></span>
+          <span class='hamburguer'></span>
+          <span class='hamburguer'></span>
+        </a>
+      </div>
+     
       <a  class="logo" href="http://127.0.0.1:5500/"><img src="img/logo-preto.png" alt="" /></a>
       <ul>
         <li><a href="#produto">PRODUTOS </a></li>
@@ -50,7 +60,23 @@
         </div>
       </div>
     </nav>
-    
+    <nav class="menu-lateral">
+      <div class="botao-x">
+        x
+      </div>
+      <ul>
+        <li><a href="#produto">PRODUTOS </a></li>
+        <li><a href="#funciona">COMO FUNCIONA</a></li>
+        <li><a href="#quem-somos">QUEM SOMOS</a></li>
+      </ul>
+      <ul class="menu-secundario">
+        <li><a>Minha conta </a></li>
+        <li><a>Trocas e devoluções</a></li>
+        <li><a>Política de Privacidade</a></li>
+      </ul>
+
+
+    </nav>
 
     <section class="banner">
       <img src="img/bg-header.png" alt="" />
@@ -118,6 +144,7 @@
             alt=""
           />
         </div>
+        <!--  -->
       </div>
       <div class="info">
         <h1>Vestido Preto One</h1>
@@ -185,7 +212,7 @@
         <div class="prazo-entrega">
           <h3>CALCULAR O PRAZO DE ENTREGA</h3>
           <form action="" method="post">
-            <input type="text" id="cep" placeholder="Insira o cep" />
+            <input type="text" id="cep" placeholder="Insira o cep" maxlength="9" />
             <button>CALCULAR</button>
             <a
               href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm"
@@ -287,7 +314,7 @@
           <label for="">E-mail</label>
           <input type="text" />
           <label for="">Telefone</label>
-          <input type="text" placeholder="(11) 99999-9999" />
+          <input type="text" placeholder="(11) 99999-9999" maxlength="15"/>
           <label for="">Mensagem</label>
           <textarea> </textarea>
           <button>Enviar Mensagem</button>

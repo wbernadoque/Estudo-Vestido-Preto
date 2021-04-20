@@ -1,6 +1,6 @@
 export default function simulaCep() {
   let cep = '';
-  const containerFrete = document.querySelector('.container-frete form');
+
   const validadorCEP = /\d{5}\-\d{3}/;
 
   const containerFreteInput = document.querySelector(

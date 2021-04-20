@@ -4,6 +4,7 @@
   justify-content: center;
   padding-top: 128px;
   flex-wrap: wrap;
+  width: 100%;
 }
 .quem-somos {
   display: flex;
@@ -86,6 +87,11 @@
   margin-top: 34px;
   cursor: pointer;
 }
+
+.fale-conosco form.contato button:focus {
+  outline-style: none;
+}
+
 .fale-conosco form.contato label {
   font-family: Source Sans Pro;
   color: #2067f5;
@@ -114,4 +120,141 @@
   border: 0.83px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 5px;
+}
+
+.fale-conosco form.contato span.invalido {
+  color: red;
+  margin-top: -13px;
+}
+
+@media (max-width: 768px) {
+  #quem-somos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 128px;
+    flex-wrap: wrap;
+  }
+  .quem-somos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 537px;
+  }
+  .quem-somos img {
+    width: 19px;
+    height: 19px;
+  }
+  .quem-somos h1 {
+    margin-top: 0;
+
+    text-transform: uppercase;
+    font-family: Noto Serif;
+    font-size: 38px;
+  }
+  .quem-somos p {
+    font-family: Source Sans Pro;
+    font-size: 15px;
+    font-weight: 400;
+    margin-left: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .quem-somos .tel {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+  }
+  .quem-somos .mail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  .quem-somos .map {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+  }
+  .quem-somos .redes {
+    margin-top: 34px;
+  }
+  .quem-somos .redes img {
+    width: 47px;
+    height: 47px;
+    margin-right: 14px;
+  }
+  .fale-conosco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin-left: 0px;
+  }
+  .fale-conosco h1 {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-family: Noto Serif;
+    font-size: 38px;
+  }
+  .fale-conosco form.contato {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+  }
+  .fale-conosco form.contato button {
+    width: 100%;
+    height: 43px;
+    border-radius: 24px;
+    border: 1.86px solid #d9d9d9;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: Source Sans Pro;
+    font-size: 15px;
+    color: #d9d9d9;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    margin-top: 34px;
+    cursor: pointer;
+  }
+
+  .fale-conosco form.contato button:focus {
+    outline-style: none;
+  }
+
+  .fale-conosco form.contato label {
+    font-family: Source Sans Pro;
+    color: #2067f5;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .fale-conosco form.contato input {
+    width: 100%;
+
+    height: 42.46px;
+    background: #ffffff;
+    margin-bottom: 17px;
+    border: 0.83px solid #f2f2f2;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .fale-conosco form.contato textarea {
+    width: 100%;
+    height: 92px;
+
+    background: #f2f2f2;
+
+    border: 0.83px solid #f2f2f2;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .fale-conosco form.contato span.invalido {
+    color: red;
+    margin-top: -13px;
+  }
 }

@@ -6,6 +6,7 @@ export default function carrinhoHome() {
   const precoNew = 154.99;
   let precoSubTotal = 0;
   let precoValorTotal = 0;
+
   const acesso = localStorage.getItem('acesso', 'logado');
   let porcentagem = 0;
   //adicionando desconto

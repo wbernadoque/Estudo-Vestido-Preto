@@ -47,7 +47,7 @@ function inserirDesconto() {
     );
 
     divValorDesc.appendChild(cupomDesc);
-    console.log(divDesconto);
+
     itemsResumo.insertBefore(divDesconto, frete);
   }
 }
@@ -109,9 +109,9 @@ function total() {
   let totalItems = 0;
 
   itemsComprados.forEach((item) => {
-    console.log(frete);
-    totalItems += item.quantidade * 154.99 + frete - desconto;
+    totalItems += item.quantidade * 154.99;
   });
+  totalItems = totalItems + frete - desconto;
   totalDiv.appendChild(
     document.createTextNode(
       totalItems.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
@@ -125,7 +125,7 @@ function inserirFrete() {
   const freteDiv = document.querySelector('.frete-resumo');
   const spanFrete = document.createElement('span');
   let frete = localStorage.getItem('frete');
-  console.log(frete);
+
   if (frete !== 'Gratis') {
     frete = +frete;
 
@@ -159,7 +159,7 @@ function pagamento() {
     const dadosParcela = document.createElement('span');
 
     const numeroCartao = formaPag.numero.split(' ');
-    console.log(numeroCartao);
+
     infoPag.appendChild(
       document.createTextNode(
         formaPag.bandeira + ' número: **** **** **** ' + numeroCartao[3]

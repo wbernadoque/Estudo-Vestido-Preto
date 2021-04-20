@@ -19,6 +19,8 @@
 .avaliacoes .bloco.ativo {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   animation: aparecer 0.9s forwards;
 }
 

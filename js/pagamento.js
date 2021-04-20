@@ -97,7 +97,7 @@ function inserirDesconto() {
     );
 
     divValorDesc.appendChild(cupomDesc);
-    console.log(divDesconto);
+
     resumo.insertBefore(divDesconto, freteInserido);
   }
 }
@@ -157,7 +157,8 @@ function total() {
     totalItems += item.quantidade;
   });
   if (typeof frete === 'number') {
-    total = totalItems * 154.99 + freteInserido - inserirDesconto;
+    total = totalItems * 154.99 + frete - desconto;
+
     const divTotal = document.querySelector('.total');
     const span = divTotal.querySelector('span');
     const valor = document.createElement('span');
@@ -194,7 +195,7 @@ function total() {
       divTotal.appendChild(valor);
     }
   } else {
-    total = totalItems * 154.99 - desconto + freteInserido;
+    total = totalItems * 154.99 - desconto;
     const divTotal = document.querySelector('.total');
     const span = divTotal.querySelector('span');
     const valor = document.createElement('span');
@@ -482,10 +483,15 @@ botaoCompra.addEventListener('click', (event) => {
       forma: optionVezes.value,
       bandeira: bandeira,
     };
-    localStorage.setItem('pagamento', JSON.stringify(formaPag));
-    window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+    const form = document.querySelector('.dados-cartoes .invalido');
+    const formVal = document.querySelector('.invalido-v');
+    const formCvv = document.querySelector('.invalido-c');
+
+    if (form === null && formVal === null && formCvv === null) {
+      localStorage.setItem('pagamento', JSON.stringify(formaPag));
+      window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+    }
   } else {
-    console.log('desativado');
   }
 });
 

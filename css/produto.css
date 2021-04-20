@@ -3,6 +3,7 @@
   background-color: white;
   justify-content: center;
 
+  flex-wrap: wrap;
   flex-direction: row;
 
   padding-top: 62px;
@@ -10,7 +11,7 @@
 
 #produto .info {
   display: flex;
-  max-width: 566.36px;
+  width: 40vw;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: white;
@@ -293,4 +294,304 @@ h3 {
 }
 .prazo-entrega form {
   margin-top: 14px;
+}
+
+@media (max-width: 768px) {
+  #produto {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    padding-top: 0px;
+  }
+  #produto .info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+  }
+
+  #produto h1,
+  h2,
+  h3 {
+    font-family: 'Noto Serif', serif;
+    font-style: normal;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    top: 0;
+    margin: 0;
+  }
+  #produto h1 {
+    font-size: 36px;
+
+    line-height: 49px;
+  }
+  #produto h2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 33px;
+  }
+  #produto h3 {
+    font-family: Source Sans Pro;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  #produto .customizar {
+    margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #produto .customizar img {
+    height: 41px;
+    margin-bottom: 3px;
+  }
+  #produto .customizar a {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 9px;
+    border-radius: 13px;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    color: #bfbfbf;
+    border: 1px solid #f2f2f2;
+    text-transform: capitalize;
+  }
+  #produto .customizar a.ativo {
+    background-color: #f56311;
+    width: 80px;
+    height: 80px;
+    color: white;
+    border: 2px solid #f56311;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  #produto .customizar a.selecionado {
+    background-color: #f56311;
+    color: white;
+    border: 1px solid #f56311;
+    cursor: pointer;
+  }
+  #produto .customizar a.selecionavel {
+    fill: white;
+    border: 2px solid #f2976d;
+    cursor: pointer;
+  }
+  #produto .botao {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #produto .botao img {
+    margin-bottom: 5px;
+  }
+  #produto .botao a {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 108.62px;
+    height: 119px;
+    left: 698px;
+    cursor: pointer;
+
+    background: #ffffff;
+    border-radius: 13.5772px;
+    text-transform: uppercase;
+  }
+
+  #produto .botao a.ativo:after {
+    content: '';
+    width: 61px;
+    height: 4px;
+    background: #2067f5;
+    position: absolute;
+    margin-top: 115px;
+  }
+  #produto .botao a.ativo {
+    background-color: #f2f2f2;
+    cursor: default;
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+  }
+  #produto .info .dados-avaliacao {
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+    margin-top: 10px;
+  }
+  #produto .info .dados-avaliacao img {
+    max-width: 20px;
+    max-height: 20px;
+    /* margin-right: 9px; */
+  }
+  #produto .info .dados-avaliacao a {
+    margin-left: 19px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration-line: underline;
+    text-transform: lowercase;
+  }
+  .info .preco span {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #c0c0c0;
+    text-transform: uppercase;
+    text-decoration-line: line-through;
+  }
+  .info .preco {
+    font-size: 36px;
+    color: #2067f5;
+
+    font-style: normal;
+    margin-bottom: 48px;
+  }
+  .infos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .infos img {
+    max-width: 60.23px;
+  }
+  .infos div {
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+  }
+  .modelo-veste {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #f2f2f2;
+    max-width: 304px;
+  }
+  .modelo-veste span {
+    margin-right: 20px;
+  }
+  .modelo-veste .modelo {
+    display: flex;
+  }
+  .modelo-veste .modelo {
+    margin-left: 15px;
+  }
+
+  .modelo-veste .modelo img {
+    max-width: 64px;
+    max-height: 64px;
+  }
+  .qtd-comprar {
+    display: flex;
+    margin-top: 43px;
+    margin-bottom: 27px;
+    justify-content: space-between;
+    max-width: 320px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .qtd-comprar .quantidade {
+    display: flex;
+    font-size: 20px;
+    color: #c0c0c0;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .qtd-comprar .quantidade a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 51px;
+
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    width: 26px;
+    height: 51px;
+  }
+  .qtd-comprar .quantidade .menos {
+    border: 1px solid #f2f2f2;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+  }
+  .qtd-comprar .quantidade .valor {
+    border: 1px solid #f2f2f2;
+  }
+  .qtd-comprar .quantidade .mais {
+    border: 1px solid #f2f2f2;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  .qtd-comprar .comprar {
+    color: white;
+    font-size: 20px;
+    width: 200px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 30px;
+  }
+
+  .qtd-comprar .comprar.ativo {
+    background-color: #2067f5;
+    cursor: pointer;
+    outline-style: none;
+  }
+
+  .prazo-entrega input[type='text'] {
+    max-width: 184.81px;
+    height: 42.46px;
+    background: #ffffff;
+
+    border: 0.83px solid #f2f2f2;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .prazo-entrega button {
+    width: 115px;
+    height: 42px;
+    border: 2px solid #f56311;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: white;
+    color: #f56311;
+  }
+  .prazo-entrega a {
+    color: #b1b1b1;
+    text-transform: none;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 12px;
+  }
+  .prazo-entrega form {
+    margin-top: 14px;
+  }
 }

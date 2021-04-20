@@ -7,9 +7,10 @@ export default function botoesSelecao() {
   const botaoComprar = document.querySelector('.comprar');
   const carrinho = document.querySelector('.carrinho');
   const containerCarrinho = carrinho.querySelector('.container');
-
+  const botaoMenu = document.querySelector('.botao-menu');
+  const botaoX = document.querySelector('.botao-x');
   const finalizarCompraCarrinho = document.querySelector('.carrinho a');
-
+  const menuLateral = document.querySelector('.menu-lateral');
   const botaoCarrinho = document.querySelector('.container-carrinho');
   const vestido = {
     decote: '',
@@ -358,6 +359,14 @@ export default function botoesSelecao() {
   botaoCarrinho.addEventListener('click', () => {
     carrinho.classList.toggle('ativo');
   });
+
+  botaoMenu.addEventListener('click', () => {
+    menuLateral.classList.add('ativo');
+  });
+  botaoX.addEventListener('click', () => {
+    menuLateral.classList.remove('ativo');
+  });
+
   itemsNoCarrinho();
   quantidadeBadge();
   verificarAtivo();

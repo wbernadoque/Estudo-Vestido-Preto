@@ -64,3 +64,61 @@
   border-radius: 30.1px;
   padding: 13px 50px 13px 50px;
 }
+@media (max-width: 768px) {
+  .banner {
+    /* height: auto; */
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 99px;
+  }
+  .banner img {
+    top: 0;
+    position: relative;
+    width: 100%;
+  }
+  .texto {
+    height: 300px;
+
+    margin-left: 68px;
+  }
+
+  .texto h1 {
+    max-width: 200.28px;
+    width: 136px;
+
+    left: 15px;
+    top: 124px;
+
+    font-family: Noto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+  .texto p {
+    display: none;
+  }
+  .texto a {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 580;
+    font-size: 20.0637px;
+    /* line-height: 25px; */
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration-line: none;
+    margin-top: 16px;
+    color: #ffffff;
+    width: 180px;
+    height: 54px;
+    background: #2067f5;
+    border: none;
+    border-radius: 30.1px;
+    /* padding: 13px 50px 13px 50px; */
+  }
+}
