@@ -1,8 +1,8 @@
 .informacoes-venda {
   display: flex;
   background-color: white;
-  justify-content: space-around;
-
+  justify-content: center;
+  margin: 129px 0 129px 0;
   flex-wrap: wrap;
 }
 .informacoes-venda h3 {
@@ -18,11 +18,20 @@
   font-weight: 400;
   font-size: 16px;
 }
+.informacoes-venda .selos {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .informacoes-venda .selo {
+  display: none;
+}
+.informacoes-venda .selo.ativo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 129px 0 129px 0;
+  margin: 0;
 }
 .informacoes-venda .selo .descricao {
   margin-left: 20px;
@@ -41,4 +50,87 @@
 .informacoes-venda .selo a img {
   width: 45px;
   height: 45px;
+}
+.nav-selos {
+  display: flex;
+}
+.nav-selos a {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.nav-selos a.inativo {
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+.nav-selos a.ativo {
+  background-color: #303030;
+  cursor: unset;
+}
+@media (max-width: 768px) {
+  .informacoes-venda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    justify-content: space-around;
+    margin: 129px 0 129px 0;
+    flex-wrap: wrap;
+  }
+  .informacoes-venda h3 {
+    font-family: Source Sans Pro;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: none;
+  }
+  .informacoes-venda span {
+    font-family: Source Sans Pro;
+    color: gray;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .informacoes-venda .selo {
+    display: none;
+  }
+  .nav-selos {
+    display: flex;
+  }
+  .nav-selos a {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+  .nav-selos a.inativo {
+    background-color: #d9d9d9;
+    cursor: pointer;
+  }
+  .nav-selos a.ativo {
+    background-color: #303030;
+    cursor: unset;
+  }
+  .informacoes-venda .selo.ativo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 12px 0 12px 0;
+  }
+  .informacoes-venda .selo .descricao {
+    margin-left: 20px;
+  }
+
+  .informacoes-venda .selo a {
+    display: flex;
+    width: 83.87px;
+    height: 78px;
+    background-color: #86adc2;
+    border-radius: 13px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .informacoes-venda .selo a img {
+    width: 45px;
+    height: 45px;
+  }
 }

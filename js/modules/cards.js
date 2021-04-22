@@ -106,128 +106,430 @@ export default function cards() {
       descricao: '“Gostei muito do meu vestido preto. “',
     },
   ];
-  const paginas = Math.trunc(clientes.length / 3 - 1) + 1;
 
-  //criar blocos
-  for (let i = 0; i <= paginas; i++) {
-    const bloco = document.createElement('div');
-    bloco.classList.add('bloco');
+  const largura = window.innerWidth;
 
-    pessoas.appendChild(bloco);
-  }
+  function render() {
+    const largura = window.innerWidth;
+    if (largura >= 1350) {
+      const paginas = Math.trunc(clientes.length / 3 - 1) + 1;
 
-  //criar botoes de paginação
-  for (let i = 0; i <= paginas; i++) {
-    if (i === 0) {
-      const paginacao = document.createElement('a');
+      //criar blocos
+      for (let i = 0; i <= paginas; i++) {
+        const bloco = document.createElement('div');
+        bloco.classList.add('bloco');
 
-      botoes.appendChild(paginacao);
-      paginacao.classList.add('ativo');
-    } else {
-      const paginacao = document.createElement('a');
-
-      botoes.appendChild(paginacao);
-      paginacao.classList.add('inativo');
-    }
-  }
-  const blocos = document.querySelectorAll('.bloco');
-
-  function inserirEmBlocos(card, index) {
-    if (index <= 2) {
-      blocos[0].appendChild(card);
-      blocos[0].classList.add('ativo');
-      pessoas.appendChild(blocos[0]);
-    } else if (index > 2 && index <= 5) {
-      blocos[1].appendChild(card);
-      blocos[1].classList.add('inativo');
-      pessoas.appendChild(blocos[1]);
-    } else if (index > 5) {
-      blocos[2].appendChild(card);
-      blocos[2].classList.add('inativo');
-      pessoas.appendChild(blocos[2]);
-    }
-  }
-  clientes.forEach((item, index) => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.classList.add('ativo');
-
-    const perfil = document.createElement('div');
-    perfil.classList.add('perfil');
-
-    const imagem = document.createElement('img');
-    imagem.src = item.foto;
-
-    const informacoes = document.createElement('div');
-    informacoes.classList.add('informacoes');
-
-    const estrelas = document.createElement('div');
-    estrelas.classList.add('estrelas');
-
-    for (var i = 0; i <= 4; i++) {
-      if (i < item.estrelas) {
-        const estrelaCheia = document.createElement('img');
-        estrelaCheia.src = 'img/star (1).svg';
-        estrelas.appendChild(estrelaCheia);
-      } else {
-        const estrelaVazia = document.createElement('img');
-        estrelaVazia.src = 'img/star.svg';
-        estrelas.appendChild(estrelaVazia);
+        pessoas.appendChild(bloco);
       }
-    }
 
-    const nome = document.createElement('h3');
-    nome.appendChild(document.createTextNode(item.nome));
+      //criar botoes de paginação
+      for (let i = 0; i <= paginas; i++) {
+        if (i === 0) {
+          const paginacao = document.createElement('a');
 
-    const descricao = document.createElement('div');
-    descricao.classList.add('descricao');
-    descricao.appendChild(document.createTextNode(item.descricao));
+          botoes.appendChild(paginacao);
+          paginacao.classList.add('ativo');
+        } else {
+          const paginacao = document.createElement('a');
 
-    const span = document.createElement('span');
-
-    span.appendChild(
-      document.createTextNode(
-        'Vestido Preto One: Gola ' +
-          item.compra.decote +
-          ', Manga ' +
-          item.compra.botoesManga +
-          ', ' +
-          item.compra.botoesComprimento +
-          ', tamanho ' +
-          item.compra.tamanho
-      )
-    );
-
-    informacoes.appendChild(estrelas);
-    informacoes.appendChild(nome);
-    informacoes.appendChild(span);
-
-    perfil.appendChild(imagem);
-    perfil.appendChild(informacoes);
-
-    card.appendChild(perfil);
-    card.appendChild(descricao);
-
-    pessoas.appendChild(card);
-
-    inserirEmBlocos(card, index);
-  });
-
-  //botao de navegação
-  document.querySelectorAll('.nav a').forEach((item, index) => {
-    item.addEventListener('click', () => {
-      document.querySelectorAll('.nav a').forEach((item) => {
-        item.classList.remove('ativo');
-      });
-      item.classList.add('ativo');
+          botoes.appendChild(paginacao);
+          paginacao.classList.add('inativo');
+        }
+      }
       const blocos = document.querySelectorAll('.bloco');
-      blocos.forEach((item) => {
-        item.classList.remove('ativo');
-        item.classList.add('inativo');
+
+      function inserirEmBlocos(card, index) {
+        if (index <= 2) {
+          blocos[0].appendChild(card);
+          blocos[0].classList.add('ativo');
+          pessoas.appendChild(blocos[0]);
+        } else if (index > 2 && index <= 5) {
+          blocos[1].appendChild(card);
+          blocos[1].classList.add('inativo');
+          pessoas.appendChild(blocos[1]);
+        } else if (index > 5) {
+          blocos[2].appendChild(card);
+          blocos[2].classList.add('inativo');
+          pessoas.appendChild(blocos[2]);
+        }
+      }
+      clientes.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('ativo');
+
+        const perfil = document.createElement('div');
+        perfil.classList.add('perfil');
+
+        const imagem = document.createElement('img');
+        imagem.src = item.foto;
+
+        const informacoes = document.createElement('div');
+        informacoes.classList.add('informacoes');
+
+        const estrelas = document.createElement('div');
+        estrelas.classList.add('estrelas');
+
+        for (var i = 0; i <= 4; i++) {
+          if (i < item.estrelas) {
+            const estrelaCheia = document.createElement('img');
+            estrelaCheia.src = 'img/star (1).svg';
+            estrelas.appendChild(estrelaCheia);
+          } else {
+            const estrelaVazia = document.createElement('img');
+            estrelaVazia.src = 'img/star.svg';
+            estrelas.appendChild(estrelaVazia);
+          }
+        }
+
+        const nome = document.createElement('h3');
+        nome.appendChild(document.createTextNode(item.nome));
+
+        const descricao = document.createElement('div');
+        descricao.classList.add('descricao');
+        descricao.appendChild(document.createTextNode(item.descricao));
+
+        const span = document.createElement('span');
+
+        span.appendChild(
+          document.createTextNode(
+            'Vestido Preto One: Gola ' +
+              item.compra.decote +
+              ', Manga ' +
+              item.compra.botoesManga +
+              ', ' +
+              item.compra.botoesComprimento +
+              ', tamanho ' +
+              item.compra.tamanho
+          )
+        );
+
+        informacoes.appendChild(estrelas);
+        informacoes.appendChild(nome);
+        informacoes.appendChild(span);
+
+        perfil.appendChild(imagem);
+        perfil.appendChild(informacoes);
+
+        card.appendChild(perfil);
+        card.appendChild(descricao);
+
+        pessoas.appendChild(card);
+
+        inserirEmBlocos(card, index);
       });
 
-      blocos[index].classList.add('ativo');
-      blocos[index].classList.remove('inativo');
+      //botao de navegação
+      document.querySelectorAll('.nav a').forEach((item, index) => {
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.nav a').forEach((item) => {
+            item.classList.remove('ativo');
+          });
+          item.classList.add('ativo');
+          const blocos = document.querySelectorAll('.bloco');
+          blocos.forEach((item) => {
+            item.classList.remove('ativo');
+            item.classList.add('inativo');
+          });
+
+          blocos[index].classList.add('ativo');
+          blocos[index].classList.remove('inativo');
+        });
+      });
+    } else if (largura > 897 && largura < 1350) {
+      const paginas = Math.trunc(clientes.length / 3 - 1) + 2;
+
+      //criar blocos
+      for (let i = 0; i <= paginas; i++) {
+        const bloco = document.createElement('div');
+        bloco.classList.add('bloco');
+
+        pessoas.appendChild(bloco);
+      }
+
+      //criar botoes de paginação
+      for (let i = 0; i <= paginas; i++) {
+        if (i === 0) {
+          const paginacao = document.createElement('a');
+
+          botoes.appendChild(paginacao);
+          paginacao.classList.add('ativo');
+        } else {
+          const paginacao = document.createElement('a');
+
+          botoes.appendChild(paginacao);
+          paginacao.classList.add('inativo');
+        }
+      }
+      const blocos = document.querySelectorAll('.bloco');
+
+      function inserirEmBlocos(card, index) {
+        if (index <= 1) {
+          blocos[0].appendChild(card);
+          blocos[0].classList.add('ativo');
+          pessoas.appendChild(blocos[0]);
+        } else if (index > 1 && index <= 3) {
+          blocos[1].appendChild(card);
+          blocos[1].classList.add('inativo');
+          pessoas.appendChild(blocos[1]);
+        } else if (index > 3 && index <= 5) {
+          blocos[2].appendChild(card);
+          blocos[2].classList.add('inativo');
+          pessoas.appendChild(blocos[2]);
+        } else if (index > 5) {
+          blocos[3].appendChild(card);
+          blocos[3].classList.add('inativo');
+          pessoas.appendChild(blocos[3]);
+        }
+      }
+      clientes.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('ativo');
+
+        const perfil = document.createElement('div');
+        perfil.classList.add('perfil');
+
+        const imagem = document.createElement('img');
+        imagem.src = item.foto;
+
+        const informacoes = document.createElement('div');
+        informacoes.classList.add('informacoes');
+
+        const estrelas = document.createElement('div');
+        estrelas.classList.add('estrelas');
+
+        for (var i = 0; i <= 4; i++) {
+          if (i < item.estrelas) {
+            const estrelaCheia = document.createElement('img');
+            estrelaCheia.src = 'img/star (1).svg';
+            estrelas.appendChild(estrelaCheia);
+          } else {
+            const estrelaVazia = document.createElement('img');
+            estrelaVazia.src = 'img/star.svg';
+            estrelas.appendChild(estrelaVazia);
+          }
+        }
+
+        const nome = document.createElement('h3');
+        nome.appendChild(document.createTextNode(item.nome));
+
+        const descricao = document.createElement('div');
+        descricao.classList.add('descricao');
+        descricao.appendChild(document.createTextNode(item.descricao));
+
+        const span = document.createElement('span');
+
+        span.appendChild(
+          document.createTextNode(
+            'Vestido Preto One: Gola ' +
+              item.compra.decote +
+              ', Manga ' +
+              item.compra.botoesManga +
+              ', ' +
+              item.compra.botoesComprimento +
+              ', tamanho ' +
+              item.compra.tamanho
+          )
+        );
+
+        informacoes.appendChild(estrelas);
+        informacoes.appendChild(nome);
+        informacoes.appendChild(span);
+
+        perfil.appendChild(imagem);
+        perfil.appendChild(informacoes);
+
+        card.appendChild(perfil);
+        card.appendChild(descricao);
+
+        pessoas.appendChild(card);
+
+        inserirEmBlocos(card, index);
+      });
+
+      //botao de navegação
+      document.querySelectorAll('.nav a').forEach((item, index) => {
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.nav a').forEach((item) => {
+            item.classList.remove('ativo');
+          });
+          item.classList.add('ativo');
+          const blocos = document.querySelectorAll('.bloco');
+          blocos.forEach((item) => {
+            item.classList.remove('ativo');
+            item.classList.add('inativo');
+          });
+
+          blocos[index].classList.add('ativo');
+          blocos[index].classList.remove('inativo');
+        });
+      });
+    } else {
+      const paginas = 7;
+
+      //criar blocos
+      for (let i = 0; i <= paginas; i++) {
+        const bloco = document.createElement('div');
+        bloco.classList.add('bloco');
+
+        pessoas.appendChild(bloco);
+      }
+
+      //criar botoes de paginação
+      for (let i = 0; i <= paginas; i++) {
+        if (i === 0) {
+          const paginacao = document.createElement('a');
+
+          botoes.appendChild(paginacao);
+          paginacao.classList.add('ativo');
+        } else {
+          const paginacao = document.createElement('a');
+
+          botoes.appendChild(paginacao);
+          paginacao.classList.add('inativo');
+        }
+      }
+      const blocos = document.querySelectorAll('.bloco');
+
+      function inserirEmBlocos(card, index) {
+        if (index === 0) {
+          blocos[0].appendChild(card);
+          blocos[0].classList.add('ativo');
+          pessoas.appendChild(blocos[0]);
+        } else if (index === 1) {
+          blocos[1].appendChild(card);
+          blocos[1].classList.add('inativo');
+          pessoas.appendChild(blocos[1]);
+        } else if (index === 2) {
+          blocos[2].appendChild(card);
+          blocos[2].classList.add('inativo');
+          pessoas.appendChild(blocos[2]);
+        } else if (index === 3) {
+          blocos[3].appendChild(card);
+          blocos[3].classList.add('inativo');
+          pessoas.appendChild(blocos[3]);
+        } else if (index === 4) {
+          blocos[4].appendChild(card);
+          blocos[4].classList.add('inativo');
+          pessoas.appendChild(blocos[4]);
+        } else if (index === 5) {
+          blocos[5].appendChild(card);
+          blocos[5].classList.add('inativo');
+          pessoas.appendChild(blocos[5]);
+        } else if (index === 6) {
+          blocos[6].appendChild(card);
+          blocos[6].classList.add('inativo');
+          pessoas.appendChild(blocos[6]);
+        } else if (index === 7) {
+          blocos[7].appendChild(card);
+          blocos[7].classList.add('inativo');
+          pessoas.appendChild(blocos[7]);
+        }
+      }
+      clientes.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('ativo');
+
+        const perfil = document.createElement('div');
+        perfil.classList.add('perfil');
+
+        const imagem = document.createElement('img');
+        imagem.src = item.foto;
+
+        const informacoes = document.createElement('div');
+        informacoes.classList.add('informacoes');
+
+        const estrelas = document.createElement('div');
+        estrelas.classList.add('estrelas');
+
+        for (var i = 0; i <= 4; i++) {
+          if (i < item.estrelas) {
+            const estrelaCheia = document.createElement('img');
+            estrelaCheia.src = 'img/star (1).svg';
+            estrelas.appendChild(estrelaCheia);
+          } else {
+            const estrelaVazia = document.createElement('img');
+            estrelaVazia.src = 'img/star.svg';
+            estrelas.appendChild(estrelaVazia);
+          }
+        }
+
+        const nome = document.createElement('h3');
+        nome.appendChild(document.createTextNode(item.nome));
+
+        const descricao = document.createElement('div');
+        descricao.classList.add('descricao');
+        descricao.appendChild(document.createTextNode(item.descricao));
+
+        const span = document.createElement('span');
+
+        span.appendChild(
+          document.createTextNode(
+            'Vestido Preto One: Gola ' +
+              item.compra.decote +
+              ', Manga ' +
+              item.compra.botoesManga +
+              ', ' +
+              item.compra.botoesComprimento +
+              ', tamanho ' +
+              item.compra.tamanho
+          )
+        );
+
+        informacoes.appendChild(estrelas);
+        informacoes.appendChild(nome);
+        informacoes.appendChild(span);
+
+        perfil.appendChild(imagem);
+        perfil.appendChild(informacoes);
+
+        card.appendChild(perfil);
+        card.appendChild(descricao);
+
+        pessoas.appendChild(card);
+
+        inserirEmBlocos(card, index);
+      });
+
+      //botao de navegação
+      document.querySelectorAll('.nav a').forEach((item, index) => {
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.nav a').forEach((item) => {
+            item.classList.remove('ativo');
+          });
+          item.classList.add('ativo');
+          const blocos = document.querySelectorAll('.bloco');
+          blocos.forEach((item) => {
+            item.classList.remove('ativo');
+            item.classList.add('inativo');
+          });
+
+          blocos[index].classList.add('ativo');
+          blocos[index].classList.remove('inativo');
+        });
+      });
+    }
+  }
+
+  function limpar() {
+    const pessoas = document.querySelector('.pessoas');
+    const divBlocos = document.querySelectorAll('.bloco');
+    const nav = document.querySelector('.avaliacoes .nav');
+    const a = nav.querySelectorAll('a');
+    divBlocos.forEach((item) => {
+      // console.log(item);
+      pessoas.removeChild(item);
     });
+    a.forEach((item) => {
+      nav.removeChild(item);
+    });
+    // pessoas.removeChild(divBlocos);
+  }
+  window.addEventListener('resize', () => {
+    limpar();
+    render();
   });
+  render();
 }

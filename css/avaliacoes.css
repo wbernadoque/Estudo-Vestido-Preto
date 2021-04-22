@@ -130,7 +130,7 @@
 .avaliacoes .nav {
   display: flex;
   flex-direction: row;
-  width: 93px;
+  /* width: 93px; */
   justify-content: space-between;
 }
 .avaliacoes .nav a {

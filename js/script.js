@@ -5,6 +5,7 @@ import cards from './modules/cards.js';
 import verificarLogin from './modules/validacaoAcesso.js';
 import simulandoCEP from './modules/simulandoCEP.js';
 import faleConoscoValidacao from './modules/fale-conosco-validacoes.js';
+import selos from './modules/selos.js';
 
 galeriaDeFotos();
 botoesSelecao();
@@ -13,3 +14,4 @@ cards();
 verificarLogin();
 simulandoCEP();
 faleConoscoValidacao();
+selos();

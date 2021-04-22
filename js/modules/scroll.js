@@ -1,5 +1,6 @@
 export default function scroll() {
   const linksInternos = document.querySelectorAll('.menu a[href^="#');
+  const botaoComprar = document.querySelectorAll('.banner a[href^="#');
 
   function scrollToSection(event) {
     event.preventDefault();
@@ -12,6 +13,9 @@ export default function scroll() {
     });
   }
   linksInternos.forEach((link) => {
+    link.addEventListener('click', scrollToSection);
+  });
+  botaoComprar.forEach((link) => {
     link.addEventListener('click', scrollToSection);
   });
 }

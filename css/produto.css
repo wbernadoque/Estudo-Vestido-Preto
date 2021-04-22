@@ -299,17 +299,19 @@ h3 {
 @media (max-width: 768px) {
   #produto {
     display: flex;
+    width: 100vw;
     background-color: white;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+
+    align-items: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
-
-    padding-top: 0px;
+    padding: 0px;
+    /* padding-top: 0px; */
   }
   #produto .info {
     display: flex;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
@@ -395,6 +397,8 @@ h3 {
   #produto .botao {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
   #produto .botao img {
     margin-bottom: 5px;
