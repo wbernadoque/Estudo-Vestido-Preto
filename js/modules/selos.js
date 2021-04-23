@@ -2,30 +2,30 @@ export default function selos() {
   function render() {
     const largura = window.innerWidth;
     const selos = document.querySelectorAll('div.selo');
-    const navSelos = document.querySelector('.nav-selos');
 
     if (largura < 846 && largura > 614) {
       selos.forEach((item, index) => {
-        const a = document.createElement('a');
         if (index <= 1) {
           item.classList.add('ativo');
         } else {
           item.classList.remove('ativo');
         }
-        // if (index === 1) {
-        //   a.classList.add('ativo');
-        //   navSelos.appendChild(a);
-        // } else if (index === 3) {
-        //   a.classList.add('inativo');
-        //   navSelos.appendChild(a);
-        // }
       });
       botoesNav(2);
     } else if (largura >= 846) {
-      selos.forEach((item) => {
+      selos.forEach((item, index) => {
         item.classList.add('ativo');
       });
       botoesNav(1);
+    } else if (largura <= 416) {
+      selos.forEach((item, index) => {
+        if (index === 0) {
+          item.classList.add('ativo');
+        } else {
+          item.classList.remove('ativo');
+        }
+      });
+      botoesNav(4);
     }
   }
 
@@ -35,7 +35,7 @@ export default function selos() {
     botoes.forEach((item) => {
       navSelos.removeChild(item);
     });
-    console.log(bolinhas);
+
     if (bolinhas === 1) {
       const a = document.createElement('a');
       a.classList.add('ativo');
@@ -48,10 +48,109 @@ export default function selos() {
           navSelos.appendChild(a);
         } else {
           a.classList.add('inativo');
+
+          navSelos.appendChild(a);
+        }
+      }
+    } else if (bolinhas === 4) {
+      for (var i = 0; i <= bolinhas - 1; i++) {
+        const a = document.createElement('a');
+        if (i == 0) {
+          a.classList.add('ativo');
+          navSelos.appendChild(a);
+        } else {
+          a.classList.add('inativo');
           navSelos.appendChild(a);
         }
       }
     }
+    eventoBotao();
+  }
+  function eventoBotao() {
+    const botoes = document.querySelectorAll('.nav-selos a');
+    const selos = document.querySelectorAll('.selos .selo');
+
+    console.log(botoes.length);
+    botoes.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        botoes.forEach((item) => {
+          item.classList.add('inativo');
+          item.classList.remove('ativo');
+        });
+        // if(botoes.length)
+
+        item.classList.add('ativo');
+        item.classList.remove('inativo');
+
+        if (botoes.length === 2) {
+          if (index === 0) {
+            console.log('exibir dois primeiros selos');
+            selos.forEach((item, index) => {
+              console.log(index);
+              if (index <= 1) {
+                console.log('passei aqui');
+                item.classList.add('ativo');
+              } else {
+                item.classList.remove('ativo');
+              }
+            });
+          } else {
+            console.log('exibir dois ultimos selos');
+            selos.forEach((item, index) => {
+              if (index > 1) {
+                console.log('passei aqui');
+                item.classList.add('ativo');
+              } else {
+                item.classList.remove('ativo');
+              }
+            });
+          }
+        } else if (botoes.length === 4) {
+          if (index === 0) {
+            console.log('exibir primeiro');
+            selos.forEach((item, index) => {
+              console.log(index);
+              if (index === 0) {
+                console.log('passei aqui');
+                item.classList.add('ativo');
+              } else {
+                item.classList.remove('ativo');
+              }
+            });
+          } else if (index === 1) {
+            console.log('exibir segundo');
+            selos.forEach((item, index) => {
+              if (index === 1) {
+                console.log('passei aqui');
+                item.classList.add('ativo');
+              } else {
+                item.classList.remove('ativo');
+              }
+            });
+          } else if (index === 2) {
+            console.log('exibir segundo');
+            selos.forEach((item, index) => {
+              if (index === 2) {
+                console.log('passei aqui');
+                item.classList.add('ativo');
+              } else {
+                item.classList.remove('ativo');
+              }
+            });
+          } else if (index === 3) {
+            console.log('exibir segundo');
+            selos.forEach((item, index) => {
+              if (index === 3) {
+                console.log('passei aqui');
+                item.classList.add('ativo');
+              } else {
+                item.classList.remove('ativo');
+              }
+            });
+          }
+        }
+      });
+    });
   }
   window.addEventListener('resize', () => {
     render();

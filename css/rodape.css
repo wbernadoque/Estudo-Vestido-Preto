@@ -32,9 +32,7 @@ footer {
   justify-content: center;
   flex-wrap: wrap;
 }
-.rodape .parte li {
-  margin: 0 0 0 0;
-}
+
 .rodape .parte1 ul li a {
   font-family: Source Sans Pro;
   font-size: 16px;
@@ -65,6 +63,9 @@ footer {
   max-height: 54px;
   margin-right: 6%;
 }
+.rodape {
+  width: 100%;
+}
 @media (max-width: 768px) {
   footer {
     background-color: #031924;
@@ -74,6 +75,23 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .rodape .parte1 li {
+    margin: 0 9px 0 9px;
+  }
+  .rodape .parte1 ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: none;
+    padding: 0;
+  }
+  .rodape .parte1 ul li a {
+    font-size: 12px;
+  }
+  .rodape .parte1 img {
+    max-width: 124px;
+    max-height: 75px;
+    margin-left: 0%;
   }
   .rodape .parte1 {
     display: flex;
@@ -104,8 +122,13 @@ footer {
     margin-bottom: 14px;
   }
   .rodape .parte2 img {
-    max-width: 127px;
-    max-height: 54px;
+    max-width: 102px;
+    max-height: 43px;
+    margin-right: 0%;
+  }
+  .rodape .parte1 img.selo {
+    max-width: 73pc;
+    max-height: 49px;
     margin-right: 0%;
   }
 }

@@ -126,20 +126,35 @@
   color: red;
   margin-top: -13px;
 }
+.quem-somos .contatos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  margin-left: 27px;
+}
 
 @media (max-width: 768px) {
   #quem-somos {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 128px;
+    padding-top: 57px;
     flex-wrap: wrap;
   }
   .quem-somos {
+    margin-bottom: 57px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding-left: 10px;
     max-width: 537px;
+  }
+  .quem-somos .contatos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
   }
   .quem-somos img {
     width: 19px;
@@ -150,7 +165,7 @@
 
     text-transform: uppercase;
     font-family: Noto Serif;
-    font-size: 38px;
+    font-size: 26px;
   }
   .quem-somos p {
     font-family: Source Sans Pro;
@@ -195,7 +210,7 @@
     margin-top: 0;
     text-transform: uppercase;
     font-family: Noto Serif;
-    font-size: 38px;
+    font-size: 26px;
   }
   .fale-conosco form.contato {
     display: flex;
