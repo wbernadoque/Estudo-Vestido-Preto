@@ -70,7 +70,6 @@ export default function selos() {
     const botoes = document.querySelectorAll('.nav-selos a');
     const selos = document.querySelectorAll('.selos .selo');
 
-    console.log(botoes.length);
     botoes.forEach((item, index) => {
       item.addEventListener('click', () => {
         botoes.forEach((item) => {

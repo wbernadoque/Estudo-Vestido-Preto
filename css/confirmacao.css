@@ -1,36 +1,37 @@
-.pagamento-container {
+.pag-container {
   display: flex;
-
+  margin-top: 99px;
   flex-direction: row;
+  justify-content: center;
 }
-.pagamento-container h1 {
+.pag-container h1 {
   margin: 0px;
   margin-bottom: 9px;
 }
-.pagamento-container .pedido {
+.pag-container .pedido {
   width: 630px;
 }
-.pagamento-container .pedido h1 {
+.pag-container .pedido h1 {
   font-size: 23px;
 
   color: #184db8;
 }
 
-.pagamento-container .numero-pedido {
+.pag-container .numero-pedido {
   margin-top: 27px;
 }
 
-.pagamento-container .numero-pedido h1 {
+.pag-container .numero-pedido h1 {
   color: black;
   font-size: 23px;
   margin-bottom: 0;
 }
-.pagamento-container .numero-pedido h1 span {
+.pag-container .numero-pedido h1 span {
   font-size: 23px;
   color: #f56311;
   font-weight: 600;
 }
-.pagamento-container .numero-pedido span {
+.pag-container .numero-pedido span {
   color: #616161;
   font-family: Source Sans Pro;
   font-style: normal;
@@ -38,27 +39,27 @@
   font-size: 14px;
   line-height: 18px;
 }
-.pagamento-container .codigo-boleto {
+.pag-container .codigo-boleto {
   margin-top: 41px;
   border: 1px solid #f2f2f2;
   border-radius: 14px;
 
   padding-bottom: 18px;
 }
-.pagamento-container .codigo-boleto.desativado {
+.pag-container .codigo-boleto.desativado {
   display: none;
 }
-.pagamento-container .boleto-impresso.desativado {
+.pag-container .boleto-impresso.desativado {
   display: none;
 }
-.pagamento-container .pedido .codigo-boleto h2 {
+.pag-container .pedido .codigo-boleto h2 {
   margin-left: 0px;
   font-size: 20px;
   text-transform: none;
   border-bottom: 1px solid #f2f2f2;
   padding-left: 18px;
 }
-.pagamento-container .pedido .codigo-boleto span {
+.pag-container .pedido .codigo-boleto span {
   color: #616161;
   font-size: 16px;
   font-weight: normal;

@@ -489,7 +489,7 @@ h3 {
     flex-wrap: wrap;
     border: 1px solid #f2f2f2;
     padding-left: 0;
-    width: 342px;
+    width: 80%;
   }
   .infos img {
     max-width: 60.23px;
@@ -504,8 +504,8 @@ h3 {
     align-items: center;
     justify-content: space-between;
     border: 1px solid #f2f2f2;
-    width: 342px;
-    max-width: 342px;
+    /* width: 342px;
+    max-width: 342px; */
   }
   .modelo-veste span {
     margin-right: 20px;
@@ -527,7 +527,7 @@ h3 {
     margin-top: 43px;
     margin-bottom: 27px;
     justify-content: space-between;
-    max-width: 320px;
+    width: 100%;
     align-items: center;
     flex-wrap: wrap;
   }

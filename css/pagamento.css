@@ -4,12 +4,15 @@ input[type='radio']:checked {
 
 .pagamento-container {
   display: flex;
-  margin-top: 161px;
+  margin-top: 99px;
   justify-content: space-around;
+
   font-family: Source Sans Pro;
   flex-wrap: wrap;
 }
-
+.pagamento {
+  width: 40vw;
+}
 .pagamento-container h2 {
   font-family: Source Sans Pro;
   font-style: normal;
@@ -118,16 +121,19 @@ input[type='radio']:checked {
   flex-direction: column;
   border: 1px solid #f2f2f2;
   border-radius: 14px;
-  width: 469px;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .pagamento .container-tipo {
   display: flex;
   flex-direction: row;
   padding-left: 21px;
+  padding-right: 21px;
   padding-top: 23px;
   padding-bottom: 25px;
   border-top: 1px solid #f2f2f2;
+  /* width: 100%; */
 }
 .cartao {
   border: 1px solid #f2f2f2;
@@ -166,6 +172,7 @@ form.dados-cartoes {
   padding-left: 25px;
   padding-bottom: 26px;
   margin-top: 27px;
+  width: 100%;
 }
 form.dados-cartoes label {
   color: #616161;
@@ -175,47 +182,54 @@ form.dados-cartoes label {
   font-weight: 400;
 }
 form.dados-cartoes input {
-  width: 40%;
+  /* width: 40%; */
   height: 42.46px;
   background: #ffffff;
   border: 0.83px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 5px;
-  margin-right: 8px;
-  width: 420px;
+  /* margin-right: 8px; */
+  width: 90%;
   margin-bottom: 15px;
   margin-top: 6px;
 }
 form.dados-cartoes select {
-  width: 40%;
+  width: 90%;
   height: 42.46px;
   background: #ffffff;
   border: 0.83px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 5px;
   margin-right: 8px;
-  width: 420px;
+
   margin-bottom: 15px;
   margin-top: 6px;
 }
+.val-cvv .val {
+  width: 100%;
+}
+.val-cvv .cvv {
+  width: 100%;
+}
 form.dados-cartoes .val-cvv {
   display: flex;
-  width: 420px;
+  width: 90%;
 }
 form.dados-cartoes .val-cvv .val input {
-  width: 210px;
+  width: 90%;
 }
 form.dados-cartoes .val-cvv .cvv input {
-  width: 180px;
+  width: 100%;
 }
 form.dados-cartoes .val-cvv .cvv {
-  margin-left: 22px;
+  /* margin-left: 22px; */
+  width: 100%;
 }
 form.dados-cartoes a.cartao.desabilitado {
   background-color: #c0c0c0;
   display: flex;
   border-radius: 25px;
-  width: 421px;
+  width: 90%;
   height: 51px;
   font-family: Source Sans Pro;
   color: #ffffff;
@@ -225,6 +239,7 @@ form.dados-cartoes a.cartao.desabilitado {
   font-weight: 500;
   margin-top: 35px;
   align-items: center;
+  text-align: center;
   justify-content: center;
   text-decoration: none;
 }
@@ -232,16 +247,18 @@ form.dados-cartoes a.cartao {
   background-color: #2067f5;
   display: flex;
   border-radius: 25px;
-  width: 421px;
+  width: 90%;
   height: 51px;
   font-family: Source Sans Pro;
   color: #ffffff;
   font-size: 19px;
+  align-items: center;
   font-style: normal;
   line-height: 24px;
   font-weight: 500;
   margin-top: 35px;
-  align-items: center;
+
+  text-align: center;
   justify-content: center;
   text-decoration: none;
 }
@@ -249,14 +266,15 @@ form.dados-cartoes span {
   color: red;
   margin-top: -13px;
 }
+
 .boleto {
   display: flex;
   flex-direction: column;
 
   border: 1px solid #f2f2f2;
   border-radius: 14px;
-  width: 469px;
-  margin-right: 23px;
+  width: 100%;
+
   margin-top: 30px;
 
   justify-content: center;
@@ -285,7 +303,7 @@ form.dados-cartoes span {
   align-items: center;
   border: none;
   border-radius: 25px;
-  width: 421px;
+  width: 90%;
   height: 51px;
   font-family: Source Sans Pro;
   color: #ffffff;
@@ -296,8 +314,13 @@ form.dados-cartoes span {
   text-decoration: none;
   margin-left: 21px;
   margin-bottom: 21px;
+  text-align: center;
 }
-
+.resumo {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+}
 .resumo .container-endereco {
   background-color: #fafafa;
   display: flex;
@@ -306,7 +329,7 @@ form.dados-cartoes span {
   flex-direction: column;
   padding-left: 21px;
   padding-bottom: 21px;
-  width: 437px;
+  width: 100%;
   margin-bottom: 17px;
 }
 .resumo h2 {
@@ -364,10 +387,10 @@ form.dados-cartoes span {
   height: 50px;
 }
 .items {
-  max-width: 462px;
+  width: 100%;
   background-color: #fafafa;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 1px solid #fafafa;
   border-radius: 14px;
   flex-direction: row;
@@ -398,7 +421,7 @@ form.dados-cartoes span {
   align-items: center;
 }
 .frete.ativo {
-  max-width: 462px;
+  width: 100%;
   background-color: #fafafa;
   display: flex;
   justify-content: space-between;
@@ -438,7 +461,7 @@ form.dados-cartoes span {
   color: #212121;
 }
 .total {
-  max-width: 462px;
+  width: 100%;
   background-color: #fafafa;
   display: flex;
   justify-content: space-between;
@@ -464,7 +487,7 @@ form.dados-cartoes span {
   color: #2067f5;
 }
 .desconto {
-  max-width: 462px;
+  width: 100%;
   background-color: #fafafa;
   display: flex;
   justify-content: space-between;
@@ -483,4 +506,160 @@ form.dados-cartoes span {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+}
+.resumo .container-endereco-mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .pagamento-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+  }
+  .pagamento {
+    width: 90%;
+  }
+  .resumo {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  .pagamento-container h1 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    padding-left: 17px;
+  }
+  .items {
+    width: 90%;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #fafafa;
+    border-radius: 14px;
+    flex-direction: row;
+    padding: 21px;
+    font-size: 12px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 15px;
+    margin-bottom: 17px;
+  }
+  .desconto {
+    width: 90%;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #fafafa;
+    border-radius: 14px;
+    flex-direction: row;
+    padding: 21px;
+    font-size: 12px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 15px;
+    margin-bottom: 17px;
+  }
+  .frete.ativo {
+    width: 90%;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #fafafa;
+    border-radius: 14px;
+    flex-direction: row;
+    padding: 21px;
+    font-size: 12px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 15px;
+    margin-bottom: 17px;
+  }
+  .total {
+    width: 90%;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #fafafa;
+    border-radius: 14px;
+    flex-direction: row;
+    padding: 21px;
+    font-size: 12px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 15px;
+    margin-bottom: 17px;
+  }
+  .pagamento .escolha-frete {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f2f2f2;
+    border-radius: 14px;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  form.dados-cartoes {
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+    padding-bottom: 26px;
+    margin-top: 27px;
+    width: 90%;
+  }
+  .resumo .container-endereco {
+    display: none;
+  }
+  .resumo .container-endereco-mobile {
+    background-color: #ffffff;
+    display: flex;
+    border: 1px solid #f2f2f2;
+    border-radius: 14px;
+    flex-direction: column;
+    padding-left: 21px;
+    padding-bottom: 21px;
+    width: 100%;
+    margin-bottom: 17px;
+  }
+  .resumo .container-endereco-mobile .endereco {
+    display: flex;
+    flex-direction: column;
+    margin-top: 9px;
+  }
+  .resumo .container-endereco-mobile .endereco span {
+    color: #616161;
+    font-family: Source Sans Pro;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 15px;
+  }
+  .resumo .container-endereco-mobile .endereco h3 {
+    font-size: 16px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 9px;
+  }
+  .resumo .container-endereco-mobile .alterar-endereco {
+    border: 1px solid #f56311;
+    color: #f56311;
+    box-sizing: border-box;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 45px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 34px;
+  }
 }
