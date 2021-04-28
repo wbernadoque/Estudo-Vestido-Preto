@@ -18,7 +18,15 @@ const botaoBoleto = boleto.querySelector('.boleto a');
 const itemsComprados = JSON.parse(localStorage.getItem('item'));
 const desconto = +localStorage.getItem('desconto');
 const resumo = document.querySelector('.resumo');
+const tamanho = window.innerWidth;
+const listaAccordion = document.querySelector('.menu-accordion');
 const freteInserido = document.querySelector('.resumo .frete');
+const botaoContinuar = document.querySelector('.botao-continuar');
+const inputCartao = document.querySelector('.cartao .titulo');
+const inputBoleto = document.querySelector('.boleto .titulo');
+let pagCartao = inputCartao;
+let pagBoleto = inputBoleto;
+
 let nome = '';
 let numero = '';
 let validade = '';
@@ -487,23 +495,271 @@ botaoCompra.addEventListener('click', (event) => {
     const formVal = document.querySelector('.invalido-v');
     const formCvv = document.querySelector('.invalido-c');
 
-    if (form === null && formVal === null && formCvv === null) {
+    if (
+      form === null &&
+      formVal === null &&
+      formCvv === null &&
+      window.innerWidth > 768
+    ) {
       localStorage.setItem('pagamento', JSON.stringify(formaPag));
       window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+    }
+
+    //mostrar resumo
+    if (
+      form === null &&
+      formVal === null &&
+      formCvv === null &&
+      window.innerWidth <= 768
+    ) {
+      const pagamento = document.querySelector('.pagamento');
+      const resumo = document.querySelector('.resumo');
+      const menu = document.querySelector('.menu-accordion');
+      const items = document.querySelector('.items');
+      const desconto = document.querySelector('.desconto');
+      const frete = document.querySelector('.frete');
+      const total = document.querySelector('.total');
+      const container = document.querySelector('.container-endereco-mobile');
+      pagamento.classList.add('oculto');
+      resumo.classList.remove('oculto');
+      menu.classList.remove('oculto');
+      items.classList.remove('oculto');
+      desconto.classList.remove('oculto');
+      frete.classList.remove('oculto');
+      total.classList.remove('oculto');
+      container.classList.remove('oculto');
+      console.log('cheguei');
     }
   } else {
   }
 });
 
 //botao do boleto
-botaoBoleto.addEventListener('click', () => {
+botaoBoleto.addEventListener('click', (event) => {
+  event.preventDefault();
   localStorage.setItem('pagamento', 'Boleto');
+  if (window.innerWidth > 768) {
+    window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+  }
+  if (
+    form === null &&
+    formVal === null &&
+    formCvv === null &&
+    window.innerWidth <= 768
+  ) {
+    const pagamento = document.querySelector('.pagamento');
+    const resumo = document.querySelector('.resumo');
+    const menu = document.querySelector('.menu-accordion');
+    const items = document.querySelector('.items');
+    const desconto = document.querySelector('.desconto');
+    const frete = document.querySelector('.frete');
+    const total = document.querySelector('.total');
+    const container = document.querySelector('.container-endereco-mobile');
+    pagamento.classList.add('oculto');
+    resumo.classList.remove('oculto');
+    menu.classList.remove('oculto');
+    items.classList.remove('oculto');
+    desconto.classList.remove('oculto');
+    frete.classList.remove('oculto');
+    total.classList.remove('oculto');
+    container.classList.remove('oculto');
+    console.log('cheguei');
+  }
 });
 
-//adicionar desconto
+//adicionar oculto desconto
+function verificandoTamanho() {
+  const desconto = document.querySelector('.desconto');
+  const items = document.querySelector('.items');
+  const frete = document.querySelector('.frete');
+  const total = document.querySelector('.total');
+  const tamanho = window.innerWidth;
+  const cartao = document.querySelector('.cartao');
+  const boleto = document.querySelector('.boleto');
+
+  if (tamanho <= 768) {
+    if (!desconto.classList.contains('oculto')) {
+      desconto.classList.add('oculto');
+    }
+    if (!items.classList.contains('oculto')) {
+      items.classList.add('oculto');
+    }
+    if (!frete.classList.contains('oculto')) {
+      frete.classList.add('oculto');
+    }
+    if (!total.classList.contains('oculto')) {
+      total.classList.add('oculto');
+    }
+    if (!cartao.classList.contains('oculto')) {
+      cartao.classList.add('oculto');
+    }
+    if (!boleto.classList.contains('oculto')) {
+      boleto.classList.add('oculto');
+    }
+  } else {
+    if (desconto.classList.contains('oculto')) {
+      desconto.classList.remove('oculto');
+    }
+    if (items.classList.contains('oculto')) {
+      items.classList.remove('oculto');
+    }
+    if (frete.classList.contains('oculto')) {
+      frete.classList.remove('oculto');
+    }
+    if (total.classList.contains('oculto')) {
+      total.classList.remove('oculto');
+    }
+    if (cartao.classList.contains('oculto')) {
+      cartao.classList.remove('oculto');
+    }
+    if (boleto.classList.contains('oculto')) {
+      boleto.classList.remove('oculto');
+    }
+  }
+}
+
+//lista accordion
+listaAccordion.addEventListener('click', () => {
+  const img = document.querySelector('.menu-accordion img');
+  const items = document.querySelector('.items');
+  const frete = document.querySelector('.frete');
+  const total = document.querySelector('.total');
+
+  img.classList.toggle('ativo');
+  items.classList.toggle('oculto');
+  frete.classList.toggle('oculto');
+  total.classList.toggle('oculto');
+});
+
+//evento de mudar tamanho da tela
+window.addEventListener('resize', () => {
+  verificandoTamanho();
+});
+
+//botao tipo de pagamento visualização
+
+//botao continuar
+botaoContinuar.addEventListener('click', () => {
+  const resumo = document.querySelector('.resumo');
+  const botao = document.querySelector('.continuar');
+  const escolhaFrete = document.querySelector('.escolha-frete');
+  const menu = document.querySelector('.menu-accordion');
+  const cartao = document.querySelector('.cartao');
+  const tituloCartao = document.querySelector('.cartao .titulo');
+
+  const tituloBoleto = document.querySelector('.boleto .titulo');
+  const boleto = document.querySelector('.boleto');
+  const items = document.querySelector('.items');
+  const frete = document.querySelector('.frete');
+  const total = document.querySelector('.total');
+  const pagamentoTitulo = document.querySelector('.pagamento h1');
+  const cartaoTitulo = document.querySelector('.cartao h2');
+  const boletoTitulo = document.querySelector('.boleto h2');
+  const enderecoMobile = document.querySelector('.container-endereco-mobile');
+
+  escolhaFrete.classList.add('oculto');
+  resumo.classList.add('oculto');
+  pagamentoTitulo.classList.add('oculto');
+  cartao.classList.remove('oculto');
+  boleto.classList.remove('oculto');
+  botao.classList.add('oculto');
+  menu.classList.add('oculto');
+  enderecoMobile.classList.add('oculto');
+
+  if (!items.classList.contains('oculto')) {
+    items.classList.add('oculto');
+  }
+  if (!frete.classList.contains('oculto')) {
+    frete.classList.add('oculto');
+  }
+  if (!total.classList.contains('oculto')) {
+    total.classList.add('oculto');
+  }
+
+  // const inputCartao = document.createElement('input');
+  // inputCartao.type = 'radio';
+  // inputCartao.value = 'cartao';
+  // const inputBoleto = document.createElement('input');
+  // inputBoleto.type = 'radio';
+  // inputBoleto.value = 'boleto';
+  // inputBoleto.checked = 1;
+
+  // tituloCartao.insertBefore(inputCartao, cartaoTitulo);
+  // tituloBoleto.insertBefore(inputBoleto, boletoTitulo);
+  // pagCartao = inputCartao;
+  // pagBoleto = inputBoleto;
+});
+
+pagCartao.addEventListener('click', () => {
+  const inputCartao = document.querySelector('.cartao .titulo input');
+  const tituloCartao = document.querySelector('.cartao .titulo');
+  const cartaoTitulo = document.querySelector('.cartao .titulo h2');
+  const inputBoleto = document.querySelector('.boleto .titulo input');
+  const titulo = document.querySelector('.boleto .titulo');
+  const boletoTitulo = document.querySelector('.boleto .titulo h2');
+  const inputBoletoNovo = document.createElement('input');
+  const spanBoleto = document.querySelector('.boleto span');
+  const aBoleto = document.querySelector('.boleto a');
+
+  const bandeiras = document.querySelector('.cartoes');
+  const form = document.querySelector('.dados-cartoes');
+  bandeiras.classList.remove('oculto');
+  form.classList.remove('oculto');
+
+  spanBoleto.classList.add('oculto');
+  aBoleto.classList.add('oculto');
+  inputBoletoNovo.type = 'radio';
+  inputBoletoNovo.value = 'boleto';
+  const inputCartaoNovo = document.createElement('input');
+  inputCartaoNovo.type = 'radio';
+  inputCartaoNovo.value = 'cartao';
+  inputCartaoNovo.checked = 1;
+
+  titulo.removeChild(inputBoleto);
+
+  titulo.insertBefore(inputBoletoNovo, boletoTitulo);
+
+  console.log(inputBoletoNovo);
+  tituloCartao.removeChild(inputCartao);
+  tituloCartao.insertBefore(inputCartaoNovo, cartaoTitulo);
+});
+
+pagBoleto.addEventListener('click', () => {
+  const inputCartao = document.querySelector('.cartao .titulo input');
+  const titulo = document.querySelector('.cartao .titulo');
+  const cartaoTitulo = document.querySelector('.cartao .titulo h2');
+  const inputBoleto = document.querySelector('.boleto .titulo input');
+  const tituloBoleto = document.querySelector('.boleto .titulo');
+  const boletoTitulo = document.querySelector('.boleto .titulo h2');
+  const inputBoletoNovo = document.createElement('input');
+  const spanBoleto = document.querySelector('.boleto span');
+  const aBoleto = document.querySelector('.boleto a');
+
+  const bandeiras = document.querySelector('.cartoes');
+  const form = document.querySelector('.dados-cartoes');
+  bandeiras.classList.add('oculto');
+  form.classList.add('oculto');
+
+  spanBoleto.classList.remove('oculto');
+  aBoleto.classList.remove('oculto');
+  inputBoletoNovo.type = 'radio';
+  inputBoletoNovo.value = 'boleto';
+  inputBoletoNovo.checked = 1;
+  const inputCartaoNovo = document.createElement('input');
+  inputCartaoNovo.type = 'radio';
+  inputCartaoNovo.value = 'cartao';
+
+  titulo.removeChild(inputCartao);
+
+  titulo.insertBefore(inputCartaoNovo, cartaoTitulo);
+
+  tituloBoleto.removeChild(inputBoleto);
+  tituloBoleto.insertBefore(inputBoletoNovo, boletoTitulo);
+});
 
 checked();
 itemsResumo();
 total();
 opcoes();
 inserirDesconto();
+verificandoTamanho();

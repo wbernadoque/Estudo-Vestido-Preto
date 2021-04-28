@@ -79,8 +79,11 @@
       </div>
 
       <div class="cartao">
-        <h2>Pagar com Cartão de Crédito</h2>
-        <div class="cartoes">
+        <div class="titulo">
+          <input type="radio" value="cartao">
+          <h2>Pagar com Cartão de Crédito</h2>
+        </div>
+        <div class="cartoes oculto">
           <a  class="box-cartao" id="mastercard">
             <img src="img/mastercard 1.png" alt="">
             <img src="img/select.png" id="select" class="ativo">
@@ -101,7 +104,7 @@
 
           </a>
         </div>
-        <form class="dados-cartoes">
+        <form class="dados-cartoes oculto">
           <label>Número do cartão</label>
           <input type="text" id="numero">
           <label>Nome impresso no cartão</label>
@@ -134,13 +137,26 @@
       </div>
 
       <div class="boleto">
-        <h2>Pagar com Boleto Bancário</h2>
+        <div class="titulo">
+          <input type="radio" value="boleto" checked>
+          <h2>Pagar com Boleto Bancário</h2>
+        </div>
         <span>Você poderá visualizar ou imprimir após a finalização do pedido. A data de vencimento é de 2 dias corridos após a conclusão do pedido. Após esta data, ele perderá a validade.</span>
-        <a href="http://127.0.0.1:5500/confirmacao.html">PAGAR COM BOLETO BANCÁRIO: R$ 154,99</a>
+        <a>PAGAR COM BOLETO BANCÁRIO: R$ 154,99</a>
       </div>
+<div class="botao-continuar">
+
+  <a class="continuar">
+    Continuar
+  </a>
+</div>
     </div>
     <div class="resumo">
-      <h1>RESUMO DA COMPRA</h1>
+      <div class="menu-accordion">
+
+        <h1>RESUMO DA COMPRA</h1>
+        <img src="./img/seta.png" alt="">
+      </div>
       <div class="container-endereco">
         <h2>Endereço de entrega</h2>
         <div class="separador"></div>
@@ -156,21 +172,7 @@
           Alterar Endereço
         </a>
       </div>
-      <div class="container-endereco-mobile">
-        <h2>Endereço de entrega</h2>
-        
-        <div class="endereco">
-          <h3>Casa</h3>
-          <span>Rua Torres da Barra, 207</span>
-          <span>Apto:402</span>
-          <span>Bairro:Água Branca</span>
-          <span>Cidade: São Paulo - SP</span>
-          <span>CEP: 05037-055</span>
-        </div>
-        <a class="alterar-endereco">
-          Alterar Endereço
-        </a>
-      </div>
+     
       
         <div class='items'>
             <div class="item-produto">
@@ -196,6 +198,24 @@
       <div class="total">
         <h2>Total</h2>
         <span>R$ 154,99</span>
+      </div>
+      <div class="container-endereco-mobile">
+        <div class="titulo-endereco">
+
+          <h2>Endereço de entrega</h2>
+        </div>
+        
+        <div class="endereco">
+          <h3>Casa</h3>
+          <span>Rua Torres da Barra, 207</span>
+          <span>Apto:402</span>
+          <span>Bairro:Água Branca</span>
+          <span>Cidade: São Paulo - SP</span>
+          <span>CEP: 05037-055</span>
+        </div>
+        <a class="alterar-endereco">
+          Alterar Endereço
+        </a>
       </div>
       </div>
       
