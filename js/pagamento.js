@@ -174,7 +174,7 @@ function total() {
     const botaoBoleto = document.querySelector('.boleto a');
 
     botaoBoleto.innerHTML =
-      'PAGAR COM CARTÃO DE CRÉDITO: ' +
+      'PAGAR COM BOLETO BANCÁRIO: ' +
       total.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
@@ -211,7 +211,7 @@ function total() {
     const botaoBoleto = document.querySelector('.boleto a');
 
     botaoBoleto.innerHTML =
-      'PAGAR COM CARTÃO DE CRÉDITO: ' +
+      'PAGAR COM BOLETO BANCÁRIO: ' +
       total.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
@@ -377,7 +377,7 @@ form.addEventListener('change', (event) => {
 //botao de compra com cartão
 botaoCompra.addEventListener('click', (event) => {
   event.preventDefault();
-  localStorage.setItem('pagamento', 'Cartão');
+  // localStorage.setItem('pagamento', 'Cartao');
   const form = document.querySelector('.dados-cartoes');
 
   const inputNumeroCartao = form.querySelector('#numero');
@@ -464,7 +464,7 @@ botaoCompra.addEventListener('click', (event) => {
     const valor = document.querySelector('.sedex');
 
     if (valor.classList.contains('ativo')) {
-      localStorage.setItem('frete', 'Gratis');
+      localStorage.setItem('frete', 'gratis');
     } else {
       localStorage.setItem('frete', 10.9);
     }
@@ -512,23 +512,36 @@ botaoCompra.addEventListener('click', (event) => {
       formCvv === null &&
       window.innerWidth <= 768
     ) {
-      const pagamento = document.querySelector('.pagamento');
+      localStorage.setItem('pagamento', JSON.stringify(formaPag));
+      const pagamento = document.querySelector(
+        '.pagamento-container .pagamento'
+      );
       const resumo = document.querySelector('.resumo');
       const menu = document.querySelector('.menu-accordion');
+      const img = menu.querySelector('img');
+
       const items = document.querySelector('.items');
+      const itemsProduto = items.querySelector('.item-produto');
       const desconto = document.querySelector('.desconto');
       const frete = document.querySelector('.frete');
-      const total = document.querySelector('.total');
+      let total = document.querySelector('.total');
+
       const container = document.querySelector('.container-endereco-mobile');
       pagamento.classList.add('oculto');
       resumo.classList.remove('oculto');
       menu.classList.remove('oculto');
-      items.classList.remove('oculto');
-      desconto.classList.remove('oculto');
-      frete.classList.remove('oculto');
-      total.classList.remove('oculto');
+      img.classList.add('oculto');
+      items.classList.add('oculto');
+
+      if (desconto !== null) {
+        // desconto.classList.remove('oculto');
+      }
+
       container.classList.remove('oculto');
-      console.log('cheguei');
+
+      menu.appendChild(total);
+      resumo.appendChild(frete);
+      totalResumoMobileCartao();
     }
   } else {
   }
@@ -541,32 +554,155 @@ botaoBoleto.addEventListener('click', (event) => {
   if (window.innerWidth > 768) {
     window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
   }
-  if (
-    form === null &&
-    formVal === null &&
-    formCvv === null &&
-    window.innerWidth <= 768
-  ) {
-    const pagamento = document.querySelector('.pagamento');
+  if (window.innerWidth <= 768) {
+    const pagamento = document.querySelector('.pagamento-container .pagamento');
     const resumo = document.querySelector('.resumo');
     const menu = document.querySelector('.menu-accordion');
+    const img = menu.querySelector('img');
+
     const items = document.querySelector('.items');
+    const itemsProduto = items.querySelector('.item-produto');
     const desconto = document.querySelector('.desconto');
     const frete = document.querySelector('.frete');
-    const total = document.querySelector('.total');
+    let total = document.querySelector('.total');
+
     const container = document.querySelector('.container-endereco-mobile');
     pagamento.classList.add('oculto');
     resumo.classList.remove('oculto');
     menu.classList.remove('oculto');
-    items.classList.remove('oculto');
-    desconto.classList.remove('oculto');
-    frete.classList.remove('oculto');
-    total.classList.remove('oculto');
+    img.classList.add('oculto');
+    items.classList.add('oculto');
+
+    if (desconto !== null) {
+      // desconto.classList.remove('oculto');
+    }
+
     container.classList.remove('oculto');
-    console.log('cheguei');
+
+    menu.appendChild(total);
+    resumo.appendChild(frete);
+    totalResumoMobileBoleto();
   }
 });
 
+//inserir total no resumo da compra com cartao
+function totalResumoMobileCartao() {
+  const total = document.querySelector('.menu-accordion .total');
+  const frete = document.querySelector('.resumo .frete');
+  const precoFrete = frete.querySelector('.preco-frete');
+  const resumo = document.querySelector('.resumo');
+  const formaPag = document.createElement('div');
+  formaPag.classList.add('forma-pag');
+  const descPag = document.createElement('h1');
+  descPag.appendChild(document.createTextNode('Forma de Pagamento'));
+  formaPag.appendChild(descPag);
+  const detalhePag = document.createElement('span');
+  detalhePag.appendChild(document.createTextNode('Cartão de crédito'));
+  formaPag.appendChild(detalhePag);
+  const valorTotal = document.createElement('div');
+  valorTotal.classList.add('total-items');
+  const descValorTotal = document.createElement('span');
+  descValorTotal.appendChild(document.createTextNode('Valor total: '));
+  valorTotal.appendChild(descValorTotal);
+  const totalItems = document.querySelector('.menu-accordion .total span');
+  const cloneTotalItems = totalItems.cloneNode(true);
+  cloneTotalItems.classList.add('valor');
+  valorTotal.appendChild(cloneTotalItems);
+  formaPag.appendChild(valorTotal);
+  const alterarPag = document.createElement('a');
+  alterarPag.appendChild(document.createTextNode('Alterar forma de pagamento'));
+  formaPag.appendChild(alterarPag);
+  resumo.appendChild(formaPag);
+
+  const tipoFrete = localStorage.getItem('frete');
+  if (tipoFrete !== '10.9') {
+    const sedex = document.createElement('h3');
+
+    sedex.appendChild(document.createTextNode('Sedex'));
+    precoFrete.appendChild(sedex);
+  } else {
+    const motoboy = document.createElement('h3');
+
+    motoboy.appendChild(document.createTextNode('Motoboy'));
+    precoFrete.appendChild(motoboy);
+  }
+  const alterarFrete = document.createElement('a');
+  alterarFrete.appendChild(document.createTextNode('Alterar tipo de entrega'));
+  frete.appendChild(alterarFrete);
+  const confirmCompra = document.createElement('a');
+  confirmCompra.appendChild(document.createTextNode('CONFIRMAR COMPRA'));
+  confirmCompra.classList.add('continuar');
+  resumo.appendChild(confirmCompra);
+  frete.classList.remove('oculto');
+  frete.classList.add('confirm');
+  frete.classList.remove('ativo');
+  total.classList.remove('oculto');
+  botaoConfirmar();
+}
+
+//inserir total no resumo da compra com boleto
+function totalResumoMobileBoleto() {
+  const total = document.querySelector('.menu-accordion .total');
+  const frete = document.querySelector('.resumo .frete');
+  const precoFrete = frete.querySelector('.preco-frete');
+  const resumo = document.querySelector('.resumo');
+  const formaPag = document.createElement('div');
+  formaPag.classList.add('forma-pag');
+  const descPag = document.createElement('h1');
+  descPag.appendChild(document.createTextNode('Forma de Pagamento'));
+  formaPag.appendChild(descPag);
+  const detalhePag = document.createElement('span');
+  detalhePag.appendChild(
+    document.createTextNode(localStorage.getItem('pagamento') + ' Bancário')
+  );
+  formaPag.appendChild(detalhePag);
+  const valorTotal = document.createElement('div');
+  valorTotal.classList.add('total-items');
+  const descValorTotal = document.createElement('span');
+  descValorTotal.appendChild(document.createTextNode('Valor total: '));
+  valorTotal.appendChild(descValorTotal);
+  const totalItems = document.querySelector('.menu-accordion .total span');
+  const cloneTotalItems = totalItems.cloneNode(true);
+  cloneTotalItems.classList.add('valor');
+  valorTotal.appendChild(cloneTotalItems);
+  formaPag.appendChild(valorTotal);
+  const alterarPag = document.createElement('a');
+  alterarPag.appendChild(document.createTextNode('Alterar forma de pagamento'));
+  formaPag.appendChild(alterarPag);
+  resumo.appendChild(formaPag);
+
+  const tipoFrete = localStorage.getItem('frete');
+  if (tipoFrete !== '10.9') {
+    const sedex = document.createElement('h3');
+
+    sedex.appendChild(document.createTextNode('Sedex'));
+    precoFrete.appendChild(sedex);
+  } else {
+    const motoboy = document.createElement('h3');
+
+    motoboy.appendChild(document.createTextNode('Motoboy'));
+    precoFrete.appendChild(motoboy);
+  }
+  const alterarFrete = document.createElement('a');
+  alterarFrete.appendChild(document.createTextNode('Alterar tipo de entrega'));
+  frete.appendChild(alterarFrete);
+  const confirmCompra = document.createElement('a');
+  confirmCompra.appendChild(document.createTextNode('CONFIRMAR COMPRA'));
+  confirmCompra.classList.add('continuar');
+  resumo.appendChild(confirmCompra);
+  frete.classList.remove('oculto');
+  frete.classList.add('confirm');
+  frete.classList.remove('ativo');
+  total.classList.remove('oculto');
+  botaoConfirmar();
+}
+
+function botaoConfirmar() {
+  const botaoContinuar = document.querySelector('.resumo a.continuar');
+  botaoContinuar.addEventListener('click', () => {
+    window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+  });
+}
 //adicionar oculto desconto
 function verificandoTamanho() {
   const desconto = document.querySelector('.desconto');
@@ -576,10 +712,22 @@ function verificandoTamanho() {
   const tamanho = window.innerWidth;
   const cartao = document.querySelector('.cartao');
   const boleto = document.querySelector('.boleto');
+  const menuSuperior = document.querySelector('.menu');
+  const menuBolinhas = menuSuperior.querySelectorAll(
+    '.id-pag-ok ul li .bolinha'
+  );
+  const linhas = menuSuperior.querySelectorAll('.linhas .linha');
 
   if (tamanho <= 768) {
-    if (!desconto.classList.contains('oculto')) {
-      desconto.classList.add('oculto');
+    //mudando menu para menu de pagamento
+    menuSuperior.classList.add('pagamento');
+    // menuBolinhas[1].classList.remove('ativo');
+    // linhas[0].classList.remove('ativo');
+
+    if (desconto !== null) {
+      if (!desconto.classList.contains('oculto')) {
+        desconto.classList.add('oculto');
+      }
     }
     if (!items.classList.contains('oculto')) {
       items.classList.add('oculto');
@@ -597,6 +745,9 @@ function verificandoTamanho() {
       boleto.classList.add('oculto');
     }
   } else {
+    if (menu.classList.contains('pagamento')) {
+      menu.classList.remove('pagamento');
+    }
     if (desconto.classList.contains('oculto')) {
       desconto.classList.remove('oculto');
     }
@@ -645,19 +796,20 @@ botaoContinuar.addEventListener('click', () => {
   const escolhaFrete = document.querySelector('.escolha-frete');
   const menu = document.querySelector('.menu-accordion');
   const cartao = document.querySelector('.cartao');
-  const tituloCartao = document.querySelector('.cartao .titulo');
+  // const tituloCartao = document.querySelector('.cartao .titulo');
 
-  const tituloBoleto = document.querySelector('.boleto .titulo');
+  // const tituloBoleto = document.querySelector('.boleto .titulo');
   const boleto = document.querySelector('.boleto');
   const items = document.querySelector('.items');
   const frete = document.querySelector('.frete');
   const total = document.querySelector('.total');
   const pagamentoTitulo = document.querySelector('.pagamento h1');
-  const cartaoTitulo = document.querySelector('.cartao h2');
-  const boletoTitulo = document.querySelector('.boleto h2');
+  // const cartaoTitulo = document.querySelector('.cartao h2');
+  // const boletoTitulo = document.querySelector('.boleto h2');
   const enderecoMobile = document.querySelector('.container-endereco-mobile');
-
+  const inputBoleto = boleto.querySelector('.titulo input');
   escolhaFrete.classList.add('oculto');
+  localStorage.setItem('frete', checked());
   resumo.classList.add('oculto');
   pagamentoTitulo.classList.add('oculto');
   cartao.classList.remove('oculto');
@@ -682,12 +834,13 @@ botaoContinuar.addEventListener('click', () => {
   // const inputBoleto = document.createElement('input');
   // inputBoleto.type = 'radio';
   // inputBoleto.value = 'boleto';
-  // inputBoleto.checked = 1;
+  inputBoleto.checked = true;
 
   // tituloCartao.insertBefore(inputCartao, cartaoTitulo);
   // tituloBoleto.insertBefore(inputBoleto, boletoTitulo);
   // pagCartao = inputCartao;
   // pagBoleto = inputBoleto;
+  window.scrollTo(0, 0);
 });
 
 pagCartao.addEventListener('click', () => {
@@ -719,9 +872,9 @@ pagCartao.addEventListener('click', () => {
 
   titulo.insertBefore(inputBoletoNovo, boletoTitulo);
 
-  console.log(inputBoletoNovo);
   tituloCartao.removeChild(inputCartao);
   tituloCartao.insertBefore(inputCartaoNovo, cartaoTitulo);
+  window.scrollTo(0, 0);
 });
 
 pagBoleto.addEventListener('click', () => {
@@ -755,6 +908,7 @@ pagBoleto.addEventListener('click', () => {
 
   tituloBoleto.removeChild(inputBoleto);
   tituloBoleto.insertBefore(inputBoletoNovo, boletoTitulo);
+  window.scrollTo(0, 0);
 });
 
 checked();

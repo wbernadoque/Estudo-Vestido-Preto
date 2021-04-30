@@ -78,7 +78,7 @@
         </div>
       </div>
 
-      <div class="cartao">
+      <div class="cartao oculto">
         <div class="titulo">
           <input type="radio" value="cartao">
           <h2>Pagar com Cartão de Crédito</h2>
@@ -136,7 +136,7 @@
         </form>
       </div>
 
-      <div class="boleto">
+      <div class="boleto oculto">
         <div class="titulo">
           <input type="radio" value="boleto" checked>
           <h2>Pagar com Boleto Bancário</h2>
@@ -154,8 +154,11 @@
     <div class="resumo">
       <div class="menu-accordion">
 
-        <h1>RESUMO DA COMPRA</h1>
-        <img src="./img/seta.png" alt="">
+        <div class="container-accordion">
+
+          <h1>RESUMO DA COMPRA</h1>
+          <img src="./img/seta.png" alt="" class="ativo">
+        </div>
       </div>
       <div class="container-endereco">
         <h2>Endereço de entrega</h2>
@@ -174,7 +177,7 @@
       </div>
      
       
-        <div class='items'>
+        <div class='items oculto'>
             <div class="item-produto">
               <h2>Itens do pedido</h2>
              </div>
@@ -186,7 +189,7 @@
             </div>
         </div>
 
-        <div class="frete ativo">
+        <div class="frete ativo oculto">
           <h2>Frete</h2>
           <div class="preco-frete">
             <h3>Grátis</h3>
@@ -195,7 +198,7 @@
             </span>
           </div>
         </div>
-      <div class="total">
+      <div class="total oculto">
         <h2>Total</h2>
         <span>R$ 154,99</span>
       </div>

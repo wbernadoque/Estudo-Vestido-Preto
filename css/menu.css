@@ -554,4 +554,21 @@ li {
   .id-pag-ok .linha.ativo {
     background-color: #f56311;
   }
+  .menu.pagamento {
+    width: 100%;
+    height: 143px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .menu.pagamento .logo {
+    margin-left: 0;
+  }
+  .menu.pagamento .usuario {
+    display: none;
+  }
+  .menu.pagamento ul {
+    display: flex;
+    margin-left: 0;
+  }
 }

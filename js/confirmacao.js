@@ -3,7 +3,7 @@ let formaPag = localStorage.getItem('pagamento');
 const desconto = +localStorage.getItem('desconto');
 let frete = localStorage.getItem('frete');
 
-if (frete === 'Gratis') {
+if (frete === 'gratis') {
   frete = 0;
 } else {
   frete = +frete;
@@ -126,7 +126,7 @@ function inserirFrete() {
   const spanFrete = document.createElement('span');
   let frete = localStorage.getItem('frete');
 
-  if (frete !== 'Gratis') {
+  if (frete !== 'gratis') {
     frete = +frete;
 
     spanFrete.appendChild(
@@ -135,7 +135,7 @@ function inserirFrete() {
       )
     );
   } else {
-    spanFrete.appendChild(document.createTextNode(frete));
+    spanFrete.appendChild(document.createTextNode('Grátis'));
   }
   freteDiv.appendChild(spanFrete);
 }
