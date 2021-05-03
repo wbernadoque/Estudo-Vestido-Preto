@@ -10,6 +10,7 @@
   margin-right: 32px;
 
   display: flex;
+  align-items: center;
 
   flex-direction: column;
   width: 55vw;
@@ -19,7 +20,7 @@
 }
 #produto .foto .galeria {
   margin-top: 24px;
-  width: 50vw;
+  width: 100%;
 
   display: flex;
   flex-wrap: wrap;
@@ -28,8 +29,7 @@
   z-index: 300;
 }
 #produto .foto .galeria img {
-  max-width: 20%;
-  /* width: 100%; */
+  width: 100%;
 }
 #produto .foto .interacao {
   justify-items: center;
@@ -67,22 +67,45 @@
   position: relative;
   width: 100%;
 }
+#produto .foto .galeria a {
+  width: 22%;
+}
 
 @media (max-width: 768px) {
   #produto .foto {
     margin-right: 32px;
 
     display: flex;
-
+    align-items: center;
     flex-direction: column;
     width: 100%;
   }
   #produto .foto .galeria {
+    display: flex;
+    justify-content: center;
+  }
+  #produto .foto .galeria img.inativo {
     display: none;
   }
+
   #produto .foto .galeria img {
-    width: 100%;
     /* width: 100%; */
+    width: 16px;
+    height: 16px;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 50%;
+    /* width: 100%; */
+  }
+  #produto .foto .galeria a {
+    width: 16px;
+    height: 16px;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 50%;
+  }
+  #produto .foto .galeria a.ativo {
+    background-color: #303030;
   }
   #produto .foto .interacao {
     display: none;

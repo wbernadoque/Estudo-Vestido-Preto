@@ -1,8 +1,10 @@
 export default function galeriaDeFotos() {
   const foto = document.querySelectorAll('.exibicao div');
-  const select = document.querySelectorAll('.galeria img');
+  let select = document.querySelectorAll('.galeria img');
+  const galeria = document.querySelectorAll('.galeria a');
   const buttons = document.querySelectorAll('.interacao a');
-
+  const tamanho = window.innerWidth;
+  const medidas = document.querySelector('.medidas-da-modelo');
   function botao(index) {
     let i = 0;
     if (index === 1) {
@@ -40,17 +42,33 @@ export default function galeriaDeFotos() {
       }
     }
   }
+  function mobileGaleria() {
+    if (tamanho <= 768) {
+      select.forEach((item) => {
+        item.classList.add('inativo');
+      });
+      galeria[0].classList.add('ativo');
+    }
 
+    return document.querySelectorAll('.galeria a');
+  }
   function ativarFoto(index) {
     foto.forEach((item, index) => {
       if (index > 0) item.classList.add('inativo');
     });
     foto[index + 1].classList.remove('inativo');
   }
-  select.forEach((itemMenu, index) => {
+
+  galeria.forEach((itemMenu, index) => {
     itemMenu.addEventListener('click', () => {
+      galeria.forEach((item) => {
+        item.classList.remove('ativo');
+      });
+      itemMenu.classList.remove('ativo');
+      itemMenu.classList.add('ativo');
       ativarFoto(index);
     });
+    itemMenu.classList.remove('ativo');
   });
 
   buttons.forEach((itemButton, index) => {
@@ -58,4 +76,9 @@ export default function galeriaDeFotos() {
       botao(index);
     });
   });
+  medidas.addEventListener('click', () => {
+    const modelo = document.querySelector('.modelo-veste');
+    modelo.classList.toggle('desativado');
+  });
+  mobileGaleria();
 }

@@ -76,10 +76,10 @@ h3 {
   background-color: #f56311;
   width: 80px;
   height: 80px;
-  color: white;
+  /* color: white; */
   border: 2px solid #f56311;
   cursor: pointer;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
 }
 
 #produto .customizar a.selecionado {
@@ -89,7 +89,6 @@ h3 {
   cursor: pointer;
 }
 #produto .customizar a.selecionavel {
-  fill: white;
   border: 2px solid #f2976d;
   cursor: pointer;
 }
@@ -108,7 +107,7 @@ h3 {
   justify-content: center;
   width: 108.62px;
   height: 119px;
-  left: 698px;
+  /* left: 698px; */
   cursor: pointer;
 
   background: #ffffff;
@@ -121,8 +120,8 @@ h3 {
   width: 61px;
   height: 4px;
   background: #2067f5;
-  position: absolute;
-  margin-top: 115px;
+  position: relative;
+  top: 10px;
 }
 #produto .botao a.ativo {
   background-color: #f2f2f2;
@@ -274,16 +273,21 @@ h3 {
   border-radius: 5px;
 }
 
-.prazo-entrega button {
+.prazo-entrega a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 115px;
   height: 42px;
   border: 2px solid #f56311;
   box-sizing: border-box;
   border-radius: 24px;
+  font-size: 15px;
   background-color: white;
   color: #f56311;
+  cursor: pointer;
 }
-.prazo-entrega a {
+.prazo-entrega a.nao-sei-meu-cep {
   color: #b1b1b1;
   text-transform: none;
   font-family: Source Sans Pro;
@@ -291,6 +295,7 @@ h3 {
   font-weight: 600;
   font-size: 15px;
   margin-left: 12px;
+  border: none;
 }
 .prazo-entrega form {
   margin-top: 14px;
@@ -302,14 +307,32 @@ h3 {
   flex-direction: column;
   justify-content: center;
 }
+.medidas-da-modelo {
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.botao a span {
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
 
 @media (max-width: 768px) {
+  .medidas-da-modelo {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .medidas-da-modelo span {
+    text-decoration: underline;
+  }
   .prazo-entrega {
     padding: 2vw;
   }
   #produto {
     display: flex;
-    width: 100vw;
+    width: 100%;
     background-color: white;
     /* justify-content: center; */
 
@@ -321,7 +344,7 @@ h3 {
   }
   #produto .info {
     display: flex;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
@@ -392,17 +415,16 @@ h3 {
     color: white;
     border: 2px solid #f56311;
     cursor: pointer;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
   }
 
   #produto .customizar a.selecionado {
     background-color: #f56311;
-    color: white;
-    border: 1px solid #f56311;
+    /* color: white; */
+    border: 2px solid transparent;
     cursor: pointer;
   }
   #produto .customizar a.selecionavel {
-    fill: white;
     border: 2px solid #f2976d;
     cursor: pointer;
   }
@@ -423,9 +445,9 @@ h3 {
     justify-content: center;
     width: 108.62px;
     height: 119px;
-    left: 698px;
+    /* left: 698px; */
     cursor: pointer;
-
+    /* position: absolute; */
     background: #ffffff;
     border-radius: 13.5772px;
     text-transform: uppercase;
@@ -436,8 +458,9 @@ h3 {
     width: 61px;
     height: 4px;
     background: #2067f5;
-    position: absolute;
-    margin-top: 115px;
+    position: relative;
+    /* margin-top: 58px; */
+    top: 10px;
   }
   #produto .botao a.ativo {
     background-color: #f2f2f2;
@@ -498,6 +521,9 @@ h3 {
     display: flex;
     align-items: center;
     margin-right: 0px;
+  }
+  .modelo-veste.desativado {
+    display: none;
   }
   .modelo-veste {
     display: flex;
@@ -586,7 +612,7 @@ h3 {
   }
 
   .prazo-entrega input[type='text'] {
-    max-width: 184.81px;
+    width: 200px;
     height: 42.46px;
     background: #ffffff;
 
@@ -595,25 +621,28 @@ h3 {
     border-radius: 5px;
   }
 
-  .prazo-entrega button {
+  .prazo-entrega a {
     width: 115px;
     height: 42px;
     border: 2px solid #f56311;
     box-sizing: border-box;
     border-radius: 24px;
+    font-size: 15px;
     background-color: white;
     color: #f56311;
   }
-  .prazo-entrega a {
+  .prazo-entrega a.nao-sei-meu-cep {
     color: #b1b1b1;
     text-transform: none;
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
-    margin-left: 12px;
+    margin-left: 0px;
   }
   .prazo-entrega form {
     margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
   }
 }

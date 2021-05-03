@@ -141,6 +141,7 @@
     justify-content: center;
     padding-top: 57px;
     flex-wrap: wrap;
+    max-width: 537px;
   }
   .quem-somos {
     margin-bottom: 57px;
@@ -148,12 +149,11 @@
     flex-direction: column;
     align-items: center;
     padding-left: 10px;
-    max-width: 537px;
   }
   .quem-somos .contatos {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     align-items: flex-start;
   }
   .quem-somos img {
