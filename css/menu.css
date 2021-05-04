@@ -224,6 +224,7 @@ li {
   display: none;
   /* position: fixed; */
 }
+
 @keyframes entrar {
   0% {
     transform: translateX(-100vw);
@@ -564,6 +565,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
   }
   .menu.pagamento .logo {
     margin-left: 0;
@@ -572,6 +574,24 @@ li {
     display: none;
   }
   .menu.pagamento ul {
+    display: flex;
+    margin-left: 0;
+  }
+  .menu.confirmacao {
+    /* width: 100%; */
+    height: 143px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .menu.confirmacao .logo {
+    margin-left: 0;
+  }
+  .menu.confirmacao .usuario {
+    display: none;
+  }
+  .menu.confirmacao ul {
     display: flex;
     margin-left: 0;
   }

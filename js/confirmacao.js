@@ -2,7 +2,8 @@ const itemsComprados = JSON.parse(localStorage.getItem('item'));
 let formaPag = localStorage.getItem('pagamento');
 const desconto = +localStorage.getItem('desconto');
 let frete = localStorage.getItem('frete');
-
+const tamanho = window.innerWidth;
+let totalCompra = 0;
 if (frete === 'gratis') {
   frete = 0;
 } else {
@@ -118,6 +119,7 @@ function total() {
     )
   );
   total.appendChild(totalDiv);
+  totalCompra = totalItems;
 }
 
 //inserindo frete
@@ -172,9 +174,52 @@ function pagamento() {
     divFormaPag.appendChild(dadosParcela);
   }
 }
+
+//administrando tamanho da pagina
+function tamanhoPagina() {
+  if (tamanho <= 768) {
+    const endereco = document.querySelector('.endereco-entrega');
+    const resumo = document.querySelector('.items-resumo');
+    const paginaResumo = document.querySelector('.resumo-pedido');
+    const formaDePag = document.querySelector('.forma-pagamento');
+    const dadosCompra = JSON.parse(localStorage.getItem('pagamento'));
+
+    paginaResumo.insertBefore(resumo, endereco);
+
+    if (dadosCompra != 'Boleto') {
+      let spanPag = document.querySelectorAll('.forma-pagamento span');
+      spanPag = spanPag[1];
+
+      const quantidadeParcela = dadosCompra.forma;
+      const dadosParcela = quantidadeParcela.split(' ');
+      console.log(dadosParcela);
+      const dados = document.createElement('span');
+      dados.appendChild(
+        document.createTextNode(
+          'Pagamento em: ' +
+            dadosParcela[0] +
+            ' ' +
+            dadosParcela[3] +
+            ' ' +
+            dadosParcela[4] +
+            ' de'
+        )
+      );
+      const total = document.createElement('span');
+      total.classList.add('total-compra');
+      total.appendChild(document.createTextNode(dadosParcela[2]));
+      dados.appendChild(total);
+      formaDePag.appendChild(dados);
+      formaDePag.removeChild(spanPag);
+    } else {
+      console.log('boleto');
+    }
+  }
+}
 inserirItems();
 total();
 inserirFrete();
 pagamento();
 pagamentoSelecionado();
 inserirDesconto();
+tamanhoPagina();

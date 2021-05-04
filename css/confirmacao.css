@@ -285,5 +285,206 @@
 
   color: #616161;
 }
+.pag-container .pedido .codigo-boleto .container-info a.copiar-codigo {
+  display: none;
+}
+.acompanhar-pedido {
+  display: none;
+}
 @media (max-width: 768px) {
+  .pag-container {
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .boleto-impresso img {
+    display: none;
+  }
+  .pag-container .pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .pag-container .numero-pedido {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .pag-container .numero-pedido h1 {
+    color: black;
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+  .pag-container .codigo-boleto {
+    margin-top: 33px;
+    border: 1px solid #f2f2f2;
+    border-radius: 14px;
+    padding-bottom: 11px;
+    width: 343px;
+  }
+  .container-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .boleto-impresso {
+    display: none;
+  }
+  .pag-container .pedido .codigo-boleto h2 {
+    margin-left: 0px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    text-transform: none;
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 18px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .pag-container .pedido .codigo-boleto .info-boleto span {
+    color: #616161;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 18px;
+    max-width: 218px;
+  }
+  .pag-container .pedido .codigo-boleto .container-info a.copiar-codigo {
+    width: 103px;
+    height: 24px;
+    border: 1px solid #f56311;
+    border-radius: 20px;
+    color: #f56311;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 13px;
+  }
+  .pag-container .pedido .codigo-boleto .info-boleto {
+    width: 218px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .resumo-pedido {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .acompanhar-pedido {
+    width: 231px;
+    height: 45px;
+    background: #2067f5;
+    border-radius: 28px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .resumo-pedido .prazo-entrega {
+    display: none;
+  }
+  .separador {
+    display: none;
+  }
+  .resumo-pedido .endereco-entrega {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 0;
+    margin-bottom: 23px;
+    margin-top: 10px;
+    border: 1px solid #f2f2f2;
+    width: 343px;
+  }
+  .resumo-pedido .endereco {
+    margin-left: 14px;
+    margin-bottom: 23px;
+  }
+  .resumo-pedido .endereco-entrega h1 {
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .resumo-pedido .items-resumo {
+    background-color: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #f2f2f2;
+    padding: 0;
+    width: 343px;
+  }
+  .resumo-pedido .items-resumo h1 {
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .resumo-pedido .items-resumo .container-items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .resumo-pedido .items-resumo .descontos {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .resumo-pedido .items-resumo .frete-resumo {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .resumo-pedido .items-resumo .total-resumo {
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 10px;
+  }
+  .resumo-pedido .items-resumo h2 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .resumo-pedido .forma-pagamento {
+    background-color: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #f2f2f2;
+    padding: 0;
+    margin-top: 16px;
+    padding-bottom: 17px;
+    display: flex;
+    flex-direction: column;
+    width: 343px;
+  }
+  .resumo-pedido .forma-pagamento h1 {
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
+  .resumo-pedido .forma-pagamento h2 {
+    margin-left: 14px;
+    margin-top: 12px;
+  }
+  .resumo-pedido .forma-pagamento span {
+    margin-left: 14px;
+  }
+  .resumo-pedido .forma-pagamento .total-compra {
+    font-size: 14px;
+    color: #2067f5;
+    font-weight: 600;
+  }
 }

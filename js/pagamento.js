@@ -137,7 +137,7 @@ function opcoes() {
               style: 'currency',
               currency: 'BRL',
             }) +
-            ' sem juro'
+            ' sem juros'
         )
       );
       parcelas.appendChild(option);
