@@ -151,6 +151,13 @@ function pagamento() {
     const forma = document.createElement('h2');
     forma.appendChild(document.createTextNode(formaPag));
     divFormaPag.appendChild(forma);
+    const cartao = document.querySelector('.info-boleto span');
+
+    const botaoCopiar = document.querySelector('.copiar-codigo');
+    botaoCopiar.addEventListener('click', () => {
+      navigator.clipboard.writeText(cartao.textContent);
+      botaoCopiar.textContent = 'COPIADO';
+    });
   } else {
     formaPag = JSON.parse(formaPag);
     const forma = document.createElement('h2');
@@ -182,7 +189,49 @@ function tamanhoPagina() {
     const resumo = document.querySelector('.items-resumo');
     const paginaResumo = document.querySelector('.resumo-pedido');
     const formaDePag = document.querySelector('.forma-pagamento');
-    const dadosCompra = JSON.parse(localStorage.getItem('pagamento'));
+    let dadosCompra = localStorage.getItem('pagamento');
+    if (dadosCompra === 'Boleto') {
+    } else {
+      dadosCompra = JSON.parse(dadosCompra);
+    }
+    const divPrazoEntrega = document.createElement('div');
+    divPrazoEntrega.classList.add('entrega-prazo');
+    const tituloPrazo = document.createElement('h1');
+    tituloPrazo.appendChild(document.createTextNode('Prazo de Entrega'));
+    divPrazoEntrega.appendChild(tituloPrazo);
+    const containerFrete = document.createElement('div');
+    containerFrete.classList.add('container-entrega');
+    divPrazoEntrega.appendChild(containerFrete);
+    paginaResumo.insertBefore(divPrazoEntrega, formaDePag);
+    //inserindo dados dentro do container de frete
+    const nomeFrete = document.createElement('h2');
+    let valorFrete = localStorage.getItem('frete');
+    const dataEntrega = document.createElement('span');
+    dataEntrega.appendChild(document.createTextNode('xx de Abril'));
+    const exibicaoValorFrete = document.createElement('h2');
+
+    if (valorFrete !== 'gratis') {
+      valorFrete = +valorFrete;
+      exibicaoValorFrete.appendChild(
+        document.createTextNode(
+          valorFrete.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })
+        )
+      );
+      nomeFrete.appendChild(document.createTextNode('Motoboy'));
+      containerFrete.appendChild(nomeFrete);
+      containerFrete.appendChild(dataEntrega);
+      containerFrete.appendChild(exibicaoValorFrete);
+    } else {
+      exibicaoValorFrete.appendChild(document.createTextNode('Grátis'));
+      nomeFrete.appendChild(document.createTextNode('Sedex'));
+      containerFrete.appendChild(nomeFrete);
+      containerFrete.appendChild(dataEntrega);
+      containerFrete.appendChild(exibicaoValorFrete);
+    }
+    nomeFrete.appendChild(document.createTextNode(''));
 
     paginaResumo.insertBefore(resumo, endereco);
 
@@ -192,7 +241,7 @@ function tamanhoPagina() {
 
       const quantidadeParcela = dadosCompra.forma;
       const dadosParcela = quantidadeParcela.split(' ');
-      console.log(dadosParcela);
+
       const dados = document.createElement('span');
       dados.appendChild(
         document.createTextNode(
@@ -212,7 +261,6 @@ function tamanhoPagina() {
       formaDePag.appendChild(dados);
       formaDePag.removeChild(spanPag);
     } else {
-      console.log('boleto');
     }
   }
 }

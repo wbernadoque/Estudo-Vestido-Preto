@@ -291,6 +291,9 @@
 .acompanhar-pedido {
   display: none;
 }
+.entrega-prazo {
+  display: none;
+}
 @media (max-width: 768px) {
   .pag-container {
     display: flex;
@@ -322,11 +325,12 @@
     margin-bottom: 0;
   }
   .pag-container .codigo-boleto {
-    margin-top: 33px;
+    margin-top: 0px;
     border: 1px solid #f2f2f2;
     border-radius: 14px;
     padding-bottom: 11px;
     width: 343px;
+    margin-bottom: 15px;
   }
   .container-info {
     display: flex;
@@ -424,6 +428,7 @@
     border: 1px solid #f2f2f2;
     padding: 0;
     width: 343px;
+    /* margin-top: 32px; */
   }
   .resumo-pedido .items-resumo h1 {
     border-bottom: 1px solid #f2f2f2;
@@ -478,6 +483,8 @@
   .resumo-pedido .forma-pagamento h2 {
     margin-left: 14px;
     margin-top: 12px;
+    font-size: 14px;
+    font-weight: normal;
   }
   .resumo-pedido .forma-pagamento span {
     margin-left: 14px;
@@ -486,5 +493,31 @@
     font-size: 14px;
     color: #2067f5;
     font-weight: 600;
+  }
+  .entrega-prazo {
+    width: 343px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f2f2f2;
+    border-radius: 14px;
+    margin-top: 15px;
+  }
+  .entrega-prazo h1 {
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .entrega-prazo h2 {
+    font-size: 14px;
+  }
+  .entrega-prazo .container-entrega {
+    padding-left: 14px;
+    padding-bottom: 10px;
+  }
+  .entrega-prazo .container-entrega span {
+    color: #616161;
+    font-size: 12px;
+    font-weight: normal;
   }
 }

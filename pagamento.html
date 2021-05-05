@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+    <link rel="shortcut icon" href="./img/favicon.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&display=swap"
@@ -18,6 +18,54 @@
     <title>Pagamento</title>
   </head>
   <body>
+    <div class="modal">
+      <div class="content">
+        <div class="titulo">
+
+          <h1>Escolha o endereço</h1>
+          <a class="fechar"><img src="./img/x.png" alt=""></a>
+        </div>
+        <div class="escolha-endereco">
+          
+          <a class="endereco">
+            <input type="radio" value="casa" checked>
+            <div class="info-endereco">
+              <div class="titulo">
+                <h3>Casa</h3>
+                <img src="./img/edit.png" alt="">
+              </div>
+              <span>Rua Torres da Barra, 207</span>
+              <span>Apto: 402</span>
+              <span>Bairro: Água Branca</span>
+              <span>Cidade: São Paulo - SP</span>
+              <span>CEP: 05037-055</span>
+              
+            </div>
+          </a>
+          
+          <a class='endereco'>
+            <input type="radio" value="mae">
+            <div class="info-endereco">
+              <div class="titulo">
+                <h3>Mãe</h3>
+                <img src="./img/edit.png" alt="">
+              </div>
+              <span>Rua Pref. Sezefreo Amorim Cortex, 207</span>
+              <span>Bairro: Vila Loty</span>
+              <span>Cidade: Itanhaém - SP</span>
+              <span>CEP: 11740-000</span>
+              
+            </div>
+          </a>
+        </div>
+        <a class="add-endereco">
+          ADICIONAR NOVO ENDEREÇO
+        </a>
+      </div>
+    </div>
+        <div class="overlay">
+          
+        </div>
     <nav class="menu">
       <a  class="logo" href="http://127.0.0.1:5500/"><img src="img/logo-preto.png" alt="" /></a>
       <div>

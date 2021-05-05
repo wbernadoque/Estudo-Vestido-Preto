@@ -24,13 +24,16 @@ const freteInserido = document.querySelector('.resumo .frete');
 const botaoContinuar = document.querySelector('.botao-continuar');
 const inputCartao = document.querySelector('.cartao .titulo');
 const inputBoleto = document.querySelector('.boleto .titulo');
+const endereco = JSON.parse(localStorage.getItem('endereco'));
+
 let pagCartao = inputCartao;
 let pagBoleto = inputBoleto;
-
 let nome = '';
 let numero = '';
 let validade = '';
 let cvv = '';
+
+console.log(endereco);
 
 //validando acesso
 const login = localStorage.getItem('acesso');
@@ -559,7 +562,8 @@ botaoBoleto.addEventListener('click', (event) => {
     const resumo = document.querySelector('.resumo');
     const menu = document.querySelector('.menu-accordion');
     const img = menu.querySelector('img');
-
+    const footer = document.querySelector('footer');
+    console.log(footer);
     const items = document.querySelector('.items');
     const itemsProduto = items.querySelector('.item-produto');
     const desconto = document.querySelector('.desconto');
@@ -581,6 +585,7 @@ botaoBoleto.addEventListener('click', (event) => {
 
     menu.appendChild(total);
     resumo.appendChild(frete);
+    footer.classList.add('desativado');
     totalResumoMobileBoleto();
   }
 });
@@ -629,10 +634,13 @@ function totalResumoMobileCartao() {
   const alterarFrete = document.createElement('a');
   alterarFrete.appendChild(document.createTextNode('Alterar tipo de entrega'));
   frete.appendChild(alterarFrete);
+  const divContinuar = document.createElement('div');
+  divContinuar.classList.add('container-continuar');
   const confirmCompra = document.createElement('a');
   confirmCompra.appendChild(document.createTextNode('CONFIRMAR COMPRA'));
   confirmCompra.classList.add('continuar');
-  resumo.appendChild(confirmCompra);
+  divContinuar.appendChild(confirmCompra);
+  resumo.appendChild(divContinuar);
   frete.classList.remove('oculto');
   frete.classList.add('confirm');
   frete.classList.remove('ativo');
@@ -686,10 +694,13 @@ function totalResumoMobileBoleto() {
   const alterarFrete = document.createElement('a');
   alterarFrete.appendChild(document.createTextNode('Alterar tipo de entrega'));
   frete.appendChild(alterarFrete);
+  const divContinuar = document.createElement('div');
+  divContinuar.classList.add('container-continuar');
   const confirmCompra = document.createElement('a');
   confirmCompra.appendChild(document.createTextNode('CONFIRMAR COMPRA'));
   confirmCompra.classList.add('continuar');
-  resumo.appendChild(confirmCompra);
+  divContinuar.appendChild(confirmCompra);
+  resumo.appendChild(divContinuar);
   frete.classList.remove('oculto');
   frete.classList.add('confirm');
   frete.classList.remove('ativo');
@@ -744,13 +755,12 @@ function verificandoTamanho() {
     if (!boleto.classList.contains('oculto')) {
       boleto.classList.add('oculto');
     }
+    modal();
   } else {
-    if (menu.classList.contains('pagamento')) {
-      menu.classList.remove('pagamento');
+    if (menuSuperior.classList.contains('pagamento')) {
+      menuSuperior.classList.remove('pagamento');
     }
-    if (desconto.classList.contains('oculto')) {
-      desconto.classList.remove('oculto');
-    }
+
     if (items.classList.contains('oculto')) {
       items.classList.remove('oculto');
     }
@@ -766,6 +776,49 @@ function verificandoTamanho() {
     if (boleto.classList.contains('oculto')) {
       boleto.classList.remove('oculto');
     }
+    modal();
+  }
+}
+//modal
+function modal() {
+  if (tamanho <= 768) {
+    const botaoAlterarEndereco = document.querySelector(
+      '.container-endereco-mobile .alterar-endereco'
+    );
+    const fechar = document.querySelector('.titulo .fechar');
+
+    const modal = document.querySelector('.modal');
+    modal.classList.add('mobile');
+    const modalDiv = document.querySelector('.modal');
+    const overlayDiv = document.querySelector('.overlay');
+
+    botaoAlterarEndereco.addEventListener('click', () => {
+      modalDiv.classList.add('ativo');
+      overlayDiv.classList.add('ativo');
+    });
+    botaoAlterarEndereco.removeEventListener('click', () => {
+      modalDiv.classList.add('ativo');
+      overlayDiv.classList.add('ativo');
+    });
+    fechar.addEventListener('click', () => {
+      modalDiv.classList.remove('ativo');
+      overlayDiv.classList.remove('ativo');
+    });
+    fechar.removeEventListener('click', () => {
+      modalDiv.classList.remove('ativo');
+      overlayDiv.classList.remove('ativo');
+    });
+  } else {
+    const botaoAlterarEndereco = document.querySelector(
+      '.container-endereco .alterar-endereco'
+    );
+    const modalDiv = document.querySelector('.modal');
+    console.log(botaoAlterarEndereco);
+
+    console.log('estou aqui');
+    botaoAlterarEndereco.addEventListener('click', () => {
+      modalDiv.classList.add('ativo');
+    });
   }
 }
 
