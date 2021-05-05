@@ -19,7 +19,7 @@ const itemsComprados = JSON.parse(localStorage.getItem('item'));
 const desconto = +localStorage.getItem('desconto');
 const resumo = document.querySelector('.resumo');
 const tamanho = window.innerWidth;
-const listaAccordion = document.querySelector('.menu-accordion');
+const listaAccordion = document.querySelector('.menu-accordion img');
 const freteInserido = document.querySelector('.resumo .frete');
 const botaoContinuar = document.querySelector('.botao-continuar');
 const inputCartao = document.querySelector('.cartao .titulo');
@@ -586,6 +586,7 @@ botaoBoleto.addEventListener('click', (event) => {
     menu.appendChild(total);
     resumo.appendChild(frete);
     footer.classList.add('desativado');
+
     totalResumoMobileBoleto();
   }
 });
