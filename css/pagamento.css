@@ -534,46 +534,42 @@ form.dados-cartoes span {
 .overlay {
   display: none;
 }
-/* .modal {
+.modal {
   display: none;
-} */
-
-.modal.mobile.ativo {
+}
+.modal.ativo {
   z-index: 700;
   position: fixed;
   width: 100%;
-  height: 50%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.modal.mobile {
-  display: none;
-}
-.modal.mobile.ativo .content {
-  width: 100vw;
-  height: 390px;
+.modal.ativo .content {
+  width: 720px;
+  height: 496px;
   background-color: white;
   display: flex;
   flex-direction: column;
   padding: 22px 12px 22px 30px;
   align-items: center;
 }
-.modal.mobile.ativo .content .escolha-endereco {
+.modal.ativo .content .escolha-endereco {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.modal.mobile.ativo .content .escolha-endereco .endereco {
+.modal.ativo .content .escolha-endereco .endereco {
   display: flex;
   margin-bottom: 18px;
 }
-.modal.mobile.ativo .content .escolha-endereco .endereco .info-endereco {
+.modal.ativo .content .escolha-endereco .endereco .info-endereco {
   display: flex;
   flex-direction: column;
 }
 
-.modal.mobile.ativo .content .escolha-endereco .endereco .info-endereco span {
+.modal.ativo .content .escolha-endereco .endereco .info-endereco span {
   font-size: 12px;
   font-family: Source Sans Pro;
   font-style: normal;
@@ -581,13 +577,14 @@ form.dados-cartoes span {
   color: #616161;
   margin-bottom: 3px;
 }
-.modal.mobile.ativo .content .escolha-endereco .endereco .info-endereco h3 {
+.modal.ativo .content .escolha-endereco .endereco .info-endereco h3 {
   font-family: Source Sans Pro;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   color: #212121;
 }
+
 .modal .content .titulo {
   display: flex;
   justify-content: space-between;
@@ -602,16 +599,80 @@ form.dados-cartoes span {
 .modal .content .add-endereco {
   border: 1px solid #f56311;
   border-radius: 28px;
-  width: 80%;
+  width: 274px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #f56311;
-  height: 45px;
+  height: 44px;
   font-size: 14px;
+  margin-top: 162px;
 }
 
 @media (max-width: 768px) {
+  .modal.mobile.ativo {
+    z-index: 700;
+    position: fixed;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal.mobile {
+    display: none;
+  }
+
+  .modal.mobile.ativo .content {
+    width: 100vw;
+    height: 390px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 12px 22px 30px;
+    align-items: center;
+  }
+  .modal.mobile.ativo .content .escolha-endereco {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .modal.mobile.ativo .content .escolha-endereco .endereco {
+    display: flex;
+    margin-bottom: 18px;
+  }
+  .modal.mobile.ativo .content .escolha-endereco .endereco .info-endereco {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal.mobile.ativo .content .escolha-endereco .endereco .info-endereco span {
+    font-size: 12px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    color: #616161;
+    margin-bottom: 3px;
+  }
+  .modal.mobile.ativo .content .escolha-endereco .endereco .info-endereco h3 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #212121;
+  }
+  .modal.mobile.ativo .content .add-endereco {
+    border: 1px solid #f56311;
+    border-radius: 28px;
+    width: 274px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f56311;
+    height: 44px;
+    font-size: 14px;
+    margin-top: 0px;
+  }
   .footer {
     width: 100vw;
   }

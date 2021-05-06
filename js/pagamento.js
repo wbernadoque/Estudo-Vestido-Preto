@@ -813,12 +813,20 @@ function modal() {
     const botaoAlterarEndereco = document.querySelector(
       '.container-endereco .alterar-endereco'
     );
-    const modalDiv = document.querySelector('.modal');
-    console.log(botaoAlterarEndereco);
+    const fechar = document.querySelector('.titulo .fechar');
 
-    console.log('estou aqui');
+    const modal = document.querySelector('.modal');
+    modal.classList.add('mobile');
+    const modalDiv = document.querySelector('.modal');
+    const overlayDiv = document.querySelector('.overlay');
+
     botaoAlterarEndereco.addEventListener('click', () => {
       modalDiv.classList.add('ativo');
+      overlayDiv.classList.add('ativo');
+    });
+    fechar.addEventListener('click', () => {
+      modalDiv.classList.remove('ativo');
+      overlayDiv.classList.remove('ativo');
     });
   }
 }
