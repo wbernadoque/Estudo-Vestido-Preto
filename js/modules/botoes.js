@@ -361,10 +361,18 @@ export default function botoesSelecao() {
   });
 
   botaoMenu.addEventListener('click', () => {
+    const menuHamburguer = document.querySelector('.menu-hamburguer');
+    const overlay = document.querySelector('.overlay-menu');
+    overlay.classList.toggle('ativo');
+    menuHamburguer.classList.toggle('inativo');
     menuLateral.classList.add('ativo');
   });
   botaoX.addEventListener('click', () => {
+    const menuHamburguer = document.querySelector('.menu-hamburguer');
+    const overlay = document.querySelector('.overlay-menu');
+    overlay.classList.toggle('ativo');
     menuLateral.classList.remove('ativo');
+    menuHamburguer.classList.toggle('inativo');
   });
 
   itemsNoCarrinho();

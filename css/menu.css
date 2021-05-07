@@ -242,33 +242,47 @@ li {
   .menu-lateral {
     /* display: none; */
     left: -110%;
-    transition: 0.5s;
+    transition: 0.2s;
     display: flex;
     position: fixed;
-    width: 100%;
+    width: 90%;
     height: 100%;
     top: 0;
     /* left: 0; */
     flex-direction: column;
     background-color: black;
     opacity: 100;
-    z-index: 500;
+    z-index: 600;
     padding-left: 0px;
     padding-right: 19px;
+    margin-top: 99px;
   }
 
   .menu-lateral.ativo {
     left: 0;
     /* transition: 0.5s; */
   }
+  .overlay-menu.ativo {
+    background-color: #737173;
+    width: 100vw;
+    height: 100vh;
+    /* margin-top: -99px; */
+    position: fixed;
+    opacity: 0.5;
+    top: 0;
+    z-index: 500;
+  }
   .menu-lateral .botao-x {
     width: 55.17px;
-    height: 75px;
-    background-color: #737173;
+    height: 99px;
+    /* background-color: #737173; */
+    /* background-color: #e3dee2; */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    z-index: 600;
+    margin-top: -99px;
   }
   .menu-lateral ul {
     margin-left: 0px;
@@ -332,6 +346,9 @@ li {
     width: 80px;
     flex-direction: column;
     margin-left: 16px;
+  }
+  .menu .menu-hamburguer.inativo {
+    opacity: 0;
   }
   .menu .menu-hamburguer a.botao-menu {
     display: flex;

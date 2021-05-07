@@ -2,15 +2,26 @@ const login = {
   usuario: 'rainesgoncalves@gmail.com',
   senha: '123456',
 };
-const endereco = [
+const enderecoCadastro = [
   {
+    titulo: 'Casa',
     endereco: 'Rua Torres da Barra, 207',
     complemento: 'Apto:402',
     bairro: 'Bairro:Água Branca',
     cidade: 'Cidade: São Paulo - SP',
     cep: 'CEP: 05037-055',
   },
+  {
+    titulo: 'Mãe',
+    endereco: 'Rua Pref. Sezefreo Amorim Cortex, 207',
+    complemento: '',
+    bairro: 'Bairro: Vila Loty',
+    cidade: 'Cidade: Itanhaém - SP',
+    cep: 'CEP: 11740-000',
+  },
 ];
+localStorage.setItem('cadastroEndereco', JSON.stringify(enderecoCadastro));
+const endereco = [enderecoCadastro[0]];
 
 const botaoAcessar = document.querySelector('.btn-login');
 const botaoMostrar = document.querySelector('.mostrar');
