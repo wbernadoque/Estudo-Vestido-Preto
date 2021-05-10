@@ -25,7 +25,9 @@ const botaoContinuar = document.querySelector('.botao-continuar');
 const inputCartao = document.querySelector('.cartao .titulo');
 const inputBoleto = document.querySelector('.boleto .titulo');
 const endereco = JSON.parse(localStorage.getItem('endereco'));
+const botaoInserirEndereco = document.querySelector('.add-endereco');
 
+let enderecos = JSON.parse(localStorage.getItem('cadastroEndereco'));
 let pagCartao = inputCartao;
 let pagBoleto = inputBoleto;
 let nome = '';
@@ -792,10 +794,13 @@ function modal() {
     botaoAlterarEndereco.addEventListener('click', () => {
       modalDiv.classList.add('ativo');
       overlayDiv.classList.add('ativo');
+
+      trocaEndereco();
     });
     botaoAlterarEndereco.removeEventListener('click', () => {
       modalDiv.classList.add('ativo');
       overlayDiv.classList.add('ativo');
+      trocaEndereco();
     });
     fechar.addEventListener('click', () => {
       modalDiv.classList.remove('ativo');
@@ -819,6 +824,7 @@ function modal() {
     botaoAlterarEndereco.addEventListener('click', () => {
       modalDiv.classList.add('ativo');
       overlayDiv.classList.add('ativo');
+      trocaEndereco();
     });
     fechar.addEventListener('click', () => {
       modalDiv.classList.remove('ativo');
@@ -843,18 +849,18 @@ function tagsEndereco() {
     '.container-endereco .endereco span'
   );
 
-  enderecoTitulo.append(enderecoSelecionado[0].titulo);
-  enderecoSpans[0].append(enderecoSelecionado[0].endereco);
-  enderecoSpans[1].append(enderecoSelecionado[0].complemento);
-  enderecoSpans[2].append(enderecoSelecionado[0].bairro);
-  enderecoSpans[3].append(enderecoSelecionado[0].cidade);
-  enderecoSpans[4].append(enderecoSelecionado[0].cep);
-  enderecoTituloWeb.append(enderecoSelecionado[0].titulo);
-  enderecoSpansWeb[0].append(enderecoSelecionado[0].endereco);
-  enderecoSpansWeb[1].append(enderecoSelecionado[0].complemento);
-  enderecoSpansWeb[2].append(enderecoSelecionado[0].bairro);
-  enderecoSpansWeb[3].append(enderecoSelecionado[0].cidade);
-  enderecoSpansWeb[4].append(enderecoSelecionado[0].cep);
+  enderecoTitulo.innerText = enderecoSelecionado.titulo;
+  enderecoSpans[0].innerText = enderecoSelecionado.endereco;
+  enderecoSpans[1].innerText = enderecoSelecionado.complemento;
+  enderecoSpans[2].innerText = enderecoSelecionado.bairro;
+  enderecoSpans[3].innerText = enderecoSelecionado.cidade;
+  enderecoSpans[4].innerText = enderecoSelecionado.cep;
+  enderecoTituloWeb.innerText = enderecoSelecionado.titulo;
+  enderecoSpansWeb[0].innerText = enderecoSelecionado.endereco;
+  enderecoSpansWeb[1].innerText = enderecoSelecionado.complemento;
+  enderecoSpansWeb[2].innerText = enderecoSelecionado.bairro;
+  enderecoSpansWeb[3].innerText = enderecoSelecionado.cidade;
+  enderecoSpansWeb[4].innerText = enderecoSelecionado.cep;
 }
 
 //inserindo enderecos do Cadastro
@@ -873,8 +879,8 @@ function inserirEnderecoModal() {
     input.type = 'radio';
     input.value = cadastroEndereco[i].titulo;
 
-    if (cadastroEndereco[i].titulo === endereco[0].titulo) {
-      input.setAttribute('checked', '');
+    if (cadastroEndereco[i].titulo === endereco.titulo) {
+      input.checked = 1;
     } else {
     }
     containerEndereco.appendChild(input);
@@ -915,6 +921,46 @@ function inserirEnderecoModal() {
 }
 
 //inserir troca de endereço
+function trocaEndereco() {
+  let botaoEnderecos = document.querySelectorAll('.escolha-endereco .endereco');
+  let botao = document.querySelectorAll('.endereco input');
+
+  botaoEnderecos.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      let titulo = item.querySelector('h3');
+      let endereco = item.querySelectorAll('span');
+      if (endereco.length === 5) {
+        endereco = {
+          titulo: titulo.innerText,
+          endereco: endereco[0].innerText,
+          complemento: endereco[1].innerText,
+          bairro: endereco[2].innerText,
+          cidade: endereco[3].innerText,
+          cep: endereco[4].innerText,
+        };
+      } else {
+        endereco = {
+          titulo: titulo.innerText,
+          endereco: endereco[0].innerText,
+          bairro: endereco[1].innerText,
+          cidade: endereco[2].innerText,
+          cep: endereco[3].innerText,
+        };
+      }
+      botao.forEach((item) => {
+        item.checked = 0;
+      });
+      botao[index].checked = 1;
+      localStorage.setItem('endereco', JSON.stringify(endereco));
+      tagsEndereco();
+    });
+  });
+}
+
+//botao adicionar endereco
+botaoInserirEndereco.addEventListener('click', () => {
+  console.log('abrir novo modal');
+});
 
 //lista accordion
 listaAccordion.addEventListener('click', () => {
@@ -933,8 +979,6 @@ listaAccordion.addEventListener('click', () => {
 window.addEventListener('resize', () => {
   verificandoTamanho();
 });
-
-//botao tipo de pagamento visualização
 
 //botao continuar
 botaoContinuar.addEventListener('click', () => {

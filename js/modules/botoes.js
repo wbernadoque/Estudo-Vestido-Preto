@@ -12,6 +12,12 @@ export default function botoesSelecao() {
   const finalizarCompraCarrinho = document.querySelector('.carrinho a');
   const menuLateral = document.querySelector('.menu-lateral');
   const botaoCarrinho = document.querySelector('.container-carrinho');
+  const tabelaDeMedidas = document.querySelectorAll('.infos div');
+  const telaTabela = document.querySelector('.tabela-medidas');
+  const fecharTabela = telaTabela.querySelector('.sup .fechar');
+  const telaProvador = document.querySelector('.provador-virtual');
+  const fecharProvador = telaProvador.querySelector('.sup .fechar');
+
   const vestido = {
     decote: '',
     manga: '',
@@ -375,6 +381,18 @@ export default function botoesSelecao() {
     menuHamburguer.classList.toggle('inativo');
   });
 
+  tabelaDeMedidas[1].addEventListener('click', () => {
+    telaTabela.classList.add('ativo');
+  });
+  fecharTabela.addEventListener('click', () => {
+    telaTabela.classList.remove('ativo');
+  });
+  tabelaDeMedidas[0].addEventListener('click', () => {
+    telaProvador.classList.add('ativo');
+  });
+  fecharProvador.addEventListener('click', () => {
+    telaProvador.classList.remove('ativo');
+  });
   itemsNoCarrinho();
   quantidadeBadge();
   verificarAtivo();

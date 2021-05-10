@@ -317,7 +317,103 @@ h3 {
   display: flex;
   align-items: center;
 }
-
+.tabela-medidas {
+  display: none;
+}
+.tabela-medidas.ativo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabela-medidas.ativo .sup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 13px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 90%;
+}
+.tabela-medidas.ativo .sup .fechar {
+  width: 17px;
+  height: 17px;
+}
+.tabela-medidas.ativo h1 {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  color: #2067f5;
+}
+.tabela-medidas.ativo h2 {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+}
+.tabela-medidas.ativo table {
+  width: 90%;
+  color: #586267;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 14px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+.tabela-medidas.ativo table td,
+th {
+  border: 1px solid #f2f2f2;
+  height: 24px;
+}
+.tabela-medidas.ativo table th.vazio {
+  border: none;
+}
+.tabela-medidas.ativo .botoes-tabela {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin-top: 77px;
+}
+.tabela-medidas.ativo .botoes-tabela .provador {
+  border-radius: 22px;
+  background-color: #2067f5;
+  width: 170px;
+  height: 35px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: Source Sans Pro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabela-medidas.ativo .botoes-tabela .fita-metrica {
+  border-radius: 22px;
+  border: 2px solid #f56311;
+  width: 170px;
+  height: 35px;
+  color: #f56311;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: Source Sans Pro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabela-medidas.ativo .botoes-tabela .fita-metrica img {
+  margin-right: 7px;
+}
 @media (max-width: 768px) {
   .medidas-da-modelo {
     display: flex;
@@ -511,7 +607,7 @@ h3 {
     justify-content: space-between;
     flex-wrap: wrap;
     border: 1px solid #f2f2f2;
-    padding-left: 0;
+    padding: 8px;
     width: 80%;
   }
   .infos img {
@@ -644,5 +740,201 @@ h3 {
     margin-top: 14px;
     display: flex;
     justify-content: space-between;
+  }
+  .tabela-medidas {
+    display: none;
+  }
+  .tabela-medidas.ativo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 13px;
+    margin-left: 16px;
+    margin-right: 16px;
+    width: 90%;
+  }
+  .sup .fechar {
+    width: 17px;
+    height: 17px;
+  }
+  .tabela-medidas.ativo h1 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    color: #2067f5;
+  }
+  .tabela-medidas.ativo h2 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+  }
+  .tabela-medidas.ativo table {
+    width: 90%;
+    color: #586267;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 14px;
+    text-align: center;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+  .tabela-medidas.ativo table td,
+  th {
+    border: 1px solid #f2f2f2;
+    height: 24px;
+  }
+  .tabela-medidas.ativo table th.vazio {
+    border: none;
+  }
+  .tabela-medidas.ativo .botoes-tabela {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin-top: 77px;
+  }
+  .tabela-medidas.ativo .botoes-tabela .provador {
+    border-radius: 22px;
+    background-color: #2067f5;
+    width: 170px;
+    height: 35px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: Source Sans Pro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tabela-medidas.ativo .botoes-tabela .fita-metrica {
+    border-radius: 22px;
+    border: 2px solid #f56311;
+    width: 170px;
+    height: 35px;
+    color: #f56311;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: Source Sans Pro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tabela-medidas.ativo .botoes-tabela .fita-metrica img {
+    margin-right: 7px;
+  }
+  .provador-virtual {
+    display: none;
+  }
+  .provador-virtual.ativo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .provador-virtual.ativo .genero {
+    display: flex;
+    width: 90%;
+    margin-top: 25px;
+  }
+  .provador-virtual.ativo .titulo-genero {
+    margin-top: 48px;
+  }
+  .provador-virtual.ativo form {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+  }
+  .provador-virtual.ativo .input {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14.0994px;
+    line-height: 18px;
+    color: #586267;
+    margin-top: 50px;
+  }
+  .provador-virtual.ativo .input input {
+    width: 80%;
+    height: 37px;
+    border: 1px solid #f2f2f2;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .provador-virtual.ativo .genero a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 37px;
+    border: 1px solid #f2f2f2;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13.7981px;
+    line-height: 17px;
+    color: #586267;
+  }
+  .provador-virtual.ativo .genero a img {
+    margin-right: 11px;
+  }
+  .provador-virtual.ativo h1 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    color: #2067f5;
+  }
+  .provador-virtual.ativo h2 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    text-align: center;
+    text-transform: none;
+  }
+  .provador-virtual.ativo .proximo {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+  }
+  .provador-virtual.ativo .proximo a {
+    border-radius: 22px;
+    background-color: #2067f5;
+    width: 170px;
+    height: 35px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: Source Sans Pro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

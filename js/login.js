@@ -4,7 +4,7 @@ const login = {
 };
 const enderecoCadastro = [
   {
-    titulo: 'Casa',
+    titulo: 'CASA',
     endereco: 'Rua Torres da Barra, 207',
     complemento: 'Apto:402',
     bairro: 'Bairro:Água Branca',
@@ -12,7 +12,7 @@ const enderecoCadastro = [
     cep: 'CEP: 05037-055',
   },
   {
-    titulo: 'Mãe',
+    titulo: 'MÃE',
     endereco: 'Rua Pref. Sezefreo Amorim Cortex, 207',
     complemento: '',
     bairro: 'Bairro: Vila Loty',
@@ -21,7 +21,7 @@ const enderecoCadastro = [
   },
 ];
 localStorage.setItem('cadastroEndereco', JSON.stringify(enderecoCadastro));
-const endereco = [enderecoCadastro[0]];
+const endereco = enderecoCadastro[0];
 
 const botaoAcessar = document.querySelector('.btn-login');
 const botaoMostrar = document.querySelector('.mostrar');
