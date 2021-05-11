@@ -546,6 +546,9 @@ form.dados-cartoes span {
   justify-content: center;
   align-items: center;
 }
+.modal.ativo .content.inativo {
+  display: none;
+}
 .modal.ativo .content {
   width: 720px;
   height: 496px;
@@ -554,6 +557,7 @@ form.dados-cartoes span {
   flex-direction: column;
   padding: 22px 12px 22px 30px;
   align-items: center;
+  overflow: scroll;
 }
 .modal.ativo .content .escolha-endereco {
   display: flex;
@@ -622,7 +626,9 @@ form.dados-cartoes span {
   .modal.mobile {
     display: none;
   }
-
+  .modal.mobile.ativo .content.inativo {
+    display: none;
+  }
   .modal.mobile.ativo .content {
     width: 100vw;
     height: 390px;
@@ -673,6 +679,7 @@ form.dados-cartoes span {
     font-size: 14px;
     margin-top: 0px;
   }
+
   .footer {
     width: 100vw;
   }
@@ -1083,5 +1090,145 @@ form.dados-cartoes span {
   .forma-pag .total-items span.valor {
     text-transform: uppercase;
     color: #2067f5;
+  }
+  .add-endereco {
+    display: none;
+  }
+  .add-endereco.ativo {
+    width: 100vw;
+    height: 490px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* padding: 22px 12px 22px 30px; */
+    align-items: center;
+    justify-content: space-around;
+  }
+  .add-endereco.ativo .botoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+  }
+  .add-endereco.ativo .salvar-endereco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 54px;
+    background-color: #d9d9d9;
+    color: #ffffff;
+    border-radius: 28px;
+    font-size: 15px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .add-endereco.ativo .salvar-endereco.ativo {
+    background-color: #2067f5;
+  }
+  .add-endereco.ativo .cancelar {
+    color: #d9d9d9;
+    border-radius: 28px;
+    font-size: 15px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .modal.mobile.ativo .add-endereco .titulo {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+  }
+  .add-endereco.ativo .titulo h1 {
+    color: #2067f5;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 44px;
+  }
+  .add-endereco.ativo form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  .add-endereco.ativo form .cep {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .add-endereco.ativo form .cep input {
+    width: 70%;
+  }
+  .add-endereco.ativo form .cep a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .add-endereco.ativo form .endereco {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .add-endereco.ativo form .endereco input,
+  label {
+    width: 90%;
+  }
+  .add-endereco.ativo form .bairro-cidade {
+    display: flex;
+    flex-direction: row;
+  }
+  .add-endereco.ativo form .bairro-cidade input,
+  label {
+    width: 90%;
+  }
+  .add-endereco.ativo form label.ativo {
+    position: absolute;
+    margin-bottom: 40px;
+    /* transition: 0.2s; */
+    height: 22px;
+    width: 100%;
+    margin-left: 0px;
+  }
+  .add-endereco.ativo form label {
+    position: absolute;
+    margin-bottom: 0px;
+    height: 22px;
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    color: #616161;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    transition: 0.2s;
+    margin-left: 5px;
+    /* line-height: 18px; */
+  }
+  .add-endereco.ativo form input {
+    width: 100%;
+    border: 1px solid #f2f2f2;
+    height: 22px;
+  }
+  .add-endereco.ativo form div.input {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    margin-bottom: 22px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .add-endereco.ativo form select {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    /* margin-bottom: 22px; */
+    width: 100%;
+    height: 22px;
+    background-color: #ffffff;
+    border: 1px solid #f2f2f2;
   }
 }

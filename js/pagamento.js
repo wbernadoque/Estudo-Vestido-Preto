@@ -25,7 +25,24 @@ const botaoContinuar = document.querySelector('.botao-continuar');
 const inputCartao = document.querySelector('.cartao .titulo');
 const inputBoleto = document.querySelector('.boleto .titulo');
 const endereco = JSON.parse(localStorage.getItem('endereco'));
-const botaoInserirEndereco = document.querySelector('.add-endereco');
+const botaoInserirEndereco = document.querySelector(
+  '.add-endereco .salvar-endereco'
+);
+const cancelarInserirEndereco = document.querySelector(
+  '.add-endereco .cancelar'
+);
+const formularioEndereco = document.querySelectorAll(
+  '.add-endereco form label'
+);
+const formularioInput = document.querySelectorAll('.add-endereco form input');
+const formularioSelect = document.querySelector('.add-endereco form select');
+const fecharAddEndereco = document.querySelector(
+  '.add-endereco .titulo .fechar'
+);
+const abrirModalAddEndereco = document.querySelector('.content .add-endereco');
+const content = document.querySelector('.modal .content');
+
+let cep = '';
 
 let enderecos = JSON.parse(localStorage.getItem('cadastroEndereco'));
 let pagCartao = inputCartao;
@@ -797,16 +814,8 @@ function modal() {
 
       trocaEndereco();
     });
-    botaoAlterarEndereco.removeEventListener('click', () => {
-      modalDiv.classList.add('ativo');
-      overlayDiv.classList.add('ativo');
-      trocaEndereco();
-    });
+
     fechar.addEventListener('click', () => {
-      modalDiv.classList.remove('ativo');
-      overlayDiv.classList.remove('ativo');
-    });
-    fechar.removeEventListener('click', () => {
       modalDiv.classList.remove('ativo');
       overlayDiv.classList.remove('ativo');
     });
@@ -959,7 +968,34 @@ function trocaEndereco() {
 
 //botao adicionar endereco
 botaoInserirEndereco.addEventListener('click', () => {
-  console.log('abrir novo modal');
+  const botaoInserirEndereco = document.querySelector(
+    '.add-endereco .salvar-endereco'
+  );
+  const endereco = JSON.parse(localStorage.getItem('cadastroEndereco'));
+  const formularioInput = document.querySelectorAll('.add-endereco form input');
+  const formularioSelect = document.querySelector('.add-endereco form select');
+  const tituloInput = formularioInput[0].value;
+  const complementoInput = formularioInput[4].value;
+  const bairroInput = formularioInput[5].value;
+  const cepInput = formularioInput[1].value;
+  const cidadeInput =
+    formularioInput[6].value + ' - ' + formularioSelect[7].value;
+  const enderecoInput =
+    formularioInput[2].value + ', ' + formularioInput[3].value;
+  const novoEndereco = {
+    titulo: tituloInput,
+    endereco: enderecoInput,
+    complemento: complementoInput,
+    cidade: 'Cidade: ' + cidadeInput,
+    cep: 'CEP: ' + cepInput,
+    bairro: 'Bairro: ' + bairroInput,
+  };
+
+  console.log(novoEndereco);
+  if (botaoInserirEndereco.classList.contains('ativo')) {
+    endereco.push(novoEndereco);
+    localStorage.setItem('cadastroEndereco', JSON.stringify(endereco));
+  }
 });
 
 //lista accordion
@@ -1100,6 +1136,98 @@ pagBoleto.addEventListener('click', () => {
   tituloBoleto.removeChild(inputBoleto);
   tituloBoleto.insertBefore(inputBoletoNovo, boletoTitulo);
   window.scrollTo(0, 0);
+});
+
+//animação de label e input
+formularioEndereco.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    item.classList.add('ativo');
+    if (index < 7) {
+      formularioInput[index].focus();
+    }
+  });
+});
+formularioInput.forEach((item, index) => {
+  item.addEventListener('focusout', () => {
+    if (item.value === '') {
+      formularioEndereco[index].classList.remove('ativo');
+    }
+  });
+});
+formularioInput.forEach((item, index) => {
+  item.addEventListener('focus', () => {
+    formularioEndereco[index].classList.add('ativo');
+  });
+});
+formularioSelect.addEventListener('focus', () => {
+  formularioEndereco[7].classList.add('ativo');
+});
+formularioSelect.addEventListener('focusout', (event) => {
+  if (event.target.value === '')
+    formularioEndereco[7].classList.remove('ativo');
+});
+fecharAddEndereco.addEventListener('click', () => {
+  const endereco = document.querySelectorAll('.add-endereco');
+  const content = document.querySelector('.modal.mobile.ativo .content');
+
+  const modal = document.querySelector('.modal.mobile.ativo');
+  const overlay = document.querySelector('.overlay.ativo');
+  overlay.classList.remove('ativo');
+
+  endereco[1].classList.remove('ativo');
+  content.classList.remove('inativo');
+  modal.classList.remove('ativo');
+});
+formularioInput[1].addEventListener('keyup', (event) => {
+  if (event.target.value.length > 9) {
+    formularioInput[1].value = cep;
+  }
+  cep = event.target.value;
+  cep = cep.replace(/\D/g, '');
+  cep = cep.replace(/(\d{5})(\d)/, '$1-$2');
+  cep = cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+  formularioInput[1].value = cep;
+});
+function validaFormulario() {
+  const formularioInput = document.querySelectorAll('.add-endereco form input');
+  const formularioSelect = document.querySelector('.add-endereco form select');
+  if (
+    formularioInput[0] !== '' &&
+    formularioInput[1] !== '' &&
+    formularioInput[2] !== '' &&
+    formularioInput[3] !== '' &&
+    formularioInput[4] !== '' &&
+    formularioInput[5] !== '' &&
+    formularioInput[6] !== '' &&
+    formularioSelect.value !== ''
+  ) {
+    botaoInserirEndereco.classList.add('ativo');
+  }
+}
+
+formularioInput.forEach((item) => {
+  item.addEventListener('change', () => {
+    validaFormulario();
+  });
+});
+formularioSelect.addEventListener('change', () => {
+  validaFormulario();
+});
+cancelarInserirEndereco.addEventListener('click', () => {
+  const modal = document.querySelector('.modal.mobile.ativo');
+  const overlay = document.querySelector('.overlay.ativo');
+  const endereco = document.querySelectorAll('.modal .add-endereco');
+  const content = document.querySelector('.modal .content');
+  content.classList.remove('inativo');
+  endereco[1].classList.remove('ativo');
+  modal.classList.remove('ativo');
+  overlay.classList.remove('ativo');
+});
+
+abrirModalAddEndereco.addEventListener('click', () => {
+  content.classList.add('inativo');
+  const addEndereco = document.querySelectorAll('.modal .add-endereco');
+  addEndereco[1].classList.add('ativo');
 });
 
 checked();

@@ -8,16 +8,19 @@ export default function botoesSelecao() {
   const carrinho = document.querySelector('.carrinho');
   const containerCarrinho = carrinho.querySelector('.container');
   const botaoMenu = document.querySelector('.botao-menu');
+  const overlay = document.querySelector('.overlay-menu');
+  const menuHamburguer = document.querySelector('.menu-hamburguer');
   const botaoX = document.querySelector('.botao-x');
   const finalizarCompraCarrinho = document.querySelector('.carrinho a');
   const menuLateral = document.querySelector('.menu-lateral');
+  const botoesNav = menuLateral.querySelectorAll('ul li');
   const botaoCarrinho = document.querySelector('.container-carrinho');
   const tabelaDeMedidas = document.querySelectorAll('.infos div');
   const telaTabela = document.querySelector('.tabela-medidas');
   const fecharTabela = telaTabela.querySelector('.sup .fechar');
   const telaProvador = document.querySelector('.provador-virtual');
   const fecharProvador = telaProvador.querySelector('.sup .fechar');
-
+  const botoesTabela = document.querySelectorAll('.botoes-tabela a');
   const vestido = {
     decote: '',
     manga: '',
@@ -367,8 +370,6 @@ export default function botoesSelecao() {
   });
 
   botaoMenu.addEventListener('click', () => {
-    const menuHamburguer = document.querySelector('.menu-hamburguer');
-    const overlay = document.querySelector('.overlay-menu');
     overlay.classList.toggle('ativo');
     menuHamburguer.classList.toggle('inativo');
     menuLateral.classList.add('ativo');
@@ -393,6 +394,28 @@ export default function botoesSelecao() {
   fecharProvador.addEventListener('click', () => {
     telaProvador.classList.remove('ativo');
   });
+
+  botoesTabela[0].addEventListener('click', () => {
+    telaTabela.classList.remove('ativo');
+    telaProvador.classList.add('ativo');
+  });
+
+  botoesNav[0].addEventListener('click', () => {
+    menuLateral.classList.remove('ativo');
+    overlay.classList.remove('ativo');
+    menuHamburguer.classList.remove('inativo');
+  });
+  botoesNav[1].addEventListener('click', () => {
+    menuLateral.classList.remove('ativo');
+    overlay.classList.remove('ativo');
+    menuHamburguer.classList.remove('inativo');
+  });
+  botoesNav[2].addEventListener('click', () => {
+    menuLateral.classList.remove('ativo');
+    overlay.classList.remove('ativo');
+    menuHamburguer.classList.remove('inativo');
+  });
+
   itemsNoCarrinho();
   quantidadeBadge();
   verificarAtivo();
