@@ -21,6 +21,218 @@ export default function botoesSelecao() {
   const telaProvador = document.querySelector('.provador-virtual');
   const fecharProvador = telaProvador.querySelector('.sup .fechar');
   const botoesTabela = document.querySelectorAll('.botoes-tabela a');
+  const tamanho = ['p', 'm', 'g', 'gg'];
+
+  const vestidos = [
+    {
+      tipo: 1,
+      decote: 'princesa',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 2,
+      decote: 'princesa',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 3,
+      decote: 'princesa',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 4,
+      decote: 'princesa',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 5,
+      decote: 'U',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 6,
+      decote: 'U',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 7,
+      decote: 'U',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 8,
+      decote: 'U',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 9,
+      decote: 'gota',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 10,
+      decote: 'gota',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 11,
+      decote: 'gota',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 12,
+      decote: 'gota',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 13,
+      decote: 'gola',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 14,
+      decote: 'gola',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 15,
+      decote: 'gola',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 16,
+      decote: 'gola',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 17,
+      decote: 'x',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 18,
+      decote: 'x',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 19,
+      decote: 'x',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 20,
+      decote: 'x',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+  ];
+  const fotosTipo = [
+    {
+      tipo: 1,
+      img: '',
+    },
+    {
+      tipo: 2,
+      img: '',
+    },
+    {
+      tipo: 3,
+      img: '',
+    },
+    {
+      tipo: 4,
+      img: '',
+    },
+    {
+      tipo: 5,
+      img: '',
+    },
+    {
+      tipo: 6,
+      img: '',
+    },
+    {
+      tipo: 7,
+      img: '',
+    },
+    {
+      tipo: 8,
+      img: '',
+    },
+    {
+      tipo: 9,
+      img: '',
+    },
+    {
+      tipo: 10,
+      img: '',
+    },
+    {
+      tipo: 11,
+      img: '',
+    },
+    {
+      tipo: 12,
+      img: '',
+    },
+    {
+      tipo: 13,
+      img: '',
+    },
+    {
+      tipo: 14,
+      img: '',
+    },
+    {
+      tipo: 15,
+      img: '',
+    },
+    {
+      tipo: 16,
+      img: '',
+    },
+    {
+      tipo: 17,
+      img: '',
+    },
+    {
+      tipo: 18,
+      img: '',
+    },
+    {
+      tipo: 19,
+      img: '',
+    },
+    {
+      tipo: 20,
+      img: '',
+    },
+  ];
+  let estado = {
+    decote: '',
+    manga: '',
+    comprimento: '',
+    tamanho: '',
+  };
   const vestido = {
     decote: '',
     manga: '',
@@ -30,55 +242,52 @@ export default function botoesSelecao() {
   };
   const botoesDecote = [
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/princesa.png',
       nome: 'princesa',
     },
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/u.png',
       nome: 'U',
     },
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/gota.png',
       nome: 'gota',
     },
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/gola.png',
       nome: 'gola alta',
     },
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/x1.png',
       nome: 'gola x',
     },
   ];
-
   const botoesManga = [
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/alca.png',
       nome: 'Alça',
     },
     {
-      imagem: 'img/image 1.png',
-      nome: 'Manga Curta',
+      imagem: 'img/manga.png',
+      nome: 'Manga Longa',
     },
   ];
-
   const botoesComprimento = [
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/curto.png',
       nome: 'Curto',
     },
     {
-      imagem: 'img/image 1.png',
+      imagem: 'img/longo.png',
       nome: 'Longo',
     },
   ];
-  const tamanho = ['p', 'm', 'g', 'gg'];
-
-  const tamanhoReverso = tamanho.reverse();
   const comprimentoReverso = botoesComprimento.reverse();
+  const tamanhoReverso = tamanho.reverse();
+
   const decoteReverso = botoesDecote.reverse();
   const mangaReverso = botoesManga.reverse();
-  // const botoesCustomizar = Array.from(botoesCustomizarNode);
+  localStorage.setItem('selecao', JSON.stringify(vestido));
 
   function quantidadeBadge() {
     const itemsCarrinhoMemoria = JSON.parse(localStorage.getItem('item'));
@@ -92,7 +301,6 @@ export default function botoesSelecao() {
       span.innerHTML = itemsCarrinhoMemoria.length;
     }
   }
-
   function verificarAtivo() {
     const ativo = document.querySelectorAll('.customizar a');
 
@@ -175,15 +383,22 @@ export default function botoesSelecao() {
           if (custom.classList.contains('ativo')) {
             if (index == 0) {
               vestido.decote = item.childNodes[1].nodeValue;
+              estado.decote = item.childNodes[1].nodeValue;
             } else if (index == 1) {
               vestido.manga = item.childNodes[1].nodeValue;
+              estado.manga = item.childNodes[1].nodeValue;
             } else if (index == 2) {
               vestido.comprimento = item.childNodes[1].nodeValue;
+              estado.comprimento = item.childNodes[1].nodeValue;
             } else if (index == 3) {
               vestido.tamanho = item.querySelector(
                 'span'
               ).childNodes[0].nodeValue;
+              estado.tamanho = item.querySelector(
+                'span'
+              ).childNodes[0].nodeValue;
             }
+
             if (
               vestido.comprimento.length > 0 &&
               vestido.decote.length > 0 &&
@@ -204,9 +419,12 @@ export default function botoesSelecao() {
             }
           }
         });
+        localStorage.setItem('selecao', JSON.stringify(estado));
+        // alterarGaleria();
       });
     });
   }
+
   function itemsNoCarrinho() {
     containerCarrinho.querySelectorAll('.item').forEach((item) => {
       containerCarrinho.removeChild(item);

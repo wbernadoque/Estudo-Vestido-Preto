@@ -7,7 +7,6 @@ import simulandoCEP from './modules/simulandoCEP.js';
 import faleConoscoValidacao from './modules/fale-conosco-validacoes.js';
 import selos from './modules/selos.js';
 
-galeriaDeFotos();
 botoesSelecao();
 scroll();
 cards();
@@ -15,3 +14,4 @@ verificarLogin();
 simulandoCEP();
 faleConoscoValidacao();
 selos();
+galeriaDeFotos();

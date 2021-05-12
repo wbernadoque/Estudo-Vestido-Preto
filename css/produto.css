@@ -326,6 +326,15 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tabela-medidas.ativo .content {
+  width: 80%;
+  height: 80%;
   background-color: #ffffff;
   z-index: 600;
   display: flex;
@@ -413,6 +422,128 @@ th {
 }
 .tabela-medidas.ativo .botoes-tabela .fita-metrica img {
   margin-right: 7px;
+}
+.provador-virtual {
+  display: none;
+}
+.provador-virtual.ativo {
+  position: fixed;
+  /* top: 0;
+  left: 0; */
+  width: 100%;
+  height: 100%;
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.provador-virtual.ativo .content {
+  width: 80%;
+  height: 80%;
+  background-color: #ffffff;
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.provador-virtual.ativo .genero {
+  display: flex;
+  width: 90%;
+  margin-top: 25px;
+}
+.provador-virtual.ativo .titulo-genero {
+  margin-top: 48px;
+}
+.provador-virtual.ativo form {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+.provador-virtual.ativo .input {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14.0994px;
+  line-height: 18px;
+  color: #586267;
+  margin-top: 50px;
+}
+.provador-virtual.ativo form label {
+  width: auto;
+}
+.provador-virtual.ativo .input input {
+  width: 80%;
+  height: 37px;
+  border: 1px solid #f2f2f2;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.provador-virtual.ativo .genero a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 37px;
+  border: 1px solid #f2f2f2;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13.7981px;
+  line-height: 17px;
+  color: #586267;
+}
+.provador-virtual.ativo .genero a img {
+  margin-right: 11px;
+}
+.provador-virtual.ativo h1 {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  color: #2067f5;
+}
+.provador-virtual.ativo h2 {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  text-align: center;
+  text-transform: none;
+}
+.provador-virtual.ativo .proximo {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+.provador-virtual.ativo .proximo a {
+  border-radius: 22px;
+  background-color: #2067f5;
+  width: 170px;
+  height: 35px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: Source Sans Pro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.provador-virtual.ativo .sup {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.provador-virtual.ativo .sup img.fechar {
+  width: 17px;
+  height: 17px;
 }
 @media (max-width: 768px) {
   .medidas-da-modelo {
@@ -750,6 +881,15 @@ th {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .tabela-medidas.ativo .content {
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
     z-index: 600;
     display: flex;
@@ -847,6 +987,15 @@ th {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .provador-virtual.ativo .content {
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
     z-index: 600;
     display: flex;
@@ -878,6 +1027,9 @@ th {
     line-height: 18px;
     color: #586267;
     margin-top: 50px;
+  }
+  .provador-virtual.ativo form label {
+    width: auto;
   }
   .provador-virtual.ativo .input input {
     width: 80%;
