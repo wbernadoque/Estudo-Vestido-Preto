@@ -2,7 +2,7 @@ export default function galeriaDeFotos() {
   const foto = document.querySelectorAll('.exibicao div');
   let select = document.querySelectorAll('.galeria img');
   // const galeria = document.querySelectorAll('.galeria a');
-  // const buttons = document.querySelectorAll('.interacao a');
+  const buttons = document.querySelectorAll('.interacao a');
 
   const tamanho = window.innerWidth;
   let selecoes = document.querySelectorAll('#produto .info .botao a');
@@ -86,49 +86,49 @@ export default function galeriaDeFotos() {
     },
     {
       tipo: 13,
-      decote: 'gola',
+      decote: 'gola alta',
       manga: 'Alça',
       comprimento: 'Curto',
     },
     {
       tipo: 14,
-      decote: 'gola',
+      decote: 'gola alta',
       manga: 'Alça',
       comprimento: 'Longo',
     },
     {
       tipo: 15,
-      decote: 'gola',
+      decote: 'gola alta',
       manga: 'Manga Longa',
       comprimento: 'Curto',
     },
     {
       tipo: 16,
-      decote: 'gola',
+      decote: 'gola alta',
       manga: 'Manga Longa',
       comprimento: 'Longo',
     },
     {
       tipo: 17,
-      decote: 'x',
+      decote: 'gola x',
       manga: 'Alça',
       comprimento: 'Curto',
     },
     {
       tipo: 18,
-      decote: 'x',
+      decote: 'gola x',
       manga: 'Alça',
       comprimento: 'Longo',
     },
     {
       tipo: 19,
-      decote: 'x',
+      decote: 'gola x',
       manga: 'Manga Longa',
       comprimento: 'Curto',
     },
     {
       tipo: 20,
-      decote: 'x',
+      decote: 'gola x',
       manga: 'Manga Longa',
       comprimento: 'Longo',
     },
@@ -223,7 +223,10 @@ export default function galeriaDeFotos() {
   };
 
   function botao(index) {
+    const foto = document.querySelectorAll('.exibicao div');
+
     let i = 0;
+
     if (index === 1) {
       foto.forEach((item, index) => {
         if (
@@ -239,7 +242,7 @@ export default function galeriaDeFotos() {
         foto[i + 1].classList.remove('inativo');
       } else {
         foto[i].classList.add('inativo');
-        foto[i - 3].classList.remove('inativo');
+        foto[i - 4].classList.remove('inativo');
       }
     } else {
       foto.forEach((item, index) => {
@@ -260,6 +263,7 @@ export default function galeriaDeFotos() {
     }
   }
   function mobileGaleria() {
+    const galeria = document.querySelectorAll('.galeria a');
     if (tamanho <= 768) {
       select.forEach((item) => {
         item.classList.add('inativo');
@@ -270,6 +274,8 @@ export default function galeriaDeFotos() {
     return document.querySelectorAll('.galeria a');
   }
   function ativarFoto(index) {
+    const foto = document.querySelectorAll('.exibicao div');
+
     foto.forEach((item, index) => {
       if (index > 0) item.classList.add('inativo');
     });
@@ -281,57 +287,925 @@ export default function galeriaDeFotos() {
     const menu = document.querySelector('#produto .foto .galeria');
     const fotos = document.querySelectorAll('#produto .foto .exibicao div');
     const galeria = document.querySelectorAll('#produto .foto .galeria a');
-
+    console.log(estado.decote);
     vestidos.forEach((item) => {
       if (
         estado.decote === item.decote &&
         estado.manga === item.manga &&
         estado.comprimento === item.comprimento
       ) {
-        // console.log(item);
         if (item.tipo === 1) {
           // fotos
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
             }
-            // for (var i = 0; i < 5; i++) {
-            const divFoto = document.createElement('div');
-            const fotoInserir = document.createElement('img');
-            if (index !== 0) {
-              divFoto.classList.add('inativo');
-            }
-            fotoInserir.src =
-              'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
 
-            divFoto.appendChild(fotoInserir);
-            exibicao.appendChild(divFoto);
-            // }
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
           });
           galeria.forEach((foto, index) => {
             if (index >= 0) {
               menu.removeChild(foto);
             }
-            // for (var i = 0; i < 5; i++) {
-            const divFoto = document.createElement('a');
-            const fotoInserir = document.createElement('img');
 
-            fotoInserir.src =
-              'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
 
-            divFoto.appendChild(fotoInserir);
-            menu.appendChild(divFoto);
-            // }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
           });
         }
         if (item.tipo === 2) {
           console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
         }
         if (item.tipo === 3) {
           console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
         }
         if (item.tipo === 4) {
           console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 5) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 6) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 7) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 8) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 9) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 10) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 11) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 12) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 13) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 14) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 15) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 16) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 17) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 18) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 19) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+        if (item.tipo === 20) {
+          console.log(item.tipo);
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src =
+                'img/tipo-' + item.tipo + '/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        }
+      } else if (
+        estado.decote === item.decote &&
+        estado.manga === '' &&
+        estado.comprimento === ''
+      ) {
+        const fotos = document.querySelectorAll('#produto .foto .exibicao div');
+        const galeria = document.querySelectorAll('#produto .foto .galeria a');
+        if (estado.decote === 'princesa') {
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src = 'img/princesa/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src = 'img/princesa/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        } else if (estado.decote === 'U') {
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src = 'img/U/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src = 'img/U/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        } else if (estado.decote === 'gota') {
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src = 'img/Gota/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src = 'img/Gota/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        } else if (estado.decote === 'gola alta') {
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src = 'img/Gola-alta/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src = 'img/Gola-alta/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
+        } else if (estado.decote === 'gola x') {
+          fotos.forEach((foto, index) => {
+            if (index > 0) {
+              exibicao.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('div');
+              const fotoInserir = document.createElement('img');
+              if (index !== 0) {
+                divFoto.classList.add('inativo');
+              }
+              fotoInserir.src = 'img/X/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              exibicao.appendChild(divFoto);
+            }
+          });
+          galeria.forEach((foto, index) => {
+            if (index >= 0) {
+              menu.removeChild(foto);
+            }
+
+            if (index < 5) {
+              const divFoto = document.createElement('a');
+              const fotoInserir = document.createElement('img');
+
+              fotoInserir.src = 'img/X/' + (index + 1) + '.png';
+
+              divFoto.appendChild(fotoInserir);
+              menu.appendChild(divFoto);
+            }
+          });
         }
       }
     });
@@ -339,10 +1213,9 @@ export default function galeriaDeFotos() {
   }
   function render() {
     const galeria = document.querySelectorAll('#produto .galeria a');
-    const buttons = document.querySelectorAll('#produto .interacao a');
+
     galeria.forEach((itemMenu, index) => {
       itemMenu.addEventListener('click', () => {
-        console.log('passei aqui');
         galeria.forEach((item) => {
           item.classList.remove('ativo');
         });
@@ -352,27 +1225,23 @@ export default function galeriaDeFotos() {
       });
       itemMenu.classList.remove('ativo');
     });
-
-    buttons.forEach((itemButton, index) => {
-      itemButton.addEventListener('click', () => {
-        botao(index);
-      });
-    });
   }
-
+  buttons.forEach((itemButton, index) => {
+    itemButton.addEventListener('click', () => {
+      botao(index);
+    });
+  });
   medidas.addEventListener('click', () => {
     const modelo = document.querySelector('.modelo-veste');
     modelo.classList.toggle('desativado');
   });
 
-  mobileGaleria();
-
   info.addEventListener('click', () => {
     const estadoGravado = JSON.parse(localStorage.getItem('selecao'));
     estado = estadoGravado;
-    console.log(estado);
+
     alterarGaleria();
-    render();
   });
+  mobileGaleria();
   render();
 }
