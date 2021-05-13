@@ -74,6 +74,8 @@
 }
 #produto .foto .galeria a {
   width: 22%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media (max-width: 768px) {
@@ -105,6 +107,8 @@
     background-color: #d9d9d9;
     border: none;
     border-radius: 50%;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
   }
   #produto .foto .galeria a.ativo {
     background-color: #303030;
@@ -128,9 +132,13 @@
   #produto .inativo {
     display: none;
   }
+  .exibicao {
+    height: auto;
+  }
+
   #produto .foto img {
     /* max-width: 100vw; */
-
+    max-height: none;
     width: 100%;
     height: 100%;
     animation-name: galeria;
