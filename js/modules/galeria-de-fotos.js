@@ -287,7 +287,7 @@ export default function galeriaDeFotos() {
     const menu = document.querySelector('#produto .foto .galeria');
     const fotos = document.querySelectorAll('#produto .foto .exibicao div');
     const galeria = document.querySelectorAll('#produto .foto .galeria a');
-    console.log(estado.decote);
+
     vestidos.forEach((item) => {
       if (
         estado.decote === item.decote &&
@@ -303,6 +303,7 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('div');
+
               const fotoInserir = document.createElement('img');
               if (index !== 0) {
                 divFoto.classList.add('inativo');
@@ -321,6 +322,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -332,7 +336,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 2) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -358,6 +361,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -369,7 +375,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 3) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -395,6 +400,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -406,7 +414,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 4) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -432,6 +439,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -443,7 +453,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 5) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -469,6 +478,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -480,7 +492,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 6) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -506,6 +517,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -517,7 +531,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 7) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -543,6 +556,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -554,7 +570,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 8) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -580,6 +595,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -591,7 +609,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 9) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -617,6 +634,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -628,7 +648,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 10) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -654,6 +673,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -665,7 +687,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 11) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -691,6 +712,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -702,7 +726,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 12) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -728,6 +751,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -739,7 +765,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 13) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -765,6 +790,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -776,7 +804,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 14) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -802,6 +829,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -813,7 +843,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 15) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -839,6 +868,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -850,7 +882,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 16) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -876,6 +907,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -887,7 +921,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 17) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -913,6 +946,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -924,7 +960,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 18) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -950,6 +985,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -961,7 +999,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 19) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -987,6 +1024,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -998,7 +1038,6 @@ export default function galeriaDeFotos() {
           });
         }
         if (item.tipo === 20) {
-          console.log(item.tipo);
           fotos.forEach((foto, index) => {
             if (index > 0) {
               exibicao.removeChild(foto);
@@ -1024,6 +1063,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src =
@@ -1066,6 +1108,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src = 'img/princesa/' + (index + 1) + '.png';
@@ -1099,6 +1144,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src = 'img/U/' + (index + 1) + '.png';
@@ -1132,6 +1180,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src = 'img/Gota/' + (index + 1) + '.png';
@@ -1165,6 +1216,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src = 'img/Gola-alta/' + (index + 1) + '.png';
@@ -1198,6 +1252,9 @@ export default function galeriaDeFotos() {
 
             if (index < 5) {
               const divFoto = document.createElement('a');
+              if (index === 0) {
+                divFoto.classList.add('ativo');
+              }
               const fotoInserir = document.createElement('img');
 
               fotoInserir.src = 'img/X/' + (index + 1) + '.png';
@@ -1223,7 +1280,7 @@ export default function galeriaDeFotos() {
         itemMenu.classList.add('ativo');
         ativarFoto(index);
       });
-      itemMenu.classList.remove('ativo');
+      // itemMenu.classList.remove('ativo');
     });
   }
   buttons.forEach((itemButton, index) => {

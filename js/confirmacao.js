@@ -271,12 +271,21 @@ function endereco() {
   const enderecoTitulo = document.querySelector('.endereco h3');
   const enderecoSpans = document.querySelectorAll('.endereco span');
 
-  enderecoTitulo.append(enderecoSelecionado[0].titulo);
-  enderecoSpans[0].append(enderecoSelecionado[0].endereco);
-  enderecoSpans[1].append(enderecoSelecionado[0].complemento);
-  enderecoSpans[2].append(enderecoSelecionado[0].bairro);
-  enderecoSpans[3].append(enderecoSelecionado[0].cidade);
-  enderecoSpans[4].append(enderecoSelecionado[0].cep);
+  enderecoTitulo.append(enderecoSelecionado.titulo);
+  enderecoSpans[0].append(enderecoSelecionado.endereco);
+  enderecoSpans[1].append(enderecoSelecionado.complemento);
+  enderecoSpans[2].append(enderecoSelecionado.bairro);
+  enderecoSpans[3].append(enderecoSelecionado.cidade);
+  enderecoSpans[4].append(enderecoSelecionado.cep);
+}
+
+//limpando compra
+function limpandoCompra() {
+  localStorage.removeItem('frete');
+  localStorage.removeItem('selecao');
+  localStorage.removeItem('desconto');
+  localStorage.removeItem('pagamento');
+  localStorage.removeItem('item');
 }
 
 inserirItems();
@@ -287,3 +296,4 @@ pagamentoSelecionado();
 inserirDesconto();
 endereco();
 tamanhoPagina();
+limpandoCompra();

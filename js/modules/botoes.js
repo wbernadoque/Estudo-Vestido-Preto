@@ -367,6 +367,7 @@ export default function botoesSelecao() {
     render();
   }
   function render() {
+    const botoes = document.querySelector('.botao');
     customizar.querySelectorAll('a').forEach((item) => {
       if (item.classList.contains('selecionado'))
         item.classList.remove('ativo');
@@ -492,29 +493,96 @@ export default function botoesSelecao() {
     verificarAtivo();
   }
 
-  customizar.querySelectorAll('a').forEach((item) => {
-    customizar.querySelectorAll('a').forEach((item) => {
-      if (item.classList.contains('selecionado'))
-        item.classList.remove('ativo');
-    });
+  customizar.querySelectorAll('a').forEach((item, index) => {
     item.addEventListener('click', () => {
+      // item.classList.add('ativo');
       if (item.classList.contains('selecionavel')) {
         item.classList.remove('selecionavel');
         item.classList.add('ativo');
+        teste(index);
       } else if (item.classList.contains('selecionado')) {
-        customizar.querySelectorAll('a').forEach((item) => {
-          item.classList.remove('ativo');
-          item.classList.remove('selecionavel');
-          item.classList.add('selecionado');
-        });
+        item.classList.add('ativo');
+        item.classList.remove('selecionado');
+        teste(index);
+      }
+
+      // item.classList.add('ativo');
+
+      // teste(index);
+      // verificarAtivo();
+    });
+    // customizar.querySelectorAll('a').forEach((item) => {
+    //   if (index == 0 && vestido.decote.value !== '') {
+    //     item.classList.remove('ativo');
+    //     item.classList.add('selecionado');
+    //   } else if (index == 1 && vestido.manga.value !== '') {
+    //     item.classList.remove('ativo');
+    //     item.classList.add('selecionado');
+    //   } else if (index == 2 && vestido.comprimento.value !== '') {
+    //     item.classList.remove('ativo');
+    //     item.classList.add('selecionado');
+    //   } else if (index == 3 && vestido.tamanho.value !== '') {
+    //     item.classList.remove('ativo');
+    //     item.classList.add('selecionado');
+    //   }
+    //   if (item.classList.contains(undefined)) {
+    //     // item.classList.add('selecionado');
+    //   }
+    // });
+  });
+  function teste(botao) {
+    const customizar = document.querySelector('.customizar');
+    const estado = JSON.parse(localStorage.getItem('selecao'));
+    console.log(estado.manga);
+    customizar.querySelectorAll('a').forEach((item, index) => {
+      if (
+        index == 0 &&
+        estado.decote !== '' &&
+        !item.classList.contains('selecionavel')
+      ) {
+        item.classList.remove('ativo');
+        item.classList.remove('selecionavel');
+        item.classList.add('selecionado');
+      }
+      if (
+        index == 1 &&
+        estado.manga !== '' &&
+        !item.classList.contains('selecionavel')
+      ) {
+        console.log('passei aqui');
+        item.classList.remove('ativo');
+        item.classList.remove('selecionavel');
+        item.classList.add('selecionado');
+      }
+      if (
+        index == 2 &&
+        estado.comprimento !== '' &&
+        !item.classList.contains('selecionavel')
+      ) {
+        item.classList.remove('ativo');
+        item.classList.remove('selecionavel');
+        item.classList.add('selecionado');
+      }
+      if (
+        index == 3 &&
+        estado.tamanho !== '' &&
+        !item.classList.contains('selecionavel')
+      ) {
+        item.classList.remove('ativo');
+        item.classList.remove('selecionavel');
+        item.classList.add('selecionado');
+      }
+      if (botao === index) {
         item.classList.remove('selecionado');
         item.classList.add('ativo');
       }
-
+      if (botao !== index) {
+        // item.classList.add('selecionavel');
+        item.classList.remove('ativo');
+      }
       verificarAtivo();
     });
-  });
-
+  }
   quantidade.forEach((item) => {
     item.addEventListener('click', () => {
       let valor = parseInt(quantidade[1].innerHTML);
@@ -535,8 +603,6 @@ export default function botoesSelecao() {
     const itemsCarrinhoMemoria = JSON.parse(localStorage.getItem('item'));
 
     if (itemsCarrinhoMemoria === null) {
-      console.log('deu null');
-      console.log(vestido);
       itemsAdicionados.push({
         decote: vestido.decote,
         manga: vestido.manga,
@@ -544,7 +610,7 @@ export default function botoesSelecao() {
         tamanho: vestido.tamanho,
         quantidade: vestido.quantidade,
       });
-      console.log(itemsAdicionados);
+
       localStorage.setItem('item', JSON.stringify(itemsAdicionados));
     } else {
       itemsCarrinhoMemoria.push({
