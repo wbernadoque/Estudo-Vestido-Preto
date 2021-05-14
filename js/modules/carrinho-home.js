@@ -9,7 +9,9 @@ export default function carrinhoHome() {
 
   const acesso = localStorage.getItem('acesso', 'logado');
   let porcentagem = 0;
+
   //adicionando desconto
+
   function desconto() {
     const botaoDesconto = document.querySelector(
       '.container-resumo .input-buttom button'
@@ -413,7 +415,6 @@ export default function carrinhoHome() {
 
     botoesLixeira.forEach((item) => {
       item.addEventListener('click', () => {
-        console.log('passei aqui');
         const carrinho = document.querySelector('.carrinho-compra');
 
         const containerProduto = document.querySelector('.container-produto');
@@ -435,7 +436,6 @@ export default function carrinhoHome() {
     });
     botoesLixeira.forEach((item) => {
       item.removeEventListener('click', () => {
-        console.log('passei aqui');
         const carrinho = document.querySelector('.carrinho-compra');
 
         const containerProduto = document.querySelector('.container-produto');
@@ -555,6 +555,8 @@ export default function carrinhoHome() {
   }
 
   itemCarrinho();
-  quantidadeItem();
-  desconto();
+  if (vestido.length > 0) {
+    quantidadeItem();
+    desconto();
+  }
 }

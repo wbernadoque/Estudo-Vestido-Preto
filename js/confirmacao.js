@@ -281,11 +281,13 @@ function endereco() {
 
 //limpando compra
 function limpandoCompra() {
+  const vazio = [];
   localStorage.removeItem('frete');
   localStorage.removeItem('selecao');
   localStorage.removeItem('desconto');
   localStorage.removeItem('pagamento');
   localStorage.removeItem('item');
+  localStorage.setItem('item', JSON.stringify(vazio));
 }
 
 inserirItems();

@@ -519,7 +519,7 @@ export default function cards() {
     const nav = document.querySelector('.avaliacoes .nav');
     const a = nav.querySelectorAll('a');
     divBlocos.forEach((item) => {
-      // console.log(item);
+      
       pessoas.removeChild(item);
     });
     a.forEach((item) => {

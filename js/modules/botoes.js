@@ -533,7 +533,7 @@ export default function botoesSelecao() {
   function teste(botao) {
     const customizar = document.querySelector('.customizar');
     const estado = JSON.parse(localStorage.getItem('selecao'));
-    console.log(estado.manga);
+    
     customizar.querySelectorAll('a').forEach((item, index) => {
       if (
         index == 0 &&
@@ -549,7 +549,7 @@ export default function botoesSelecao() {
         estado.manga !== '' &&
         !item.classList.contains('selecionavel')
       ) {
-        console.log('passei aqui');
+        
         item.classList.remove('ativo');
         item.classList.remove('selecionavel');
         item.classList.add('selecionado');

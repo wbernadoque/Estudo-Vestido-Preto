@@ -62,9 +62,8 @@ botaoAcessar.addEventListener('click', (event) => {
   if (esqueciEnviado) {
     divEsqueci.removeChild(esqueciEnviado);
   }
-  console.log(senha.value);
+
   if (usuario.value === login.usuario && senha.value === login.senha) {
-    console.log('Logado');
     localStorage.setItem('acesso', 'logado');
     localStorage.setItem('endereco', JSON.stringify(endereco));
     window.history.back('http://127.0.0.1:5500/pagamento.html');

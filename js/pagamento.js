@@ -991,7 +991,7 @@ botaoInserirEndereco.addEventListener('click', () => {
     bairro: 'Bairro: ' + bairroInput,
   };
 
-  console.log(novoEndereco);
+  
   if (botaoInserirEndereco.classList.contains('ativo')) {
     endereco.push(novoEndereco);
     localStorage.setItem('cadastroEndereco', JSON.stringify(endereco));

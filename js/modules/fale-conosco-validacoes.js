@@ -30,7 +30,7 @@ export default function faleConoscoValidacao() {
   }
   function validarCel(telefone) {
     const re = /\(\d{2}\)\s\d{5}\-\d{4}/;
-    console.log(telefone);
+
     return re.test(telefone);
   }
 
@@ -74,14 +74,12 @@ export default function faleConoscoValidacao() {
     //passando pelo telefone
     const validadoCel = validarCel(telefone);
     if (validadoCel === false) {
-      console.log('invalido');
       const span = document.createElement('span');
       span.classList.add('invalido');
       span.appendChild(document.createTextNode('Celular inválido'));
 
       formulario.insertBefore(span, labels[3]);
     } else {
-      console.log('validado');
     }
   });
 }

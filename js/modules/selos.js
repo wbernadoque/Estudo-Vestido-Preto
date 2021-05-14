@@ -83,21 +83,16 @@ export default function selos() {
 
         if (botoes.length === 2) {
           if (index === 0) {
-            console.log('exibir dois primeiros selos');
             selos.forEach((item, index) => {
-              console.log(index);
               if (index <= 1) {
-                console.log('passei aqui');
                 item.classList.add('ativo');
               } else {
                 item.classList.remove('ativo');
               }
             });
           } else {
-            console.log('exibir dois ultimos selos');
             selos.forEach((item, index) => {
               if (index > 1) {
-                console.log('passei aqui');
                 item.classList.add('ativo');
               } else {
                 item.classList.remove('ativo');
@@ -106,41 +101,32 @@ export default function selos() {
           }
         } else if (botoes.length === 4) {
           if (index === 0) {
-            console.log('exibir primeiro');
             selos.forEach((item, index) => {
-              console.log(index);
               if (index === 0) {
-                console.log('passei aqui');
                 item.classList.add('ativo');
               } else {
                 item.classList.remove('ativo');
               }
             });
           } else if (index === 1) {
-            console.log('exibir segundo');
             selos.forEach((item, index) => {
               if (index === 1) {
-                console.log('passei aqui');
                 item.classList.add('ativo');
               } else {
                 item.classList.remove('ativo');
               }
             });
           } else if (index === 2) {
-            console.log('exibir segundo');
             selos.forEach((item, index) => {
               if (index === 2) {
-                console.log('passei aqui');
                 item.classList.add('ativo');
               } else {
                 item.classList.remove('ativo');
               }
             });
           } else if (index === 3) {
-            console.log('exibir segundo');
             selos.forEach((item, index) => {
               if (index === 3) {
-                console.log('passei aqui');
                 item.classList.add('ativo');
               } else {
                 item.classList.remove('ativo');
