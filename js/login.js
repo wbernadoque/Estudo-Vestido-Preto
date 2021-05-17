@@ -66,7 +66,7 @@ botaoAcessar.addEventListener('click', (event) => {
   if (usuario.value === login.usuario && senha.value === login.senha) {
     localStorage.setItem('acesso', 'logado');
     localStorage.setItem('endereco', JSON.stringify(endereco));
-    window.history.back('http://127.0.0.1:5500/pagamento.html');
+    window.history.back('./pagamento.html');
   } else if (usuario.value === '' || senha.value === '') {
     if (usuario.value === '') {
       const login = document.querySelector('.login-input');

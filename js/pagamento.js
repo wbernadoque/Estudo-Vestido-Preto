@@ -523,7 +523,7 @@ botaoCompra.addEventListener('click', (event) => {
       window.innerWidth > 768
     ) {
       localStorage.setItem('pagamento', JSON.stringify(formaPag));
-      window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+      window.location.href = './confirmacao.html';
     }
 
     //mostrar resumo
@@ -573,7 +573,7 @@ botaoBoleto.addEventListener('click', (event) => {
   event.preventDefault();
   localStorage.setItem('pagamento', 'Boleto');
   if (window.innerWidth > 768) {
-    window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+    window.location.href = './confirmacao.html';
   }
   if (window.innerWidth <= 768) {
     const pagamento = document.querySelector('.pagamento-container .pagamento');
@@ -729,7 +729,7 @@ function totalResumoMobileBoleto() {
 function botaoConfirmar() {
   const botaoContinuar = document.querySelector('.resumo a.continuar');
   botaoContinuar.addEventListener('click', () => {
-    window.location.href = 'http://127.0.0.1:5500/confirmacao.html';
+    window.location.href = './confirmacao.html';
   });
 }
 //adicionar oculto desconto
@@ -771,7 +771,7 @@ function verificandoTamanho() {
     if (!boleto.classList.contains('oculto')) {
       boleto.classList.add('oculto');
     }
-    modal();
+    // modal();
   } else {
     if (menuSuperior.classList.contains('pagamento')) {
       menuSuperior.classList.remove('pagamento');
@@ -792,8 +792,8 @@ function verificandoTamanho() {
     if (boleto.classList.contains('oculto')) {
       boleto.classList.remove('oculto');
     }
-    modal();
   }
+  modal();
 }
 //modal
 function modal() {
@@ -858,18 +858,33 @@ function tagsEndereco() {
     '.container-endereco .endereco span'
   );
 
-  enderecoTitulo.innerText = enderecoSelecionado.titulo;
-  enderecoSpans[0].innerText = enderecoSelecionado.endereco;
-  enderecoSpans[1].innerText = enderecoSelecionado.complemento;
-  enderecoSpans[2].innerText = enderecoSelecionado.bairro;
-  enderecoSpans[3].innerText = enderecoSelecionado.cidade;
-  enderecoSpans[4].innerText = enderecoSelecionado.cep;
-  enderecoTituloWeb.innerText = enderecoSelecionado.titulo;
-  enderecoSpansWeb[0].innerText = enderecoSelecionado.endereco;
-  enderecoSpansWeb[1].innerText = enderecoSelecionado.complemento;
-  enderecoSpansWeb[2].innerText = enderecoSelecionado.bairro;
-  enderecoSpansWeb[3].innerText = enderecoSelecionado.cidade;
-  enderecoSpansWeb[4].innerText = enderecoSelecionado.cep;
+  if (enderecoSelecionado.complemento !== undefined) {
+    enderecoTitulo.innerText = enderecoSelecionado.titulo;
+    enderecoSpans[0].innerText = enderecoSelecionado.endereco;
+    enderecoSpans[1].innerText = enderecoSelecionado.complemento;
+    enderecoSpans[2].innerText = enderecoSelecionado.bairro;
+    enderecoSpans[3].innerText = enderecoSelecionado.cidade;
+    enderecoSpans[4].innerText = enderecoSelecionado.cep;
+    enderecoTituloWeb.innerText = enderecoSelecionado.titulo;
+    enderecoSpansWeb[0].innerText = enderecoSelecionado.endereco;
+    enderecoSpansWeb[1].innerText = enderecoSelecionado.complemento;
+    enderecoSpansWeb[2].innerText = enderecoSelecionado.bairro;
+    enderecoSpansWeb[3].innerText = enderecoSelecionado.cidade;
+    enderecoSpansWeb[4].innerText = enderecoSelecionado.cep;
+  } else {
+    enderecoTitulo.innerText = enderecoSelecionado.titulo;
+    enderecoSpans[0].innerText = enderecoSelecionado.endereco;
+    enderecoSpans[1].innerText = '';
+    enderecoSpans[2].innerText = enderecoSelecionado.bairro;
+    enderecoSpans[3].innerText = enderecoSelecionado.cidade;
+    enderecoSpans[4].innerText = enderecoSelecionado.cep;
+    enderecoTituloWeb.innerText = enderecoSelecionado.titulo;
+    enderecoSpansWeb[0].innerText = enderecoSelecionado.endereco;
+    enderecoSpansWeb[1].innerText = '';
+    enderecoSpansWeb[2].innerText = enderecoSelecionado.bairro;
+    enderecoSpansWeb[3].innerText = enderecoSelecionado.cidade;
+    enderecoSpansWeb[4].innerText = enderecoSelecionado.cep;
+  }
 }
 
 //inserindo enderecos do Cadastro
@@ -991,7 +1006,6 @@ botaoInserirEndereco.addEventListener('click', () => {
     bairro: 'Bairro: ' + bairroInput,
   };
 
-  
   if (botaoInserirEndereco.classList.contains('ativo')) {
     endereco.push(novoEndereco);
     localStorage.setItem('cadastroEndereco', JSON.stringify(endereco));
@@ -1012,9 +1026,9 @@ listaAccordion.addEventListener('click', () => {
 });
 
 //evento de mudar tamanho da tela
-window.addEventListener('resize', () => {
-  verificandoTamanho();
-});
+// window.addEventListener('resize', () => {
+//   verificandoTamanho();
+// });
 
 //botao continuar
 botaoContinuar.addEventListener('click', () => {

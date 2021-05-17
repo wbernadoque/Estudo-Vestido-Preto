@@ -271,12 +271,21 @@ function endereco() {
   const enderecoTitulo = document.querySelector('.endereco h3');
   const enderecoSpans = document.querySelectorAll('.endereco span');
 
-  enderecoTitulo.append(enderecoSelecionado.titulo);
-  enderecoSpans[0].append(enderecoSelecionado.endereco);
-  enderecoSpans[1].append(enderecoSelecionado.complemento);
-  enderecoSpans[2].append(enderecoSelecionado.bairro);
-  enderecoSpans[3].append(enderecoSelecionado.cidade);
-  enderecoSpans[4].append(enderecoSelecionado.cep);
+  if (enderecoSelecionado.complemento !== undefined) {
+    enderecoTitulo.append(enderecoSelecionado.titulo);
+    enderecoSpans[0].append(enderecoSelecionado.endereco);
+    enderecoSpans[1].append(enderecoSelecionado.complemento);
+    enderecoSpans[2].append(enderecoSelecionado.bairro);
+    enderecoSpans[3].append(enderecoSelecionado.cidade);
+    enderecoSpans[4].append(enderecoSelecionado.cep);
+  } else {
+    enderecoTitulo.append(enderecoSelecionado.titulo);
+    enderecoSpans[0].append(enderecoSelecionado.endereco);
+    enderecoSpans[1].append('');
+    enderecoSpans[2].append(enderecoSelecionado.bairro);
+    enderecoSpans[3].append(enderecoSelecionado.cidade);
+    enderecoSpans[4].append(enderecoSelecionado.cep);
+  }
 }
 
 //limpando compra

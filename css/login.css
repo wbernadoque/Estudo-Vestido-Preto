@@ -182,7 +182,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 122px;
+    margin-top: 193px;
     overflow: hidden;
     margin-bottom: 68px;
   }
@@ -196,8 +196,9 @@
   .pagina-login .logar {
     width: 90%;
     display: flex;
-
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   .pagina-login button {
     width: 100%;
@@ -206,8 +207,14 @@
     width: 90%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
   .pagina-login h1 {
+    width: 90%;
+    font-size: 20px;
+  }
+  .pagina-login .cadastrar h1 {
     display: none;
   }
   .pagina-login form {

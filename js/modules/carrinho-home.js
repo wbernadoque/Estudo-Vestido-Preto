@@ -107,7 +107,7 @@ export default function carrinhoHome() {
       const descricaoCompra = document.createElement('a');
       descricaoCompra.appendChild(document.createTextNode('Comprar.'));
       descricaoCompra.classList.add('laranja');
-      descricaoCompra.href = 'http://127.0.0.1:5500';
+      descricaoCompra.href = './index.html';
       textoVazia.appendChild(descricaoCompra);
       carrinho.appendChild(img);
       carrinho.appendChild(separador);
@@ -371,7 +371,7 @@ export default function carrinhoHome() {
       containerResumo.appendChild(totalItems);
 
       const botaoContinuar = document.createElement('a');
-      botaoContinuar.href = 'http://127.0.0.1:5500/';
+      botaoContinuar.href = './index.html';
       botaoContinuar.classList.add('continuar');
       botaoContinuar.appendChild(
         document.createTextNode('CONTINUAR COMPRANDO')
@@ -379,12 +379,9 @@ export default function carrinhoHome() {
       containerResumo.appendChild(botaoContinuar);
       const botaoFinalizar = document.createElement('a');
       if (acesso) {
-        botaoFinalizar.setAttribute(
-          'href',
-          'http://127.0.0.1:5500/pagamento.html'
-        );
+        botaoFinalizar.setAttribute('href', './pagamento.html');
       } else {
-        botaoFinalizar.setAttribute('href', 'http://127.0.0.1:5500/login.html');
+        botaoFinalizar.setAttribute('href', './login.html');
       }
       botaoFinalizar.classList.add('finalizar');
       botaoFinalizar.appendChild(document.createTextNode('FINALIZAR COMPRA'));
