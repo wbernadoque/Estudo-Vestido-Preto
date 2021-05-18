@@ -178,6 +178,7 @@ h3 {
   display: flex;
   align-items: center;
   margin-right: 25px;
+  cursor: pointer;
 }
 .modelo-veste {
   display: flex;
