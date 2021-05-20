@@ -1,5 +1,5 @@
 export default function carrinhoHome() {
-  const carrinho = document.querySelector('.carrinho-compra');
+  const carrinho = document.querySelector('.carrinho-compra .page-width');
   let botoesLixeira;
   let vestido = JSON.parse(localStorage.getItem('item'));
   let precoOld = 199.9;

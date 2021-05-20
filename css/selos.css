@@ -66,6 +66,10 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
+  margin-right: 7px;
+}
+.nav-selos a:last-child {
+  margin-right: 0;
 }
 .nav-selos a.desativado {
   display: none;

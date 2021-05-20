@@ -520,7 +520,7 @@ botaoCompra.addEventListener('click', (event) => {
       form === null &&
       formVal === null &&
       formCvv === null &&
-      window.innerWidth > 768
+      window.innerWidth > 1024
     ) {
       localStorage.setItem('pagamento', JSON.stringify(formaPag));
       window.location.href = './confirmacao.html';
@@ -531,7 +531,7 @@ botaoCompra.addEventListener('click', (event) => {
       form === null &&
       formVal === null &&
       formCvv === null &&
-      window.innerWidth <= 768
+      window.innerWidth <= 1024
     ) {
       localStorage.setItem('pagamento', JSON.stringify(formaPag));
       const pagamento = document.querySelector(
@@ -572,10 +572,10 @@ botaoCompra.addEventListener('click', (event) => {
 botaoBoleto.addEventListener('click', (event) => {
   event.preventDefault();
   localStorage.setItem('pagamento', 'Boleto');
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 1024) {
     window.location.href = './confirmacao.html';
   }
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 1024) {
     const pagamento = document.querySelector('.pagamento-container .pagamento');
     const resumo = document.querySelector('.resumo');
     const menu = document.querySelector('.menu-accordion');
@@ -743,13 +743,9 @@ function verificandoTamanho() {
   const boleto = document.querySelector('.boleto');
   const menuSuperior = document.querySelector('.menu');
 
-  const linhas = menuSuperior.querySelectorAll('.linhas .linha');
-
-  if (tamanho <= 768) {
+  if (tamanho <= 1024) {
     //mudando menu para menu de pagamento
     menuSuperior.classList.add('pagamento');
-    // menuBolinhas[1].classList.remove('ativo');
-    // linhas[0].classList.remove('ativo');
 
     if (desconto !== null) {
       if (!desconto.classList.contains('oculto')) {
@@ -797,7 +793,7 @@ function verificandoTamanho() {
 }
 //modal
 function modal() {
-  if (tamanho <= 768) {
+  if (tamanho <= 1024) {
     const botaoAlterarEndereco = document.querySelector(
       '.container-endereco-mobile .alterar-endereco'
     );
@@ -1024,11 +1020,6 @@ listaAccordion.addEventListener('click', () => {
   frete.classList.toggle('oculto');
   total.classList.toggle('oculto');
 });
-
-//evento de mudar tamanho da tela
-// window.addEventListener('resize', () => {
-//   verificandoTamanho();
-// });
 
 //botao continuar
 botaoContinuar.addEventListener('click', () => {

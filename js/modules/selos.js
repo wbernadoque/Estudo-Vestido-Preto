@@ -3,7 +3,7 @@ export default function selos() {
     const largura = window.innerWidth;
     const selos = document.querySelectorAll('div.selo');
 
-    if (largura < 846 && largura > 614) {
+    if (largura > 456 && largura < 860) {
       selos.forEach((item, index) => {
         if (index <= 1) {
           item.classList.add('ativo');

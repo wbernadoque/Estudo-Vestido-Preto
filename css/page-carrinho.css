@@ -12,6 +12,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   margin-top: 122px;
   margin-bottom: 97px;
+  box-sizing: border-box;
 }
 
 .carrinho-compra a.laranja {
@@ -48,7 +49,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   min-height: 72px;
   background-color: rgba(39, 158, 8, 0.42);
   color: #239606;
@@ -61,7 +62,7 @@ input::-webkit-inner-spin-button {
 }
 .container-produto {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
   margin-top: 38px;
 }
@@ -70,6 +71,7 @@ input::-webkit-inner-spin-button {
   font-size: 26px;
   text-transform: uppercase;
   font-weight: 600;
+  width: 100%;
 }
 .container-produto .produtos {
   width: 50%;
@@ -89,6 +91,7 @@ input::-webkit-inner-spin-button {
   padding: 18px;
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .container-resumo .subtotal-items {
@@ -214,7 +217,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 312px;
+  width: 100%;
   height: 42px;
   border: 2px solid #f56311;
   box-sizing: border-box;
@@ -234,7 +237,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 312px;
+  width: 100%;
   height: 42px;
 
   box-sizing: border-box;
@@ -519,7 +522,8 @@ span.cupom-errado {
     padding: 18px;
     margin: 0;
     margin-bottom: 15px;
-    width: 300px;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .container-frete {
@@ -530,9 +534,10 @@ span.cupom-errado {
     padding: 18px;
     margin-bottom: 10px;
     margin-top: 39px;
-    width: 80%;
+    width: 100%;
     justify-content: flex-start;
     align-items: center;
+    box-sizing: border-box;
   }
   .container-frete .input-buttom a {
     display: none;
@@ -542,7 +547,7 @@ span.cupom-errado {
     height: 42.46px;
   }
   .container-produto .resumo {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

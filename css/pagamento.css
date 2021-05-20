@@ -6,9 +6,13 @@ input[type='radio']:checked {
   display: flex;
   margin-top: 99px;
   justify-content: space-around;
-
+  box-sizing: border-box;
   font-family: Source Sans Pro;
   flex-wrap: wrap;
+}
+.pagamento-container .page-width {
+  display: flex;
+  flex-direction: row;
 }
 .pagamento {
   width: 40vw;
@@ -515,6 +519,12 @@ form.dados-cartoes span {
 .botao-continuar {
   display: none;
 }
+.pagamento .titulo {
+  display: flex;
+  justify-content: unset;
+  align-items: unset;
+  margin-bottom: 0;
+}
 .cartao .titulo input {
   display: none;
 }
@@ -593,6 +603,9 @@ form.dados-cartoes span {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-direction: row;
+  align-items: unset;
+  margin: 0;
 }
 .modal .content .info-endereco .titulo {
   display: flex;
@@ -662,7 +675,8 @@ form.dados-cartoes span {
   display: flex;
   width: 90%;
   justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+  margin-bottom: 0;
 }
 .add-endereco.ativo .titulo h1 {
   color: #2067f5;
@@ -830,18 +844,22 @@ label {
   }
   .pagamento-container {
     display: flex;
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
     align-items: center;
     /* justify-content: center; */
     margin-top: 158px;
     width: 100%;
   }
+  .pagamento-container .page-width {
+    display: flex;
+    flex-direction: column-reverse;
+  }
   .pagamento {
-    width: 90%;
+    width: 100%;
     align-items: center;
   }
   .resumo {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -956,7 +974,7 @@ label {
     padding-left: 21px;
   }
   .resumo .container-endereco-mobile h2 {
-    width: 100%;
+    /* width: 100%; */
 
     margin-left: 21px;
     /* margin-right: 21px; */
@@ -1084,6 +1102,8 @@ label {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   .continuar {
     display: flex;
@@ -1097,7 +1117,7 @@ label {
     background-color: #2067f5;
     border-radius: 25px;
     height: 50px;
-    width: 90%;
+    width: 100%;
     color: #ffffff;
     font-size: 16px;
   }
@@ -1119,9 +1139,12 @@ label {
   .pagamento h1.oculto {
     display: none;
   }
-  .titulo {
+  .pagamento .titulo {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    margin: 0;
+    justify-content: start;
   }
   .cartao .titulo input {
     display: unset;
@@ -1283,6 +1306,8 @@ label {
     display: flex;
     width: 90%;
     justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 0;
   }
   .add-endereco.ativo .titulo h1 {
     color: #2067f5;

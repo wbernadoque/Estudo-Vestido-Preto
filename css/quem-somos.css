@@ -10,16 +10,18 @@
 .quem-somos {
   margin-bottom: 57px;
   margin-right: 63px;
-  max-width: 537px;
+  /* max-width: 537px; */
+  width: 50%;
 }
 .conteudo-quem-somos {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   padding-left: 0px;
   width: 100%;
 }
+
 .quem-somos img {
   width: 19px;
   height: 19px;
@@ -67,6 +69,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 50%;
   /* margin-left: 53px; */
 }
 .fale-conosco h1 {
@@ -78,6 +81,7 @@
 .fale-conosco form.contato {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .fale-conosco form.contato button {
   width: 208px;
@@ -107,9 +111,13 @@
   font-weight: 600;
   margin-bottom: 8px;
 }
-
+.quem-somos .titulo {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
 .fale-conosco form.contato input {
-  width: 570px;
+  width: 100%;
 
   height: 42.46px;
   background: #ffffff;
@@ -120,7 +128,7 @@
 }
 
 .fale-conosco form.contato textarea {
-  width: 570px;
+  width: 100%;
   height: 92px;
 
   background: #f2f2f2;
@@ -157,7 +165,11 @@
   .quem-somos {
     margin-bottom: 57px;
     margin-right: 0;
-    max-width: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
   }
   .conteudo-quem-somos {
     display: flex;

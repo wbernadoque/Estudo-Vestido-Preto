@@ -21,69 +21,55 @@
     <div class="modal">
       <div class="content">
         <div class="titulo">
-
           <h1>Escolha o endereço</h1>
-          <a class="fechar"><img src="./img/x.png" alt=""></a>
+          <a class="fechar"><img src="./img/x.png" alt="" /></a>
         </div>
-        <div class="escolha-endereco">
-          
-          
-        </div>
-        <a class="add-endereco">
-          ADICIONAR NOVO ENDEREÇO
-        </a>
+        <div class="escolha-endereco"></div>
+        <a class="add-endereco"> ADICIONAR NOVO ENDEREÇO </a>
       </div>
       <div class="add-endereco">
         <div class="titulo">
-
           <h1>ADICIONAR NOVO ENDEREÇO</h1>
-          <a class="fechar"><img src="./img/x.png" alt=""></a>
+          <a class="fechar"><img src="./img/x.png" alt="" /></a>
         </div>
         <form>
           <div class="input">
             <label>Nome do destinatário *</label>
-            <input type="text">
+            <input type="text" />
           </div>
-            <div class="cep">
-              <div class="input">
-
-                <label>CEP *</label>
-                <input type="text">
-                <a>não sei meu CEP</a>
-              </div>
+          <div class="cep">
+            <div class="input">
+              <label>CEP *</label>
+              <input type="text" />
+              <a>não sei meu CEP</a>
             </div>
-                    
-          
+          </div>
+
           <div class="endereco">
             <div class="input">
               <label>Endereço *</label>
-              <input type="text">
+              <input type="text" />
             </div>
             <div class="input">
               <label>Número *</label>
-              <input type="text">
+              <input type="text" />
             </div>
           </div>
           <div class="input">
-
             <label>Complemento</label>
-            <input type="text">
+            <input type="text" />
           </div>
           <div class="bairro-cidade">
-
             <div class="input">
-
               <label>Bairro *</label>
-              <input type="text">
+              <input type="text" />
             </div>
             <div class="input">
-
               <label>Cidade *</label>
-              <input type="text">
+              <input type="text" />
             </div>
           </div>
           <div class="input">
-
             <label>Estado *</label>
             <select id="UF">
               <option value=""></option>
@@ -116,236 +102,221 @@
               <option value="TO">Tocantins</option>
             </select>
           </div>
-          </form>
-          <div class='botoes'>
-
-            <a class="salvar-endereco">SALVAR ENDEREÇO</a>
-            <a class="cancelar">CANCELAR</a>
-          </div>
+        </form>
+        <div class="botoes">
+          <a class="salvar-endereco">SALVAR ENDEREÇO</a>
+          <a class="cancelar">CANCELAR</a>
+        </div>
       </div>
     </div>
-   
-        <div class="overlay">
-          
-        </div>
-    <nav class="menu">
-      <a  class="logo" href="./index.html"><img src="img/logo-preto.png" alt="" /></a>
-      <div>
-        
-        
-        <div class="id-pag-ok">
-          <ul>
-            <li>Identificação<div class="bolinha ativo"></div></li>
-            
-            <li>Pagamento<div class="bolinha ativo"></div></li>
-            
-            <li>Confirmação<div class="bolinha"></div></li>
-          </ul>
-                <div class="linhas">
-                  <div class="linha ativo"></div>
-                  <div class="linha"></div>
-                </div>
-         
-        </div>
-      </div>
-      <div class="usuario">
-        <a href="./login.html">
 
-          <img src="img/user.svg" alt="" />
-        </a>
-          
+    <div class="overlay"></div>
+    <nav class="menu">
+      <div class="page-width">
+        <div class="conteudo-menu">
+          <a class="logo" href="./index.html"
+            ><img src="img/logo-preto.png" alt=""
+          /></a>
+
+          <div class="id-pag-ok">
+            <ul>
+              <li>
+                Identificação
+                <div class="bolinha ativo"></div>
+              </li>
+
+              <li>
+                Pagamento
+                <div class="bolinha ativo"></div>
+              </li>
+
+              <li>
+                Confirmação
+                <div class="bolinha"></div>
+              </li>
+            </ul>
+            <div class="linhas">
+              <div class="linha ativo"></div>
+              <div class="linha"></div>
+            </div>
+          </div>
+
+          <div class="usuario">
+            <a href="./login.html">
+              <img src="img/user.svg" alt="" />
+            </a>
+          </div>
         </div>
       </div>
     </nav>
-<section class='pagamento-container'>
-  
+    <section class="pagamento-container">
+      <div class="page-width">
+        <div class="pagamento">
+          <h1>PAGAMENTO</h1>
+          <div class="escolha-frete">
+            <h2>Escolha o seu frete</h2>
+            <div class="container-tipo">
+              <a class="sedex ativo">
+                <input type="radio" value="sedex" checked />
+                <div class="info-tipo">
+                  <h3>Sedex</h3>
+                  Receba até dia XX de Abril
+                  <span>Frete Grátis</span>
+                </div>
+              </a>
 
-    <div class="pagamento">
-      <h1>PAGAMENTO</h1>
-      <div class="escolha-frete">
-        <h2>Escolha o seu frete</h2>
-        <div class="container-tipo">
-          
-          <a class="sedex ativo">
-            <input type="radio" value="sedex" checked>
-            <div class="info-tipo">
-              <h3>Sedex</h3>
-              Receba até dia XX de Abril
-              <span>Frete Grátis</span>
-              
+              <a class="motoboy">
+                <input type="radio" value="motoboy" />
+                <div class="info-tipo">
+                  <h3>Motoboy</h3>
+                  Receba até dia XX de Abril
+                  <span>R$10,90</span>
+                </div>
+              </a>
             </div>
-          </a>
-          
-          <a class='motoboy'>
-            <input type="radio" value="motoboy">
-            <div class="info-tipo">
-              <h3>Motoboy</h3>
-              Receba até dia XX de Abril
-              <span>R$10,90</span>
-              
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="cartao oculto">
-        <div class="titulo">
-          <input type="radio" value="cartao">
-          <h2>Pagar com Cartão de Crédito</h2>
-        </div>
-        <div class="cartoes oculto">
-          <a  class="box-cartao" id="mastercard">
-            <img src="img/mastercard 1.png" alt="">
-            <img src="img/select.png" id="select" class="ativo">
-          </a>
-          <a  class="box-cartao" id="visa">
-            <img src="img/visa 1.png" alt="">
-            <img src="img/select.png" id="select" class="desativado">
-
-          </a>
-          <a  class="box-cartao" id="elo">
-            <img src="img/elo.png" alt="">
-            <img src="img/select.png" id="select" class="desativado">
-
-          </a>
-          <a  class="box-cartao" id="american-express">
-            <img src="img/expresso-americano 1.png" alt="">
-            <img src="img/select.png" id="select" class="desativado">
-
-          </a>
-        </div>
-        <form class="dados-cartoes oculto">
-          <label>Número do cartão</label>
-          <input type="text" id="numero">
-          <label>Nome impresso no cartão</label>
-          <input type="text" id="nome">
-          <div class="val-cvv">
-            <div class="val">
-
-              <label>Validade</label>
-              <input type="text" id="validade">
-            </div>
-            <div class="cvv" >
-
-              <label>CVV</label>
-              <input type="text" id="cvv">
-            </div>
-
           </div>
-          <label>Número de parcelas</label>
-          
-          <select id="parcelas">
-            <!-- <option value="1x">1x de R$ 154,90 sem juros</option>
+
+          <div class="cartao oculto">
+            <div class="titulo">
+              <input type="radio" value="cartao" />
+              <h2>Pagar com Cartão de Crédito</h2>
+            </div>
+            <div class="cartoes oculto">
+              <a class="box-cartao" id="mastercard">
+                <img src="img/mastercard 1.png" alt="" />
+                <img src="img/select.png" id="select" class="ativo" />
+              </a>
+              <a class="box-cartao" id="visa">
+                <img src="img/visa 1.png" alt="" />
+                <img src="img/select.png" id="select" class="desativado" />
+              </a>
+              <a class="box-cartao" id="elo">
+                <img src="img/elo.png" alt="" />
+                <img src="img/select.png" id="select" class="desativado" />
+              </a>
+              <a class="box-cartao" id="american-express">
+                <img src="img/expresso-americano 1.png" alt="" />
+                <img src="img/select.png" id="select" class="desativado" />
+              </a>
+            </div>
+            <form class="dados-cartoes oculto">
+              <label>Número do cartão</label>
+              <input type="text" id="numero" />
+              <label>Nome impresso no cartão</label>
+              <input type="text" id="nome" />
+              <div class="val-cvv">
+                <div class="val">
+                  <label>Validade</label>
+                  <input type="text" id="validade" />
+                </div>
+                <div class="cvv">
+                  <label>CVV</label>
+                  <input type="text" id="cvv" />
+                </div>
+              </div>
+              <label>Número de parcelas</label>
+
+              <select id="parcelas">
+                <!-- <option value="1x">1x de R$ 154,90 sem juros</option>
             <option value="2x">2x de R$ 77,49 sem juros</option>
             <option value="3x">3x de R$ 51,66 sem juros</option> -->
-           
-          </select>
-          <a class="cartao desabilitado" id="botao-compra">
-            PAGAR COM CARTÃO DE CRÉDITO: R$ 154,99
-          </a>
-        </form>
-      </div>
+              </select>
+              <a class="cartao desabilitado" id="botao-compra">
+                PAGAR COM CARTÃO DE CRÉDITO: R$ 154,99
+              </a>
+            </form>
+          </div>
 
-      <div class="boleto oculto">
-        <div class="titulo">
-          <input type="radio" value="boleto" checked>
-          <h2>Pagar com Boleto Bancário</h2>
+          <div class="boleto oculto">
+            <div class="titulo">
+              <input type="radio" value="boleto" checked />
+              <h2>Pagar com Boleto Bancário</h2>
+            </div>
+            <span
+              >Você poderá visualizar ou imprimir após a finalização do pedido.
+              A data de vencimento é de 2 dias corridos após a conclusão do
+              pedido. Após esta data, ele perderá a validade.</span
+            >
+            <a>PAGAR COM BOLETO BANCÁRIO: R$ 154,99</a>
+          </div>
+          <div class="botao-continuar">
+            <a class="continuar"> Continuar </a>
+          </div>
         </div>
-        <span>Você poderá visualizar ou imprimir após a finalização do pedido. A data de vencimento é de 2 dias corridos após a conclusão do pedido. Após esta data, ele perderá a validade.</span>
-        <a>PAGAR COM BOLETO BANCÁRIO: R$ 154,99</a>
-      </div>
-<div class="botao-continuar">
+        <div class="resumo">
+          <div class="menu-accordion">
+            <div class="container-accordion">
+              <h1>RESUMO DA COMPRA</h1>
+              <img src="./img/seta.png" alt="" class="ativo" />
+            </div>
+          </div>
+          <div class="container-endereco">
+            <h2>Endereço de entrega</h2>
+            <div class="separador"></div>
+            <div class="endereco">
+              <h3></h3>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a class="alterar-endereco"> Alterar Endereço </a>
+          </div>
 
-  <a class="continuar">
-    Continuar
-  </a>
-</div>
-    </div>
-    <div class="resumo">
-      <div class="menu-accordion">
-
-        <div class="container-accordion">
-
-          <h1>RESUMO DA COMPRA</h1>
-          <img src="./img/seta.png" alt="" class="ativo">
-        </div>
-      </div>
-      <div class="container-endereco">
-        <h2>Endereço de entrega</h2>
-        <div class="separador"></div>
-        <div class="endereco">
-          <h3></h3>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <a class="alterar-endereco">
-          Alterar Endereço
-        </a>
-      </div>
-     
-      
-        <div class='items oculto'>
+          <div class="items oculto">
             <div class="item-produto">
               <h2>Itens do pedido</h2>
-             </div>
+            </div>
             <div class="item-qtd">
               <h2>Qtde</h2>
             </div>
             <div class="item-preco">
               <h2>Preço</h2>
             </div>
-        </div>
-
-        <div class="frete ativo oculto">
-          <h2>Frete</h2>
-          <div class="preco-frete">
-            <h3>Grátis</h3>
-            <span>
-              3 a 4 dias úteis
-            </span>
           </div>
-        </div>
-      <div class="total oculto">
-        <h2>Total</h2>
-        <span>R$ 154,99</span>
-      </div>
-      <div class="container-endereco-mobile">
-        <div class="titulo-endereco">
 
-          <h2>Endereço de entrega</h2>
-        </div>
-        
-        <div class="endereco">
-          <h3></h3>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <!-- <h3>Casa</h3>
+          <div class="frete ativo oculto">
+            <h2>Frete</h2>
+            <div class="preco-frete">
+              <h3>Grátis</h3>
+              <span> 3 a 4 dias úteis </span>
+            </div>
+          </div>
+          <div class="total oculto">
+            <h2>Total</h2>
+            <span>R$ 154,99</span>
+          </div>
+          <div class="container-endereco-mobile">
+            <div class="titulo-endereco">
+              <h2>Endereço de entrega</h2>
+            </div>
+
+            <div class="endereco">
+              <h3></h3>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <!-- <h3>Casa</h3>
           <span>Rua Torres da Barra, 207</span>
           <span>Apto:402</span>
           <span>Bairro:Água Branca</span>
           <span>Cidade: São Paulo - SP</span>
           <span>CEP: 05037-055</span> -->
+            </div>
+            <a class="alterar-endereco"> Alterar Endereço </a>
+          </div>
         </div>
-        <a class="alterar-endereco">
-          Alterar Endereço
-        </a>
       </div>
-      </div>
-      
- 
-  </section>
-  
-  <footer>
-    <div class="rodape">
-      <div class="parte1">
-        <img class="logo" src="img/logo.png" alt="" />
-        <ul>
+    </section>
+
+    <footer>
+      <div class="rodape">
+        <div class="parte1">
+          <img class="logo" src="img/logo.png" alt="" />
+          <ul>
             <li><a href="">Quem Somos </a></li>
             <li><a href="">Trocas e Devoluções</a></li>
             <li><a href="">Política de Privacidade</a></li>
