@@ -7,6 +7,8 @@
   background-color: white;
   margin-bottom: 176px;
   margin-right: 0px;
+  /* padding: 0 100px; */
+  box-sizing: border-box;
 }
 
 #funciona h1 {
@@ -25,9 +27,14 @@
 }
 #funciona img {
   /* max-width: 1000px; */
-  width: 90%;
+  width: 100%;
 }
-@media (max-width: 768px) {
+.titulo{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+@media (max-width: 1024px) {
   #funciona h1 {
     font-size: 26px;
     font-weight: 400;
@@ -44,5 +51,6 @@
     background-color: white;
     margin-bottom: 60px;
     margin-right: 0px;
+    padding: 0;
   }
 }

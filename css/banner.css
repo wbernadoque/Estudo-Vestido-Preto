@@ -65,7 +65,7 @@
   border-radius: 30.1px;
   padding: 13px 50px 13px 50px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .banner {
     /* height: auto; */
     display: flex;

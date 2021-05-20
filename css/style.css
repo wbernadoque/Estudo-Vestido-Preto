@@ -30,9 +30,24 @@ html {
   width: 38px;
   height: 3px;
   background-color: #2067f5;
+  display: block;
 }
 ::placeholder {
   font-family: Source Sans Pro;
   font-size: 16px;
   color: #c0c0c0;
+}
+.page-width{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 100px;
+}
+@media (max-width:1024px){
+  .page-width{
+    padding: 0 20px;
+  }
+  #produto .page-width{
+    padding: 0;
+  }
+
 }

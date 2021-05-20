@@ -111,7 +111,7 @@ export default function cards() {
 
   function render() {
     const largura = window.innerWidth;
-    if (largura >= 1350) {
+    if (largura >= 1550) {
       const paginas = Math.trunc(clientes.length / 3 - 1) + 1;
 
       //criar blocos
@@ -236,7 +236,7 @@ export default function cards() {
           blocos[index].classList.remove('inativo');
         });
       });
-    } else if (largura > 897 && largura < 1350) {
+    } else if (largura > 768 && largura < 1550) {
       const paginas = Math.trunc(clientes.length / 3 - 1) + 2;
 
       //criar blocos

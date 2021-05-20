@@ -1,16 +1,25 @@
 #quem-somos {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  padding-top: 128px;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+  padding-top: 128px;
+  box-sizing: border-box;
 }
 .quem-somos {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  margin-bottom: 57px;
+  margin-right: 63px;
   max-width: 537px;
+}
+.conteudo-quem-somos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0px;
+  width: 100%;
+  
 }
 .quem-somos img {
   width: 19px;
@@ -59,7 +68,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 53px;
+  /* margin-left: 53px; */
 }
 .fale-conosco h1 {
   margin-top: 0;
@@ -134,27 +143,36 @@
   margin-left: 27px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #quem-somos {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding-top: 57px;
     flex-wrap: wrap;
-    max-width: 537px;
+    /* max-width: 537px; */
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
   }
   .quem-somos {
     margin-bottom: 57px;
+    max-width: none;
+  }
+  .conteudo-quem-somos{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 0px;
+    
+    
   }
   .quem-somos .contatos {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     align-items: flex-start;
+    margin-left:0;
   }
   .quem-somos img {
     width: 19px;
@@ -171,7 +189,7 @@
     font-family: Source Sans Pro;
     font-size: 15px;
     font-weight: 400;
-    margin-left: 15px;
+    margin-left: 0px;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -194,6 +212,9 @@
   .quem-somos .redes {
     margin-top: 34px;
   }
+  .quem-somos .redes img:last-child{
+    margin-right:0px;
+  }
   .quem-somos .redes img {
     width: 47px;
     height: 47px;
@@ -203,7 +224,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     margin-left: 0px;
   }
   .fale-conosco h1 {
@@ -214,7 +235,7 @@
   }
   .fale-conosco form.contato {
     display: flex;
-    width: 90%;
+    width: 100%;
     flex-direction: column;
   }
   .fale-conosco form.contato button {

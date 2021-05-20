@@ -1,17 +1,18 @@
 #produto {
-  display: flex;
   background-color: white;
-  justify-content: center;
-
-  flex-wrap: wrap;
   flex-direction: row;
-
+  box-sizing: border-box;
   padding-top: 62px;
+}
+.conteudo-produto{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 #produto .info {
   display: flex;
-  width: 40vw;
+  width: 50%;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: white;
@@ -546,7 +547,7 @@ th {
   width: 17px;
   height: 17px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .medidas-da-modelo {
     display: flex;
     margin-top: 10px;
@@ -570,6 +571,12 @@ th {
     padding: 0px;
     /* padding-top: 0px; */
   }
+  .conteudo-produto{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
   #produto .info {
     display: flex;
     width: 100%;

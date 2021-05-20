@@ -38,7 +38,7 @@ export default function selos() {
 
     if (bolinhas === 1) {
       const a = document.createElement('a');
-      a.classList.add('ativo');
+      a.classList.add('desativado');
       navSelos.appendChild(a);
     } else if (bolinhas === 2) {
       for (var i = 0; i <= bolinhas - 1; i++) {

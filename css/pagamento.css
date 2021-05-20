@@ -754,7 +754,7 @@ label {
   border: 1px solid #f2f2f2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .modal.mobile.ativo {
     z-index: 700;
     position: fixed;

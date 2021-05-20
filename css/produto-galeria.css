@@ -13,15 +13,15 @@
   align-items: center;
 
   flex-direction: column;
-  width: 55vw;
+  width: 50%;
   /* max-height: 644.9px; */
-  /* width: 100%;
-  height: 100%; */
+  /* width: 100%;  */
+  height: auto;
 }
 #produto .foto .galeria {
   margin-top: 24px;
   width: 100%;
-  max-width: 567px;
+  /* max-width: 567px; */
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: space-between;
@@ -35,7 +35,7 @@
   justify-items: center;
   position: absolute;
   display: flex;
-  height: 637px;
+  height: 100%;
   width: 100%;
   justify-content: space-between;
 }
@@ -61,7 +61,7 @@
 }
 #produto .foto img {
   /* max-width: 50vw; */
-  max-height: 637px;
+  /* max-height: 637px; */
   width: 100%;
   height: 100%;
   animation-name: galeria;
@@ -73,8 +73,12 @@
   justify-content: center;
   height: auto;
   position: relative;
-  /* width: 100%; */
-  min-height: 637px;
+  width: 100%;
+  /* min-height: 637px; */
+}
+.exibicao div{
+  width: 100%;
+  height: auto;
 }
 #produto .foto .galeria a {
   width: 22%;
@@ -82,9 +86,9 @@
   margin-right: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #produto .foto {
-    margin-right: 32px;
+    margin-right: 0;
 
     display: flex;
     align-items: center;
