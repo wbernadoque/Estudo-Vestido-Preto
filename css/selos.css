@@ -147,7 +147,7 @@
     height: 45px;
   }
 }
-@media (min-width: 456px) {
+@media (max-width: 456px) {
   .informacoes-venda .selos {
     justify-content: center;
   }
