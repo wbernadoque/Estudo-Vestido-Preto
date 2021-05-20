@@ -12,14 +12,13 @@
   margin-right: 63px;
   max-width: 537px;
 }
-.conteudo-quem-somos{
+.conteudo-quem-somos {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding-left: 0px;
   width: 100%;
-  
 }
 .quem-somos img {
   width: 19px;
@@ -157,22 +156,26 @@
   }
   .quem-somos {
     margin-bottom: 57px;
+    margin-right: 0;
     max-width: none;
   }
-  .conteudo-quem-somos{
+  .conteudo-quem-somos {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-left: 0px;
-    
-    
+  }
+  .conteudo-quem-somos .titulo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 37px;
   }
   .quem-somos .contatos {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
-    margin-left:0;
+    margin-left: 0;
   }
   .quem-somos img {
     width: 19px;
@@ -192,6 +195,7 @@
     margin-left: 0px;
     margin-top: 0;
     margin-bottom: 0;
+    text-align: center;
   }
   .quem-somos .tel {
     display: flex;
@@ -211,9 +215,11 @@
   }
   .quem-somos .redes {
     margin-top: 34px;
+    display: flex;
+    justify-content: center;
   }
-  .quem-somos .redes img:last-child{
-    margin-right:0px;
+  .quem-somos .redes img:last-child {
+    margin-right: 0px;
   }
   .quem-somos .redes img {
     width: 47px;

@@ -17,7 +17,7 @@ export default function selos() {
         item.classList.add('ativo');
       });
       botoesNav(1);
-    } else if (largura <= 416) {
+    } else if (largura <= 456) {
       selos.forEach((item, index) => {
         if (index === 0) {
           item.classList.add('ativo');
