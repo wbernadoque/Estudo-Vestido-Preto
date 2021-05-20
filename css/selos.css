@@ -5,7 +5,6 @@
   margin: 129px 0 129px 0;
   flex-wrap: wrap;
   box-sizing: border-box;
-  
 }
 /* .informacoes-venda .page-width{
   width: 100%;
@@ -68,7 +67,7 @@
   height: 16px;
   border-radius: 50%;
 }
-.nav-selos a.desativado{
+.nav-selos a.desativado {
   display: none;
 }
 .nav-selos a.inativo {
@@ -146,5 +145,10 @@
   .informacoes-venda .selo a img {
     width: 45px;
     height: 45px;
+  }
+}
+@media (min-width: 456px) {
+  .informacoes-venda .selos {
+    justify-content: center;
   }
 }
