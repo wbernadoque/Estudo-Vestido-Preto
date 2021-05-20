@@ -37,17 +37,17 @@ html {
   font-size: 16px;
   color: #c0c0c0;
 }
-.page-width{
+.page-width {
   width: 100%;
   box-sizing: border-box;
   padding: 0 100px;
 }
-@media (max-width:1024px){
-  .page-width{
+
+@media (max-width: 1024px) {
+  .page-width {
     padding: 0 20px;
   }
-  #produto .page-width{
+  #produto .page-width {
     padding: 0;
   }
-
 }
