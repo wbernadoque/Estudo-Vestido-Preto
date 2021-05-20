@@ -580,6 +580,7 @@ li {
     justify-content: space-around;
   }
   .id-pag-ok .linha {
+    display: block;
     width: 170px;
     height: 2px;
     margin-top: -16px;
