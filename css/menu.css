@@ -577,13 +577,13 @@ li {
   }
   .id-pag-ok .linhas {
     display: flex;
-    width: 160px;
+    width: auto;
     margin-left: 4px;
     justify-content: space-around;
   }
   .id-pag-ok .linha {
     display: block;
-    width: 170px;
+    width: 80px;
     height: 2px;
     margin-top: -16px;
     background-color: #c4c4c4;
