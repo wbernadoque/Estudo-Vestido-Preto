@@ -413,10 +413,33 @@ export default function botoesSelecao() {
             customizar
               .querySelectorAll('a')
               [index].classList.add('selecionado');
+
             if (index != 3) {
               customizar
                 .querySelectorAll('a')
                 [index + 1].classList.add('selecionavel');
+              if (
+                !customizar
+                  .querySelectorAll('a')
+                  [index + 1].classList.contains('selecionado')
+              ) {
+                if (index + 1 === 1) {
+                  customizar
+                    .querySelectorAll('a')
+                    [index + 1].querySelector('img').src =
+                    'img/manga-selecionavel.png';
+                } else if (index + 1 === 2) {
+                  customizar
+                    .querySelectorAll('a')
+                    [index + 1].querySelector('img').src =
+                    'img/comprimento-selecionavel.png';
+                } else if (index + 1 === 3) {
+                  customizar
+                    .querySelectorAll('a')
+                    [index + 1].querySelector('img').src =
+                    'img/tamanho-selecionavel.png';
+                }
+              }
             }
           }
         });
@@ -499,6 +522,7 @@ export default function botoesSelecao() {
       if (item.classList.contains('selecionavel')) {
         item.classList.remove('selecionavel');
         item.classList.add('ativo');
+
         teste(index);
       } else if (item.classList.contains('selecionado')) {
         item.classList.add('ativo');
@@ -506,34 +530,22 @@ export default function botoesSelecao() {
         teste(index);
       }
 
-      // item.classList.add('ativo');
-
-      // teste(index);
-      // verificarAtivo();
+      if (index === 1) {
+        customizar.querySelectorAll('a')[index].querySelector('img').src =
+          'img/manga-selecionado.png';
+      } else if (index === 2) {
+        customizar.querySelectorAll('a')[index].querySelector('img').src =
+          'img/comprimento-selecionado.png';
+      } else if (index === 3) {
+        customizar.querySelectorAll('a')[index].querySelector('img').src =
+          'img/tamanho-selecionado.png';
+      }
     });
-    // customizar.querySelectorAll('a').forEach((item) => {
-    //   if (index == 0 && vestido.decote.value !== '') {
-    //     item.classList.remove('ativo');
-    //     item.classList.add('selecionado');
-    //   } else if (index == 1 && vestido.manga.value !== '') {
-    //     item.classList.remove('ativo');
-    //     item.classList.add('selecionado');
-    //   } else if (index == 2 && vestido.comprimento.value !== '') {
-    //     item.classList.remove('ativo');
-    //     item.classList.add('selecionado');
-    //   } else if (index == 3 && vestido.tamanho.value !== '') {
-    //     item.classList.remove('ativo');
-    //     item.classList.add('selecionado');
-    //   }
-    //   if (item.classList.contains(undefined)) {
-    //     // item.classList.add('selecionado');
-    //   }
-    // });
   });
   function teste(botao) {
     const customizar = document.querySelector('.customizar');
     const estado = JSON.parse(localStorage.getItem('selecao'));
-    
+
     customizar.querySelectorAll('a').forEach((item, index) => {
       if (
         index == 0 &&
@@ -549,10 +561,11 @@ export default function botoesSelecao() {
         estado.manga !== '' &&
         !item.classList.contains('selecionavel')
       ) {
-        
         item.classList.remove('ativo');
         item.classList.remove('selecionavel');
         item.classList.add('selecionado');
+        customizar.querySelectorAll('a')[index].querySelector('img').src =
+          'img/manga-selecionado.png';
       }
       if (
         index == 2 &&
@@ -562,6 +575,8 @@ export default function botoesSelecao() {
         item.classList.remove('ativo');
         item.classList.remove('selecionavel');
         item.classList.add('selecionado');
+        customizar.querySelectorAll('a')[index].querySelector('img').src =
+          'img/comprimento-selecionado.png';
       }
       if (
         index == 3 &&
@@ -571,6 +586,8 @@ export default function botoesSelecao() {
         item.classList.remove('ativo');
         item.classList.remove('selecionavel');
         item.classList.add('selecionado');
+        customizar.querySelectorAll('a')[index].querySelector('img').src =
+          'img/tamanho-selecionado.png';
       }
       if (botao === index) {
         item.classList.remove('selecionado');
@@ -580,6 +597,20 @@ export default function botoesSelecao() {
         // item.classList.add('selecionavel');
         item.classList.remove('ativo');
       }
+      customizar.querySelectorAll('a').forEach((item, index) => {
+        if (item.classList.value === '') {
+          if (index === 1) {
+            customizar.querySelectorAll('a')[index].querySelector('img').src =
+              'img/manga-.svg';
+          } else if (index === 2) {
+            customizar.querySelectorAll('a')[index].querySelector('img').src =
+              'img/comprimento-.svg';
+          } else if (index === 3) {
+            customizar.querySelectorAll('a')[index].querySelector('img').src =
+              'img/tamanho-.svg';
+          }
+        }
+      });
       verificarAtivo();
     });
   }

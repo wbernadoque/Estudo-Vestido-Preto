@@ -4,7 +4,7 @@
   box-sizing: border-box;
   padding-top: 62px;
 }
-.conteudo-produto{
+.conteudo-produto {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -19,7 +19,6 @@
 }
 
 #produto h1,
-h2,
 h3 {
   font-family: 'Noto Serif', serif;
   font-style: normal;
@@ -34,20 +33,39 @@ h3 {
 
   line-height: 49px;
 }
-#produto h2 {
+#produto .info h2 {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  margin: 0;
+  text-transform: uppercase;
+}
+/* #produto h2 {
   font-size: 16px;
   font-weight: 600;
   line-height: 33px;
-}
+} */
 #produto h3 {
   font-family: Source Sans Pro;
   font-size: 13px;
   font-weight: 600;
   line-height: 16px;
 }
+#produto .info .prazo-entrega h3 {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-transform: uppercase;
+}
 
 #produto .customizar {
   margin-bottom: 18px;
+  margin-top: 31px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -77,7 +95,7 @@ h3 {
   background-color: #f56311;
   width: 80px;
   height: 80px;
-  /* color: white; */
+  color: white;
   border: 2px solid #f56311;
   cursor: pointer;
   box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
@@ -92,6 +110,12 @@ h3 {
 #produto .customizar a.selecionavel {
   border: 2px solid #f2976d;
   cursor: pointer;
+  color: #f2976d;
+}
+#produto .customizar a.selecionado.selecionavel {
+  border: 2px solid #f2976d;
+  cursor: pointer;
+  color: white;
 }
 #produto .botao {
   display: flex;
@@ -100,6 +124,7 @@ h3 {
 #produto .botao img {
   margin-bottom: 5px;
 }
+
 #produto .botao a {
   margin-top: 10px;
   display: flex;
@@ -113,7 +138,7 @@ h3 {
 
   background: #ffffff;
   border-radius: 13.5772px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 #produto .botao a.ativo:after {
@@ -167,10 +192,12 @@ h3 {
   font-style: normal;
   margin-bottom: 48px;
 }
+
 .infos {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  text-transform: uppercase;
 }
 .infos img {
   max-width: 60.23px;
@@ -190,6 +217,11 @@ h3 {
 }
 .modelo-veste span {
   margin-right: 20px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.modelo-veste p {
+  font-size: 14px;
 }
 .modelo-veste .modelo {
   display: flex;
@@ -199,8 +231,8 @@ h3 {
 }
 
 .modelo-veste .modelo img {
-  max-width: 64px;
-  max-height: 64px;
+  width: 64px;
+  height: 68px;
 }
 .qtd-comprar {
   display: flex;
@@ -230,8 +262,6 @@ h3 {
   font-family: Source Sans Pro;
   font-style: normal;
   font-weight: 600;
-  width: 26px;
-  height: 51px;
 }
 .qtd-comprar .quantidade .menos {
   border: 1px solid #f2f2f2;
@@ -240,6 +270,8 @@ h3 {
 }
 .qtd-comprar .quantidade .valor {
   border: 1px solid #f2f2f2;
+  width: 50px;
+  height: 51px;
 }
 .qtd-comprar .quantidade .mais {
   border: 1px solid #f2f2f2;
@@ -248,7 +280,8 @@ h3 {
 }
 .qtd-comprar .comprar {
   color: white;
-  font-size: 20px;
+  font-size: 20.0637px;
+  line-height: 25px;
   width: 200px;
   height: 54px;
   display: flex;
@@ -257,6 +290,8 @@ h3 {
   background-color: #d9d9d9;
   border: none;
   border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .qtd-comprar .comprar.ativo {
@@ -269,7 +304,9 @@ h3 {
   max-width: 184.81px;
   height: 42.46px;
   background: #ffffff;
-
+  padding-left: 12px;
+  font-size: 16px;
+  font-family: Source Sans Pro;
   border: 0.83px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 5px;
@@ -294,15 +331,15 @@ h3 {
   text-transform: none;
   font-family: Source Sans Pro;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: normal;
+  font-size: 13px;
   margin-left: 12px;
   border: none;
 }
 .prazo-entrega form {
   margin-top: 14px;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .prazo-entrega {
   display: flex;
@@ -571,7 +608,7 @@ th {
     padding: 0px;
     /* padding-top: 0px; */
   }
-  .conteudo-produto{
+  .conteudo-produto {
     display: flex;
     justify-content: center;
     flex-direction: column;

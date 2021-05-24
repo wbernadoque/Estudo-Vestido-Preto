@@ -62,8 +62,8 @@
   border-radius: 20px;
   padding: 20px;
   margin-right: 29px;
-  /* display: none; */
 }
+
 .avaliacoes .card.ativo:last-child {
   margin-right: 0;
 }
