@@ -7,7 +7,7 @@
   background-color: white;
   margin-bottom: 176px;
   margin-right: 0px;
-  /* padding: 0 100px; */
+  padding: 0 100px;
   box-sizing: border-box;
 }
 
@@ -29,7 +29,7 @@
   /* max-width: 1000px; */
   width: 100%;
 }
-.titulo{
+.titulo {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -51,6 +51,6 @@
     background-color: white;
     margin-bottom: 60px;
     margin-right: 0px;
-    padding: 0;
+    padding: 0 20px;
   }
 }

@@ -13,6 +13,7 @@ input[type='radio']:checked {
 .pagamento-container .page-width {
   display: flex;
   flex-direction: row;
+  align-items: unset;
 }
 .pagamento {
   width: 40vw;
@@ -1321,6 +1322,7 @@ label {
     display: flex;
     flex-direction: column;
     width: 90%;
+    box-sizing: unset;
   }
   .add-endereco.ativo form .cep {
     display: flex;
@@ -1355,11 +1357,13 @@ label {
     position: absolute;
     margin-bottom: 40px;
     /* transition: 0.2s; */
-    height: 22px;
+    /* height: 22px; */
     width: 100%;
     margin-left: 0px;
+    /* display: none; */
   }
   .add-endereco.ativo form label {
+    /* display: none; */
     position: absolute;
     margin-bottom: 0px;
     height: 22px;

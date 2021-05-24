@@ -412,9 +412,9 @@ export default function carrinhoHome() {
 
     botoesLixeira.forEach((item) => {
       item.addEventListener('click', () => {
-        const carrinho = document.querySelector('.carrinho-compra');
+        const carrinho = document.querySelector('.carrinho-compra .page-width');
 
-        const containerProduto = document.querySelector('.container-produto');
+        const containerProduto = document.querySelector('.container-produto ');
 
         const cupom = document.querySelector('.cupom');
 

@@ -34,7 +34,7 @@ li {
 .carrinho.ativo {
   position: absolute;
   width: 244px;
-  max-height: 400px;
+  /* max-height: 400px; */
   /* overflow-y: scroll; */
   background-color: white;
   right: 0;
@@ -60,11 +60,18 @@ li {
   width: 196px;
   margin-bottom: 10px;
   margin-top: 0px;
+  justify-content: space-between;
 }
 
 .carrinho .container .item img {
   width: 56px;
   height: 83px;
+  margin: 0;
+  cursor: default;
+}
+.carrinho .container .item img.lixeira {
+  width: 13px;
+  height: 17px;
   margin: 0;
   cursor: default;
 }
@@ -385,7 +392,7 @@ li {
     display: flex;
     /* margin-right: 16px; */
     width: 80px;
-    margin-left: 38px;
+    margin-left: 0px;
 
     justify-content: flex-end;
   }
@@ -395,7 +402,7 @@ li {
   .carrinho.ativo {
     position: absolute;
     width: 244px;
-    max-height: 400px;
+    /* max-height: 400px; */
     /* overflow-y: scroll; */
     background-color: white;
     right: 0;
@@ -461,8 +468,6 @@ li {
 
   .carrinho a {
     color: white;
-    /* position: fixed; */
-
     font-family: Source Sans Pro;
     font-style: normal;
     font-weight: 600;
@@ -478,6 +483,7 @@ li {
     margin-bottom: 10px;
     margin-top: 10px;
     text-decoration: none;
+    box-sizing: border-box;
   }
 
   .menu .usuario img {

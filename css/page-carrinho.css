@@ -232,7 +232,11 @@ input::-webkit-inner-spin-button {
   text-decoration: none;
   margin-bottom: 17px;
 }
-
+.page-width {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .container-resumo .finalizar {
   display: flex;
   align-items: center;

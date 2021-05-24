@@ -14,7 +14,7 @@ export default function botoesSelecao() {
   const finalizarCompraCarrinho = document.querySelector('.carrinho a');
   const menuLateral = document.querySelector('.menu-lateral');
   const botoesNav = menuLateral.querySelectorAll('ul li');
-  const botaoCarrinho = document.querySelector('.container-carrinho');
+  const botaoCarrinho = document.querySelector('.container-carrinho img');
   const tabelaDeMedidas = document.querySelectorAll('.infos div');
   const telaTabela = document.querySelector('.tabela-medidas');
   const fecharTabela = telaTabela.querySelector('.sup .fechar');
@@ -367,10 +367,12 @@ export default function botoesSelecao() {
     render();
   }
   function render() {
+    const estado = JSON.parse(localStorage.getItem('selecao'));
     const botoes = document.querySelector('.botao');
-    customizar.querySelectorAll('a').forEach((item) => {
-      if (item.classList.contains('selecionado'))
+    customizar.querySelectorAll('a').forEach((item, index) => {
+      if (item.classList.contains('selecionado')) {
         item.classList.remove('ativo');
+      }
     });
 
     botoes.querySelectorAll('a').forEach((item) => {
@@ -454,7 +456,7 @@ export default function botoesSelecao() {
       containerCarrinho.removeChild(item);
     });
     const itemsCarrinhoMemoria = JSON.parse(localStorage.getItem('item'));
-    if (itemsCarrinhoMemoria === null) {
+    if (itemsCarrinhoMemoria === null || itemsCarrinhoMemoria.length == 0) {
     } else {
       itemsCarrinhoMemoria.forEach((itemsCarrinhoMemoria) => {
         const item = document.createElement('div');
@@ -467,6 +469,9 @@ export default function botoesSelecao() {
         const manga = document.createElement('span');
         const comprimento = document.createElement('span');
         const tamanho = document.createElement('span');
+        const lixo = document.createElement('img');
+        lixo.src = 'img/lixeira.png';
+        lixo.classList.add('lixeira');
         imagem.src = 'img/imagem-carrinho.png';
 
         item.appendChild(imagem);
@@ -497,7 +502,7 @@ export default function botoesSelecao() {
         );
         detalhes.appendChild(tamanho);
         item.appendChild(detalhes);
-
+        item.appendChild(lixo);
         // carrinho.appendChild(item);
         containerCarrinho.appendChild(item);
         finalizarCompraCarrinho.remove();
@@ -514,6 +519,22 @@ export default function botoesSelecao() {
     quantidadeBadge();
 
     verificarAtivo();
+    lixeiraCarrinho();
+  }
+
+  function lixeiraCarrinho() {
+    const lixeiras = document.querySelectorAll('.container .item img.lixeira');
+    lixeiras.forEach((item, index) => {
+      const items = JSON.parse(localStorage.getItem('item'));
+
+      item.addEventListener('click', () => {
+        items.splice(index, 1);
+
+        localStorage.setItem('item', JSON.stringify(items));
+
+        itemsNoCarrinho();
+      });
+    });
   }
 
   customizar.querySelectorAll('a').forEach((item, index) => {
@@ -601,13 +622,13 @@ export default function botoesSelecao() {
         if (item.classList.value === '') {
           if (index === 1) {
             customizar.querySelectorAll('a')[index].querySelector('img').src =
-              'img/manga-.svg';
+              'img/manga-.png';
           } else if (index === 2) {
             customizar.querySelectorAll('a')[index].querySelector('img').src =
-              'img/comprimento-.svg';
+              'img/comprimento-.png';
           } else if (index === 3) {
             customizar.querySelectorAll('a')[index].querySelector('img').src =
-              'img/tamanho-.svg';
+              'img/tamanho-.png';
           }
         }
       });
@@ -661,20 +682,32 @@ export default function botoesSelecao() {
       } else {
         item.classList.remove('selecionado');
         item.classList.remove('selecionavel');
+        if (index === 1) {
+          customizar.querySelectorAll('a')[index].querySelector('img').src =
+            'img/manga-.png';
+        } else if (index === 2) {
+          customizar.querySelectorAll('a')[index].querySelector('img').src =
+            'img/comprimento-.png';
+        } else if (index === 3) {
+          customizar.querySelectorAll('a')[index].querySelector('img').src =
+            'img/tamanho-.png';
+        }
       }
     });
 
-    render();
-
-    finalizarCompraCarrinho.remove();
-    carrinho.appendChild(finalizarCompraCarrinho);
     vestido.decote = '';
     vestido.manga = '';
     vestido.comprimento = '';
     vestido.tamanho = '';
+    localStorage.setItem('selecao', JSON.stringify(vestido));
+
+    render();
+    finalizarCompraCarrinho.remove();
+    carrinho.appendChild(finalizarCompraCarrinho);
 
     botaoComprar.setAttribute('disabled', 'disabled');
     botaoComprar.classList.remove('ativo');
+
     quantidadeBadge();
     itemsNoCarrinho();
     verificarAtivo();
