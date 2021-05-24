@@ -339,7 +339,7 @@ h3 {
 .prazo-entrega form {
   margin-top: 14px;
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 }
 .prazo-entrega {
   display: flex;
