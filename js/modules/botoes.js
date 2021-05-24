@@ -295,7 +295,8 @@ export default function botoesSelecao() {
     const span = document.querySelector('.badge span');
     const badge = document.querySelector('.badge');
 
-    if (!itemsCarrinhoMemoria) {
+    if (itemsCarrinhoMemoria.length === 0) {
+      badge.classList.remove('ativo');
     } else {
       badge.classList.add('ativo');
       span.innerHTML = itemsCarrinhoMemoria.length;
