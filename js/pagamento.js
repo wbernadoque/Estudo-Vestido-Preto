@@ -540,7 +540,7 @@ botaoCompra.addEventListener('click', (event) => {
       const resumo = document.querySelector('.resumo');
       const menu = document.querySelector('.menu-accordion');
       const img = menu.querySelector('img');
-
+      const footer = document.querySelector('footer');
       const items = document.querySelector('.items');
       const itemsProduto = items.querySelector('.item-produto');
       const desconto = document.querySelector('.desconto');
@@ -562,6 +562,7 @@ botaoCompra.addEventListener('click', (event) => {
 
       menu.appendChild(total);
       resumo.appendChild(frete);
+      footer.classList.add('desativado');
       totalResumoMobileCartao();
     }
   } else {
