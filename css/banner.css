@@ -13,7 +13,7 @@
 .texto {
   position: absolute;
 
-  margin-left: 68px;
+  margin-left: 100px;
 }
 
 .texto h1 {
@@ -79,7 +79,7 @@
   .texto {
     height: 300px;
 
-    margin-left: 68px;
+    margin-left: 20px;
   }
 
   .texto h1 {

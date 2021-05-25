@@ -20,17 +20,19 @@ footer {
 .rodape .parte1 img {
   max-width: 158px;
   max-height: 95px;
-  margin-left: 6%;
+  /* margin-left: 6%; */
 }
 .rodape .parte1 img.selo {
   max-width: 102px;
   max-height: 68px;
-  margin-right: 6%;
+  /* margin-right: 6%; */
 }
 .rodape .parte1 ul {
   display: flex;
-  justify-content: center;
+  /* width: 50%; */
+  justify-content: space-between;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 .rodape .parte1 ul li a {
@@ -54,14 +56,14 @@ footer {
   font-size: 14px;
   color: #586267;
   font-weight: normal;
-  margin-left: 6%;
+  /* margin-left: 6%; */
   margin-top: 0;
   margin-bottom: 0;
 }
 .rodape .parte2 img {
   max-width: 127px;
   max-height: 54px;
-  margin-right: 6%;
+  /* margin-right: 6%; */
 }
 .rodape {
   width: 100%;
@@ -77,13 +79,14 @@ footer {
     align-items: center;
   }
   .rodape .parte1 li {
-    margin: 0 9px 0 9px;
+    margin: 0 19px;
   }
   .rodape .parte1 ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: none;
     padding: 0;
+    width: 100%;
   }
   .rodape .parte1 ul li a {
     font-size: 12px;

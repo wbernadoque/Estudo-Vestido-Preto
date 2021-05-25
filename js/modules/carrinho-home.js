@@ -9,6 +9,128 @@ export default function carrinhoHome() {
 
   const acesso = localStorage.getItem('acesso', 'logado');
   let porcentagem = 0;
+  const vestidos = [
+    {
+      tipo: 1,
+      decote: 'princesa',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 2,
+      decote: 'princesa',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 3,
+      decote: 'princesa',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 4,
+      decote: 'princesa',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 5,
+      decote: 'U',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 6,
+      decote: 'U',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 7,
+      decote: 'U',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 8,
+      decote: 'U',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 9,
+      decote: 'gota',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 10,
+      decote: 'gota',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 11,
+      decote: 'gota',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 12,
+      decote: 'gota',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 13,
+      decote: 'gola alta',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 14,
+      decote: 'gola alta',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 15,
+      decote: 'gola alta',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 16,
+      decote: 'gola alta',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 17,
+      decote: 'gola x',
+      manga: 'Alça',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 18,
+      decote: 'gola x',
+      manga: 'Alça',
+      comprimento: 'Longo',
+    },
+    {
+      tipo: 19,
+      decote: 'gola x',
+      manga: 'Manga Longa',
+      comprimento: 'Curto',
+    },
+    {
+      tipo: 20,
+      decote: 'gola x',
+      manga: 'Manga Longa',
+      comprimento: 'Longo',
+    },
+  ];
 
   //adicionando desconto
 
@@ -141,7 +263,104 @@ export default function carrinhoHome() {
         itemProduto.classList.add('item');
         itemAdd.appendChild(itemProduto);
         const imagem = document.createElement('img');
-        imagem.src = 'img/imagem-carrinho.png';
+
+        //inserindo imagem da compra
+
+        vestidos.forEach((itemTipo) => {
+          if (
+            itemTipo.decote === item.decote &&
+            itemTipo.manga === item.manga &&
+            itemTipo.comprimento === item.comprimento
+          ) {
+            switch (itemTipo.tipo) {
+              case 1:
+                imagem.src = 'img/tipo-1/1.png';
+                break;
+
+              case 2:
+                imagem.src = 'img/tipo-2/1.png';
+                break;
+
+              case 3:
+                imagem.src = 'img/tipo-3/1.png';
+                break;
+
+              case 4:
+                imagem.src = 'img/tipo-4/1.png';
+                break;
+
+              case 5:
+                imagem.src = 'img/tipo-5/1.png';
+                break;
+
+              case 6:
+                imagem.src = 'img/tipo-6/1.png';
+                break;
+
+              case 7:
+                imagem.src = 'img/tipo-7/1.png';
+                break;
+
+              case 8:
+                imagem.src = 'img/tipo-8/1.png';
+                break;
+
+              case 9:
+                imagem.src = 'img/tipo-9/1.png';
+                break;
+
+              case 10:
+                imagem.src = 'img/tipo-10/1.png';
+                break;
+
+              case 11:
+                imagem.src = 'img/tipo-11/1.png';
+                break;
+
+              case 12:
+                imagem.src = 'img/tipo-12/1.png';
+                break;
+
+              case 13:
+                imagem.src = 'img/tipo-13/1.png';
+                break;
+
+              case 14:
+                imagem.src = 'img/tipo-14/1.png';
+                break;
+
+              case 15:
+                imagem.src = 'img/tipo-15/1.png';
+                break;
+
+              case 16:
+                imagem.src = 'img/tipo-16/1.png';
+                break;
+
+              case 17:
+                imagem.src = 'img/tipo-17/1.png';
+                break;
+
+              case 18:
+                imagem.src = 'img/tipo-18/1.png';
+                break;
+
+              case 19:
+                imagem.src = 'img/tipo-19/1.png';
+                break;
+
+              case 20:
+                imagem.src = 'img/tipo-20/1.png';
+                break;
+
+              default:
+                break;
+            }
+          }
+        });
+
+        //        imagem.src = 'img/imagem-carrinho.png';
+
         itemProduto.appendChild(imagem);
         const detalhes = document.createElement('div');
         detalhes.classList.add('detalhes');

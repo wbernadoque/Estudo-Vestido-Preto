@@ -1,7 +1,6 @@
 export default function galeriaDeFotos() {
-  const foto = document.querySelectorAll('.exibicao div');
   let select = document.querySelectorAll('.galeria img');
-  // const galeria = document.querySelectorAll('.galeria a');
+
   const buttons = document.querySelectorAll('.interacao a');
 
   const tamanho = window.innerWidth;
@@ -1076,6 +1075,7 @@ export default function galeriaDeFotos() {
             }
           });
         }
+        localStorage.setItem('tipo', item.tipo);
       } else if (
         estado.decote === item.decote &&
         estado.manga === '' &&
@@ -1283,6 +1283,7 @@ export default function galeriaDeFotos() {
       // itemMenu.classList.remove('ativo');
     });
   }
+
   buttons.forEach((itemButton, index) => {
     itemButton.addEventListener('click', () => {
       botao(index);

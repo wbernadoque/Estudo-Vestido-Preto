@@ -14,6 +14,7 @@ input[type='radio']:checked {
   display: flex;
   flex-direction: row;
   align-items: unset;
+  justify-content: space-between;
 }
 .pagamento {
   width: 40vw;
@@ -336,6 +337,7 @@ form.dados-cartoes span {
   padding-bottom: 21px;
   width: 100%;
   margin-bottom: 17px;
+  box-sizing: border-box;
 }
 .resumo h2 {
   margin-left: 0px;
@@ -407,6 +409,7 @@ form.dados-cartoes span {
   font-weight: normal;
   line-height: 15px;
   margin-bottom: 17px;
+  box-sizing: border-box;
 }
 .items h2 {
   margin-bottom: 18px;
@@ -442,6 +445,7 @@ form.dados-cartoes span {
   font-weight: normal;
   line-height: 15px;
   margin-bottom: 17px;
+  box-sizing: border-box;
 }
 .frete {
   display: none;
@@ -482,6 +486,7 @@ form.dados-cartoes span {
   font-weight: normal;
   line-height: 15px;
   margin-bottom: 17px;
+  box-sizing: border-box;
 }
 .total span {
   font-family: Source Sans Pro;
@@ -508,6 +513,7 @@ form.dados-cartoes span {
   font-weight: normal;
   line-height: 15px;
   margin-bottom: 17px;
+  box-sizing: border-box;
 }
 .desconto .valor-desc {
   display: flex;
@@ -872,7 +878,7 @@ label {
     padding-left: 17px;
   }
   .items {
-    width: 90%;
+    width: 100%;
     background-color: #fafafa;
     display: flex;
     justify-content: space-between;
@@ -888,7 +894,7 @@ label {
     margin-bottom: 17px;
   }
   .desconto {
-    width: 90%;
+    width: 100%;
     background-color: #fafafa;
     display: flex;
     justify-content: space-between;
@@ -904,7 +910,7 @@ label {
     margin-bottom: 17px;
   }
   .frete.ativo {
-    width: 90%;
+    width: 100%;
     background-color: #fafafa;
     display: flex;
     justify-content: space-between;
@@ -920,7 +926,7 @@ label {
     margin-bottom: 17px;
   }
   .total {
-    width: 90%;
+    width: 100%;
     background-color: #fafafa;
     display: flex;
     justify-content: space-between;
@@ -946,10 +952,12 @@ label {
   form.dados-cartoes {
     display: flex;
     flex-direction: column;
-    padding-left: 25px;
+    padding-left: 0px;
     padding-bottom: 26px;
     margin-top: 27px;
-    width: 90%;
+    width: 100%;
+    align-items: center;
+    box-sizing: border-box;
   }
   .resumo .container-endereco {
     display: none;
@@ -1070,7 +1078,7 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
     background-color: #ffffff;
     padding-top: 0px;
     padding-bottom: 0px;
