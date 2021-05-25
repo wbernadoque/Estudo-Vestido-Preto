@@ -444,7 +444,7 @@ input::-webkit-inner-spin-button {
 }
 .item-add img {
   width: 93px;
-  /* height: 138px; */
+  height: 138px;
 }
 .item-add img.lixeira {
   width: 14px;
